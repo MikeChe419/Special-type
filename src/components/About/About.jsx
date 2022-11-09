@@ -18,9 +18,9 @@ function About() {
           <img src={aboutLogo} alt="" className="about__logo" />
           <h1 className="about__title"> <span className="title-span">первый</span>  инклюзивный <span className="title-span">театральный</span> проект
             <span className="title-span"> в Новосибирске</span></h1>
-          <p className="about__text">Изучаем себя, людей и мир вокруг
-            Развиваем инициативу каждого участника
-            Занятия проходят в онлайн и оффлайн в Бердске.
+          <p className="about__text">Изучаем себя, людей и мир вокруг<br />
+            Развиваем инициативу каждого участника<br />
+            Занятия проходят в онлайн и оффлайн <br />в Бердске.
             <br />
             <br />
 
