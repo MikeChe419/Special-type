@@ -1,5 +1,38 @@
+@import "../../styles/@global.sass"
+@import "../../styles/@mixins.sass"
+
 .about
   max-width: 1200px
   min-width: 940px
+  margin: 0 auto
+  height: 200px
+  margin-top: 88px
+
+.about__content
+  gap: 65px
+
+.about__title
+  @include heading-h1
+  font-family: 'arkhip'
+  font-weight: 400
+
+.about__text
+  @include textRegular-20
+
+.about__content
+  display: flex
+  flex-direction: row
+
+.about__img
+  width: 100%
+
+.title-span
+  @include heading-h1
+  color: #FF3744
 
 
+.about__fonds
+  padding-top: 24px
+
+.about__fond
+  padding-right: 25px

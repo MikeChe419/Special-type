@@ -1,4 +1,4 @@
-import './styles/global.sass';
+import './styles/@global.sass';
 import { Routes, Route } from 'react-router-dom';
 import Main from './pages/Main/Main';
 
