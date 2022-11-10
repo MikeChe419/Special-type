@@ -8,11 +8,21 @@ const Footer = () => {
           <p className="footer__first-block-title">«Особенный ТИП»</p>
           <p className="footer__first-block-subtitle">Первый инклюзивный театральный проект в Новосибирске</p>
           <ul className="footer__first-block-icons">
-            <li className="footer__first-block-vk footer__info-block-element">
-              <a href='https://vk.com/osobenny_tip_nsk' target='_blank' rel="noreferrer"></a>
+            <li className="footer__info-block-element">
+              <a href='https://vk.com/osobenny_tip_nsk' target='_blank' rel="noreferrer">
+                <div className="footer__first-block-vk"/>
+              </a>
             </li>
-            <li className="footer__first-block-tm footer__info-block-element"></li>
-            <li className="footer__first-block-ws footer__info-block-element"></li>
+            <li className="footer__info-block-element">
+              <a href='https://t.me/osobenniy_tip' target='_blank' rel="noreferrer">
+                <div className="footer__first-block-tm"/>
+              </a>
+            </li>
+            <li className="footer__info-block-element">
+              <a href='https://wa.me/79612188417' target='_blank' rel="noreferrer">
+              <div className="footer__first-block-ws"/>
+              </a>
+            </li>
           </ul>
         </div>
         <ul className="footer__second-block">
