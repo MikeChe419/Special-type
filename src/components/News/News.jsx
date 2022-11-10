@@ -17,7 +17,7 @@ const News = () => {
             <br />
             Вчера я там запустила проект "Сказки на ночь" (это для взрослых), каждый вечер буду публиковать сказки,
             читаю их я, может, вы оцените....</p>
-          <button className='news-card__button'>читать дальше <div className='news-card__button-img'></div></button>
+          <button className='news-card__button'>читать дальше </button>
           <img className='news-card__img' alt=''></img>
         </div>
 
@@ -29,7 +29,7 @@ const News = () => {
             <br />
             Вчера я там запустила проект "Сказки на ночь" (это для взрослых), каждый вечер буду публиковать сказки,
             читаю их я, может, вы оцените....</p>
-          <button className='news-card__button'>читать дальше</button>
+          <button className='news-card__button'>читать дальше </button>
           <img className='news-card__img' alt=''></img>
         </div>
 
@@ -41,7 +41,7 @@ const News = () => {
             <br />
             Вчера я там запустила проект "Сказки на ночь" (это для взрослых), каждый вечер буду публиковать сказки,
             читаю их я, может, вы оцените....</p>
-          <button className='news-card__button'>читать дальше</button>
+          <button className='news-card__button'>читать дальше </button>
           <img className='news-card__img' alt=''></img>
         </div>
 

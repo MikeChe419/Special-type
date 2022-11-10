@@ -1,9 +1,8 @@
 @import "../../styles/@global.sass"
 @import "../../styles/@mixins.sass"
 
-
 .news
- margin: 0 auto
+  margin: 0 auto
 .news__title
   height: 72px
   width: 1200px
@@ -45,10 +44,14 @@
   cursor: pointer
   display: flex
 
-// .news-card__button-img
-//   background-image: url('../../assets/images/button-news.svg')
-//   width: 15px
-//   height: 11px
+.news-card__button::after
+  background-image: url('../../assets/images/button-news.svg')
+  content: " "
+  width: 12px
+  height: 11px
+  top: 3px
+  left: 8px
+  position: relative
 
 .news-card:last-of-type
   margin-right: 0
