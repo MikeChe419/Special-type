@@ -9,7 +9,9 @@ const Footer = () => {
           <p className="footer__first-block-title">«Особенный ТИП»</p>
           <p className="footer__first-block-subtitle">Первый инклюзивный театральный проект в Новосибирске</p>
           <ul className="footer__first-block-icons">
-            <li className="footer__first-block-vk footer__info-block-element"></li>
+            <li className="footer__first-block-vk footer__info-block-element">
+              <a href='https://vk.com/osobenny_tip_nsk' target='_blank' rel="noreferrer"></a>
+            </li>
             <li className="footer__first-block-tm footer__info-block-element"></li>
             <li className="footer__first-block-ws footer__info-block-element"></li>
           </ul>
