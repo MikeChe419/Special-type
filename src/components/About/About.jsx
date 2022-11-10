@@ -1,5 +1,3 @@
-import '../../styles/@global.sass';
-import '../../styles/@mixins.sass';
 import './about.sass';
 import aboutImg from '../../assets/images/aboutImg.png'
 import aboutLogo from '../../assets/images/logoAbout.png'

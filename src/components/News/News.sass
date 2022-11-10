@@ -1,0 +1,54 @@
+@import "../../styles/@global.sass"
+@import "../../styles/@mixins.sass"
+
+
+.news
+ margin: 0 auto
+.news__title
+  height: 72px
+  width: 1200px
+  background: radial-gradient(50% 50% at 50% 50%, rgba(251, 149, 149, 0.7) 0%, rgba(255, 255, 255, 0.4) 100%)
+  margin: 0 auto 0
+  display: flex
+  gap: 88px
+  align-items: center
+  justify-content: center
+  @include heading-h1
+
+.news__content
+  display: flex
+  flex-direction: row
+
+.news-card
+  max-width: 383px
+  margin-right: 21px
+
+.news-card__create-date
+  @include heading-h3
+  margin-top: 32px
+  color: rgba(255, 55, 68, 1)
+
+.news-card__title
+  @include heading-h3
+  margin-top: 11px
+  max-width: 350px
+
+.news-card__text
+  @include textRegular-20
+  margin: 32px 0
+
+.news-card__button
+  @include textBold-16
+  background-color: #fff
+  border: none
+  color: rgba(255, 55, 68, 1)
+  cursor: pointer
+  display: flex
+
+// .news-card__button-img
+//   background-image: url('../../assets/images/button-news.svg')
+//   width: 15px
+//   height: 11px
+
+.news-card:last-of-type
+  margin-right: 0
