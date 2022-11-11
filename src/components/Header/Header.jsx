@@ -6,10 +6,13 @@ import useMediaQuery from "../../utils/hooks/useMediaQuery";
 
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import BurgerMenu from "../BurgerMenu/BurgerMenu.jsx"
 
 const Header = () => {
+
+  const navigate = useNavigate();
 
   const isDesktop = useMediaQuery('(min-width: 1000px)');
 
@@ -17,7 +20,7 @@ const Header = () => {
   return (
     <header className='header'>
       <div className='header__info-block'>
-        <div className='header__logo'></div>
+        <div className='header__logo' onClick={() => navigate('/')}></div>
         <nav className="header__nav-menu">
           {isDesktop ? <><Navigation />
             <Button title='Помочь' width='147px' /> </> : <> <Button title='Помочь' width='147px'/> <BurgerMenu /> </>}
