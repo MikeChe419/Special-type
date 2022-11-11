@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header'
 import NavigationBlock from '../../components/NavigationBlock/NavigationBlock';
 import Footer from '../../components/Footer/Footer'
 import News from '../../components/News/News';
+import Reviews from '../../components/Reviews/Reviews';
 
 
 const Main = () => {
@@ -12,6 +13,7 @@ const Main = () => {
       <Header />
       <About />
       <News />
+      <Reviews />
       <NavigationBlock />
       <Footer />
     </div>
