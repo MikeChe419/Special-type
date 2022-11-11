@@ -1,0 +1,32 @@
+@import '../../styles/@global.sass'
+@import  '../../styles/@mixins.sass'
+@import '../../styles/@fonts.sass'
+
+.scedule__item
+  display: flex
+  flex-direction: column
+  width: calc(100% / 2 - 150px)
+
+.scedule__item:nth-child(-n+2)
+  margin-bottom: 90px
+
+.schedule__schedule-item
+  @include heading-h3
+  padding-top: 28px
+  color: #FF3744
+  margin-bottom: 24px
+
+.schedule__item-address-head
+  @include textRegular-14
+  margin-bottom: 4px
+
+.schedule__item-time-head
+  @include textRegular-14
+  margin-bottom: 4px
+
+.schedule_item-address
+  @include textBold-16
+  margin-bottom: 24px
+
+.schedule__item-time
+  @include textBold-16
