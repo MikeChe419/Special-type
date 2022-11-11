@@ -9,13 +9,15 @@ import AllNews from './pages/AllNews/AllNews';
 
 function App() {
   return (
-    <div className="App">
+    <div className="page">
       <Header />
+      <div className="main">
       <Routes>
         <Route element={<Main />} path='/' />
         <Route element={<Schedule />} path='/schedule' />
         <Route element={<AllNews />} path='/news' />
       </Routes>
+      </div>
       <NavigationBlock />
       <Footer />
     </div>
