@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Navigation = () => {
   return (
     <div className="navigation__container">
-      <NavLink to="/schedule" className="header__nav-link">
+      <NavLink to="/schedule" className={({isActive}) => isActive ? "header__nav-link header__nav-link_active" : "header__nav-link"} >
         Расписание
       </NavLink>
       <NavLink className="header__nav-link">Афиша</NavLink>
