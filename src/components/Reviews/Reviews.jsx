@@ -41,7 +41,7 @@ const Reviews = () => {
               <h3 className='reviews__card-title'>{item.user}</h3>
               <p className='reviews__text'>{item.review}</p>
               <button className='reviews__button'>читать дальше </button>
-              <img className='reviews__card-img' src={item.image}></img>
+              <img className='reviews__card-img' src={item.image} alt={item.user}></img>
             </div>
           ))
         }
