@@ -28,7 +28,6 @@ const Reviews = () => {
     }
   ]
 
-
   return (
     <section className='reviews'>
       <h2 className='reviews__title'>отзывы</h2>
