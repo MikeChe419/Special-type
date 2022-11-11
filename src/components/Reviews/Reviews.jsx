@@ -3,7 +3,6 @@ import reviewImgOne from './review-img-1.png';
 import reviewImgTwo from './review-img-2.png';
 import reviewImgThree from './review-img-3.png';
 
-
 const Reviews = () => {
 
   // Временный объект с обзорами пользователей для написания логики

@@ -29,7 +29,7 @@ const Footer = () => {
           <li className="footer__info-block-element">
             <a className='footer__second-block-item' href="https://yandex.ru/maps/-/CCUbMNAJ0D" target='_blank' rel="noreferrer">
               <div className='footer__second-block-address-icon'></div>
-              <p className='footer__second-block-address-text'>Россия, 633009, Новосибирская область, <br /> г. Бердск, ул. Боровая, 111А, медицинский центр "Святитель Лука"</p>
+              <address className='footer__second-block-address-text'>Россия, 633009, Новосибирская область, <br /> г. Бердск, ул. Боровая, 111А, медицинский центр "Святитель Лука"</address>
             </a>
           </li>
           <li className="footer__info-block-element">

@@ -1,15 +1,15 @@
-import './ScheduleList.sass';
-import ScheduleItem from '../ScheduleItem/ScheduleItem';
+import "./ScheduleList.sass";
+import ScheduleItem from "../ScheduleItem/ScheduleItem";
 
 const ScheduleList = () => {
-  return  (
+  return (
     <ul className="schedule__list">
-      <ScheduleItem  />
-      <ScheduleItem  />
-      <ScheduleItem  />
-      <ScheduleItem  />
+      <ScheduleItem />
+      <ScheduleItem />
+      <ScheduleItem />
+      <ScheduleItem />
     </ul>
-  )
-}
+  );
+};
 
-export default ScheduleList
+export default ScheduleList;
