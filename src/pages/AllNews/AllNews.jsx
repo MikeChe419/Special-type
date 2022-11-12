@@ -7,6 +7,8 @@ const AllNews = () => {
 
 
   return (
+    <section className='AllNews'>
+    <h2 className='AllNews__title'>НОВОСТИ</h2>
     <div className="AllNews__content">
 
       {dataNews.map(news => (<div className="AllNews-card" key={news.id}>
@@ -17,9 +19,8 @@ const AllNews = () => {
         <img className='news-card__img' alt=''></img>
       </div>))}
 
-
-
     </div>
+    </section>
   )
 }
 
