@@ -1,24 +1,13 @@
 import './AllNews.sass'
-import  dataNews  from '../../TEMP_NEWS'
-
+import NewsCard from '../../components/NewsCard/NewsCard';
 
 const AllNews = () => {
-
-
 
   return (
     <section className='AllNews'>
     <h2 className='AllNews__title'>НОВОСТИ</h2>
     <div className="AllNews__content">
-
-      {dataNews.map(news => (<div className="AllNews-card" key={news.id}>
-        <p className='news-card__create-date'>{news.createDate}</p>
-        <h3 className='news-card__title'>{news.name}</h3>
-        <p className='news-card__text'>{news.text}</p>
-        <button className='news-card__button'>читать дальше </button>
-        <img className='news-card__img' alt=''></img>
-      </div>))}
-
+    <NewsCard />
     </div>
     </section>
   )

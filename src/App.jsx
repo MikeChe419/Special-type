@@ -13,9 +13,9 @@ function App() {
       <Header />
       <div className="main">
         <Routes>
-          <Route element={<Main />} path="/" />
-          <Route element={<Schedule />} path="/schedule" />
-          <Route element={<AllNews />} path="/news" />
+          <Route element={<Main />} exact path="/" />
+          <Route element={<Schedule />} exact path="/schedule" />
+          <Route element={<AllNews />} exact path="/news" />
         </Routes>
       </div>
       <NavigationBlock />
