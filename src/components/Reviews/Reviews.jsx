@@ -12,18 +12,21 @@ const Reviews = () => {
       user: 'Елена Романова',
       review: 'Оля,огромное вам спасибо! Для Ромы это очень ВАЖНО!...',
       image: reviewImgOne,
+      id: 1,
     },
     {
       date: '27.09.2022',
       user: 'Вероника Кудрявцева',
       review: 'После прочтения захотелось укутаться в плед, заварить тёплый чай и смотреть на то, как падает листва. Очень по-уютному. Вы молодцы, ребята!...',
       image: reviewImgTwo,
+      id: 2,
     },
     {
       date: '12.09.2022',
       user: 'Данила Тостиашвили',
       review: 'Мне панравились с вами работать паэтому я ещё с вами надолго останусь вы талантливы и крутые ребята вы мне стали как радные люди...',
       image: reviewImgThree,
+      id: 3,
     }
   ]
 
@@ -34,7 +37,7 @@ const Reviews = () => {
       <div className="reviews__container">
         {
           reviews.map(item => (
-            <div className="reviews__card">
+            <div className="reviews__card" key={item.id}>
               <p className='reviews__create-date'>{item.date}</p>
               <h3 className='reviews__card-title'>{item.user}</h3>
               <p className='reviews__text'>{item.review}</p>
