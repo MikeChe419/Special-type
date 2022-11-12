@@ -13,10 +13,7 @@ const Schedule = () => {
         <SchedulePag/>
     </section>
     </div>
-
-  )
-
-
-}
+  );
+};
 
 export default Schedule;
