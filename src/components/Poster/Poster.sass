@@ -1,0 +1,36 @@
+@import "../../styles/@global.sass"
+@import "../../styles/@mixins.sass"
+
+.poster
+  width: 408px
+
+.poster__image-container
+  overflow: hidden
+  width: 100%
+  height: 335px
+
+.poster__image
+  width: 100%
+  height: 100%
+  object-fit: cover
+  clip-path: url(#poster-mask)
+
+.poster__title
+  margin: 31px 0 24px
+  font-family: 'Arkhip'
+  font-style: normal
+  font-weight: 400
+  font-size: 24px
+  line-height: 100%
+  color: #FF3744
+
+.poster__subtitle
+  @include textRegular-14
+  margin: 24px 0 12px
+
+.poster__span
+  @include textBold-16
+
+.poster__span_red
+  @include textBold-16
+  color: red

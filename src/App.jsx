@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import NavigationBlock from "./components/NavigationBlock/NavigationBlock";
 import Footer from "./components/Footer/Footer";
 import Schedule from "./pages/Schedule/Schedule";
+import Posters from "./pages/Posters/Posters";
 import AllNews from "./pages/AllNews/AllNews";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route element={<Main />} exact path="/" />
           <Route element={<Schedule />} exact path="/schedule" />
+          <Route element={<Posters />} exact path="/posters" />
           <Route element={<AllNews />} exact path="/news" />
         </Routes>
       </div>
