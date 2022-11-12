@@ -1,21 +1,19 @@
 import './NewsCard.sass'
 import dataNews from '../../TEMP_NEWS'
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 const News = () => {
-  const history = useNavigate();
   const [newsCount, setNewsCount] = useState(3)
   const [newsList, setNewsList] = useState([]);
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    if (history === '/') {
+    if (pathname === '/') {
       setNewsCount(3)
-    }
-    else if (history === '/news') {
-      setNewsCount(6)
-    }
-
-  }, [history])
+    } else if (pathname === '/news') {
+      setNewsCount(10)
+    } else setNewsCount(1)
+  }, [pathname])
 
   useEffect(() => {
     setNewsList(dataNews.slice(0, newsCount));
