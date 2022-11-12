@@ -1,11 +1,8 @@
 import '../../styles/@global.sass';
 import '../../styles/@mixins.sass';
-import './Schedule.sass'
-import Header from '../../components/Header/Header';
-import NavigationBlock from '../../components/NavigationBlock/NavigationBlock';
-import Footer from '../../components/Footer/Footer';
+import './Schedule.sass';
 import ScheduleList from '../../components/ScheduleList/ScheduleList';
-import ScheduleNav from '../../components/ScheduleNav/ScheduleNav';
+import SchedulePag from '../../components/SchedulePag/SchedulePag';
 
 const Schedule = () => {
   return (
@@ -13,7 +10,7 @@ const Schedule = () => {
       <section className = 'schedule'>
         <h1 className='schedule__head'>РАСПИСАНИЕ ЗАНЯТИЙ И РЕПЕТИЦИЙ</h1>
         <ScheduleList/>
-        <ScheduleNav/>
+        <SchedulePag/>
     </section>
     </div>
 
