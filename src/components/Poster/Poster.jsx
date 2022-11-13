@@ -11,9 +11,9 @@ const Poster = ({ poster }) => {
       <h3 className='poster__title'>{title}</h3>
       <h5 className='poster__subtitle'>Начало:</h5>
       <span className='poster__span'>{startTime}</span>
-      <h5 className='poster__subtitle'>Цена билета</h5>
+      <h5 className='poster__subtitle'>Цена билета:</h5>
       <span className='poster__span_red'>{`${price}р`}</span>
-      <h5 className='poster__subtitle'>Адрес проведения</h5>
+      <h5 className='poster__subtitle'>Адрес проведения:</h5>
       <address className='poster__span'>{address}</address>
 
       <svg className='poster__mask' width="0" height="0" viewBox="0 0 408 320" fill="none" xmlns="http://www.w3.org/2000/svg">
