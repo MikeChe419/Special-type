@@ -94,7 +94,7 @@ const Posters = () => {
       <h2 className="posters__title">АФИША</h2>
       <div className="posters__container">
         {
-          TEMP_DATA_POSTERS.map(poster => <Poster poster={poster} />)
+          TEMP_DATA_POSTERS.map(poster => <Poster poster={poster} key={poster.id} />)
         }
       </div>
     </div>
