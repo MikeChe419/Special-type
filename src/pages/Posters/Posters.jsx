@@ -92,11 +92,11 @@ const Posters = () => {
   return (
     <div className="posters">
       <h2 className="posters__title">АФИША</h2>
-      <div className="posters__container">
+      <ul className="posters__container">
         {
           TEMP_DATA_POSTERS.map(poster => <Poster poster={poster} key={poster.id} />)
         }
-      </div>
+      </ul>
     </div>
   );
 };
