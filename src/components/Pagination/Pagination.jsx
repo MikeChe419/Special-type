@@ -1,27 +1,30 @@
+import { NavLink } from 'react-router-dom';
 import '../../styles/@global.sass';
 import '../../styles/@mixins.sass';
 import './Pagination.sass';
 
-const Pagination = () => {
+const Pagination = ({ eventsCount, totlalEvents, paginate, nextPage, prevPage, currentEventsPage}) => {
+  const pageNumbers= []
+  for (let i=1; i <= Math.ceil(totlalEvents/eventsCount); i++) {
+    pageNumbers.push(`${i}`)
+  }
+
   return (
     <nav className='schedule__nav'>
       <div className='schedule__page-conntainer'>
-          <button className='schedule__pag-btn schedule__reverse-btn'></button>
-          <ul className='schedule__pages-list'>
-            <li className='schedule__pages-item'>
-              <span className='schedule__pages'>1-10</span>
-            </li>
-            <li className='schedule__pages-item'>
-              <span className='schedule__pages'>11-20</span>
-            </li>
-            <li className='schedule__pages-item'>
-            <span className='schedule__pages'>21-30</span>
-            </li>
-            <li className='schedule__pages-item'>
-            <span className='schedule__pages'>31-34</span>
-            </li>
+          <NavLink className='schedule__pag-btn schedule__reverse-btn' onClick={prevPage}></NavLink>
+          <ul className='schedule__pages-list'> {
+            pageNumbers.map((number) => (
+              <li className='schedule__pages-item' key={number}>
+
+                <NavLink className={({isActive}) => isActive ? "schedule__pages schedule__pages_active" : "schedule__pages"}
+                //  className='schedule__pages'
+                 onClick={() => paginate(number)}>{number}</NavLink>
+              </li>
+              ))
+            }
           </ul>
-          <button className='schedule__pag-btn schedule__forward-btn'></button>
+          <button className='schedule__pag-btn schedule__forward-btn' onClick={nextPage}></button>
       </div>
     </nav>
   )
