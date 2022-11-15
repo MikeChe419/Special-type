@@ -1,8 +1,8 @@
 import '../../styles/@global.sass';
 import '../../styles/@mixins.sass';
-import './SchedulePag.sass';
+import './Pagination.sass';
 
-const SchedulePag = () => {
+const Pagination = () => {
   return (
     <nav className='schedule__nav'>
       <div className='schedule__page-conntainer'>
@@ -27,4 +27,4 @@ const SchedulePag = () => {
   )
 }
 
-export default SchedulePag
+export default Pagination
