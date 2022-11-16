@@ -7,6 +7,8 @@ import Footer from "./components/Footer/Footer";
 import Schedule from "./pages/Schedule/Schedule";
 import Posters from "./pages/Posters/Posters";
 import AllNews from "./pages/AllNews/AllNews";
+import Friends from "./pages/Friends/Friends";
+import Contacts from "./pages/Contacts/Contacts";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route element={<Schedule />} exact path="/schedule" />
           <Route element={<Posters />} exact path="/posters" />
           <Route element={<AllNews />} exact path="/news" />
+          <Route element={<Friends />} exact path="/friends" />
+          <Route element={<Contacts />} exact path="/contacts" />
         </Routes>
       </div>
       <NavigationBlock />
