@@ -1,0 +1,41 @@
+@import '../../styles/@global.sass'
+@import  '../../styles/@mixins.sass'
+@import '../../styles/@fonts.sass'
+
+.help
+  display: flex
+  flex-direction: column
+
+.help__title
+  @include heading-h1
+  color: #FF3744
+  text-align: center
+  margin-bottom: 39px
+
+.help__intro-container
+  display: flex
+  margin-bottom: 64px
+
+.help__left-intro-container
+  align-self: center
+
+.help__left-intro-desqr
+  @include heading-h3
+  max-width: 619px
+
+.help__right-intro-container
+  display: flex
+  flex-direction: column
+  padding-top: 217px
+  background-image: url(../../assets/images/Twen.png)
+  background-repeat: no-repeat
+  background-position: center top
+
+.help__right-intro-quote
+  @include textBold-20
+  color: #FF3744
+  margin-bottom: 23px
+
+.help__right-intro-author
+  text-align: right
+  @include textRegular-20

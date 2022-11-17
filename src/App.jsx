@@ -9,6 +9,7 @@ import Posters from "./pages/Posters/Posters";
 import AllNews from "./pages/AllNews/AllNews";
 import Friends from "./pages/Friends/Friends";
 import Contacts from "./pages/Contacts/Contacts";
+import Help from "./pages/Help/Help";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route element={<AllNews />} exact path="/news" />
           <Route element={<Friends />} exact path="/friends" />
           <Route element={<Contacts />} exact path="/contacts" />
+          <Route element={<Help />} exact path="/help" />
         </Routes>
       </div>
       <NavigationBlock />

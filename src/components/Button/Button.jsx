@@ -1,9 +1,12 @@
 import './Button.sass';
+import { Link } from 'react-router-dom';
 
 // Принимает в качестве пропсов текст для кнопки и ширину
-const Button = ({ title, width }) => {
+const Button = ({ title, width, route }) => {
   return(
-    <button className="button" style={{'width': `${width}`}}>{title}</button>
+    <Link to={route}>
+      <button className="button" style={{'width': `${width}`}} onClick= {()=> `${route}`}>{title}</button>
+    </Link>
   )
 }
 
