@@ -15,6 +15,7 @@ export const Search = () => {
     event.preventDefault()
     alert('запрос данных')
     ///запрос данных с апи или сторедж
+    setIsSearchOpen(false)
   }
 
   const handleChangeValue = (event) => {
