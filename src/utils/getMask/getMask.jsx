@@ -18,6 +18,9 @@ const getMask = (key) => {
         </svg>
       );
     default:
+
+
+    
       console.log("mask was not selected")
   }
 }
