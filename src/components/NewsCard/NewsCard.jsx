@@ -1,7 +1,7 @@
 import './NewsCard.sass'
 import dataNews from '../../TEMP_NEWS'
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 const News = () => {
   const [newsCount, setNewsCount] = useState(3)
   const [newsList, setNewsList] = useState([]);
@@ -25,7 +25,8 @@ const News = () => {
         <p className='news-card__create-date'>{news.createDate}</p>
         <h3 className='news-card__title'>{news.name}</h3>
         <p className='news-card__text'>{news.text}</p>
-        <button className='news-card__button'>читать дальше </button>
+        <NavLink to={'/singlenews/' + news.id} className='news-card__button' id={news.id}>читать дальше</NavLink>
+
         <img className='news-card__img' alt=''></img>
       </div>))}
     </>
