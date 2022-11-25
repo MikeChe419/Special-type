@@ -1,0 +1,60 @@
+@import "../../styles/@global.sass"
+@import "../../styles/@mixins.sass"
+
+.singleNews
+  margin: 0 auto
+  justify-content: space-between
+  display: flex
+  width: 1200px
+  position: relative
+
+.singleNews__navigation
+  display: flex
+  position: absolute
+
+.singleNews__goBack-button
+  background-color: transparent
+  border: none
+  color: #FF3744
+  position: relative
+  left: 10px
+  @include textBold-20
+
+.singleNews__goBack-button_type_img
+  background-image: url('../../assets/images/button-news.svg')
+  content: " "
+  width: 12px
+  height: 11px
+  top: 5px
+  position: relative
+  transform: rotate(180deg)
+
+.singleNews__card
+  padding-top: 67px
+  display: flex
+  justify-content: space-between
+
+.singleNews__create-date
+  @include heading-h3
+  margin-top: 32px
+
+.singleNews__title
+  @include heading-h2
+  margin-top: 11px
+
+  color: #FF3744
+
+.singleNews__text
+  @include textRegular-20
+  margin: 32px 0
+
+.singleNews__img
+
+.singleNews__text-block
+  max-width: 720px
+
+.singleNews__img-block
+  max-width: 450px
+  box-sizing: content-box
+  overflow: hidden
+

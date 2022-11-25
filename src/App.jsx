@@ -12,8 +12,10 @@ import Contacts from "./pages/Contacts/Contacts";
 import Help from "./pages/Help/Help";
 import { SingleNews } from "./pages/SingleNews/SingleNews";
 
-function App() {
+function App({id}) {
+  console.log(id)
   return (
+
     <div className="page">
       <Header />
       <div className="main">
@@ -25,7 +27,7 @@ function App() {
           <Route element={<Friends />} exact path="/friends" />
           <Route element={<Contacts />} exact path="/contacts" />
           <Route element={<Help />} exact path="/help" />
-          <Route path='/singlenews/:id' element={<SingleNews id />}/>
+          <Route path='/singlenews/:id' element={<SingleNews/>}/>
         </Routes>
       </div>
       <NavigationBlock />
