@@ -12,6 +12,7 @@ import Contacts from "./pages/Contacts/Contacts";
 import Help from "./pages/Help/Help";
 import { SingleNews } from "./pages/SingleNews/SingleNews";
 import { NotFound } from "./pages/NotFound/NotFount";
+import Form from './components/Form/Form';
 
 function App({ id }) {
   console.log(id)
@@ -30,6 +31,7 @@ function App({ id }) {
           <Route element={<Help />} exact path="/help" />
           <Route path='/singlenews/:id' element={<SingleNews />} />
           <Route path='*' element={<NotFound />} />
+          <Route element={<Form />} exact path="/form" />
         </Routes>
       </div>
       <NavigationBlock />
