@@ -11,8 +11,9 @@ import Friends from "./pages/Friends/Friends";
 import Contacts from "./pages/Contacts/Contacts";
 import Help from "./pages/Help/Help";
 import { SingleNews } from "./pages/SingleNews/SingleNews";
+import { NotFound } from "./pages/NotFound/NotFount";
 
-function App({id}) {
+function App({ id }) {
   console.log(id)
   return (
 
@@ -27,7 +28,8 @@ function App({id}) {
           <Route element={<Friends />} exact path="/friends" />
           <Route element={<Contacts />} exact path="/contacts" />
           <Route element={<Help />} exact path="/help" />
-          <Route path='/singlenews/:id' element={<SingleNews/>}/>
+          <Route path='/singlenews/:id' element={<SingleNews />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </div>
       <NavigationBlock />

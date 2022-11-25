@@ -1,0 +1,28 @@
+@import "../../styles/@global.sass"
+@import "../../styles/@mixins.sass"
+
+.nonFound
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.notFound__button
+  background-color: transparent
+  border: none
+  text-align: center
+  color: rgba(243, 66, 71, 1)
+  cursor: pointer
+  @include heading-h3
+
+.notFound__title
+  padding-top: 150px
+  color: rgba(243, 66, 71, 1)
+  @include heading-h1
+  font-size: 160px
+
+.notFound__description
+  color: rgba(243, 66, 71, 1)
+  padding-top: 60px
+  padding-bottom: 80px
+  @include heading-h2
