@@ -3,12 +3,12 @@ import Poster from "../../components/Poster/Poster";
 // Удалить импорт после добавления логики (данных с бэка)
 import tempFoto from "./tempFoto.jpeg";
 
-const Posters = () => {
+const Posters = ({ setItemForRegistration }) => {
   // Временные данные для отрисовки необходимого количества событий
   // удалить после добавления данных с бэка
   const TEMP_DATA_POSTERS = [
     {
-      title: "В начале было соло",
+      name: "В начале было соло 1",
       startTime: "14:00",
       price: 1000,
       address: "ДК ТЮЗ, ул Яшко д 24",
@@ -16,7 +16,7 @@ const Posters = () => {
       id: 1,
     },
     {
-      title: "В начале было соло",
+      name: "В начале было соло 2",
       startTime: "14:00",
       price: 1000,
       address: "ДК ТЮЗ, ул Яшко д 24",
@@ -24,7 +24,7 @@ const Posters = () => {
       id: 2,
     },
     {
-      title: "В начале было соло",
+      name: "В начале было соло 3",
       startTime: "14:00",
       price: 1000,
       address: "ДК ТЮЗ, ул Яшко д 24",
@@ -32,7 +32,7 @@ const Posters = () => {
       id: 3,
     },
     {
-      title: "В начале было соло",
+      name: "В начале было соло 4",
       startTime: "14:00",
       price: 1000,
       address: "ДК ТЮЗ, ул Яшко д 24",
@@ -40,7 +40,7 @@ const Posters = () => {
       id: 4,
     },
     {
-      title: "В начале было соло",
+      name: "В начале было соло 5",
       startTime: "14:00",
       price: 1000,
       address: "ДК ТЮЗ, ул Яшко д 24",
@@ -48,7 +48,7 @@ const Posters = () => {
       id: 5,
     },
     {
-      title: "В начале было соло",
+      name: "В начале было соло 6",
       startTime: "14:00",
       price: 1000,
       address: "ДК ТЮЗ, ул Яшко д 24",
@@ -56,7 +56,7 @@ const Posters = () => {
       id: 6,
     },
     {
-      title: "В начале было соло",
+      name: "В начале было соло 7",
       startTime: "14:00",
       price: 1000,
       address: "ДК ТЮЗ, ул Яшко д 24",
@@ -64,7 +64,7 @@ const Posters = () => {
       id: 7,
     },
     {
-      title: "В начале было соло",
+      name: "В начале было соло 8",
       startTime: "14:00",
       price: 1000,
       address: "ДК ТЮЗ, ул Яшко д 24",
@@ -72,7 +72,7 @@ const Posters = () => {
       id: 8,
     },
     {
-      title: "В начале было соло",
+      name: "В начале было соло 9",
       startTime: "14:00",
       price: 1000,
       address: "ДК ТЮЗ, ул Яшко д 24",
@@ -80,7 +80,7 @@ const Posters = () => {
       id: 9,
     },
     {
-      title: "В начале было соло",
+      name: "В начале было соло 10",
       startTime: "14:00",
       price: 1000,
       address: "ДК ТЮЗ, ул Яшко д 24",
@@ -94,7 +94,7 @@ const Posters = () => {
       <h2 className="posters__title">АФИША</h2>
       <ul className="posters__container">
         {
-          TEMP_DATA_POSTERS.map(poster => <Poster poster={poster} key={poster.id} />)
+          TEMP_DATA_POSTERS.map(poster => <Poster poster={poster} key={poster.id} setItemForRegistration={setItemForRegistration} />)
         }
       </ul>
     </div>

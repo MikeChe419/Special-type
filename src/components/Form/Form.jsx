@@ -1,22 +1,29 @@
 import './Form.sass'
 import Button from '../Button/Button'
 
-const Form = ({ title = 'Репетиция' }) => {
+const Form = ({ itemForRegistration }) => {
+
+  const { name } = itemForRegistration;
 
   // Меня последнюю букву в названии формы для переиспользования в subtitle
   const changeEnding = () => {
-    if (title.toLocaleLowerCase().slice(- 1) === 'я') {
-      return `${title.toLocaleLowerCase().slice(0, title.length - 1)}ю`;
-   } else {
-    return title.toLocaleLowerCase();
-   }
+    if (itemForRegistration.price) {
+      return "мероприятие"
+    } else {
+      return "репетицию"
+    }
+  //   if (title.toLocaleLowerCase().slice(- 1) === 'я') {
+  //     return `${title.toLocaleLowerCase().slice(0, title.length - 1)}ю`;
+  //  } else {
+  //   return title.toLocaleLowerCase();
+  //  }
   }
 
  const subtitle = changeEnding()
 
   return (
     <form className='form'>
-      <h2 className="form__title">{title}</h2>
+      <h2 className="form__title">{name}</h2>
       <p className="form__subtitle">{`Регистрация на ${subtitle}`}</p>
       <p className="form__required-field"><span className='form__asterisk'>&#x2a;</span> - обязательные к заполнению поля</p>
       <div className='form__inputs-block'>

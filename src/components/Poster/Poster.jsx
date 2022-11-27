@@ -1,10 +1,18 @@
 import './Poster.sass';
 import getMask from '../../utils/getMask/getMask';
+import { useNavigate } from 'react-router-dom';
 
-const Poster = ({ poster }) => {
+const Poster = ({ poster, setItemForRegistration }) => {
   const { title, image, startTime, price, address } = poster;
+  const navigate = useNavigate();
+
+  const handleOnClick = () => {
+    setItemForRegistration(poster);
+    navigate(`/registration/${poster.id}`);
+  }
+
   return(
-    <li className='poster'>
+    <li className='poster' onClick={handleOnClick}>
       <div className='poster__image-container'>
          <img src={image} alt="title" className="poster__image" />
       </div>
