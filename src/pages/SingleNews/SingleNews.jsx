@@ -10,14 +10,14 @@ export const SingleNews = () => {
   const [newsList, setNewsList] = useState([]);
 
   useEffect(() => {
-    setNewsList(dataNews.filter(el => el.id == id));
+    setNewsList(dataNews.filter(el => el.id === id));
   }, [setNewsList, id])
 
   return (
     <section className='singleNews'>
       <div className='singleNews__navigation'>
         <div className='singleNews__goBack-button_type_img'></div>
-        <button className='singleNews__goBack-button' onClick={() => navigate(-1)}>Вернуться назад</button>
+        <button className='singleNews__goBack-button' onClick={() => navigate(-1)}>&larr; Вернуться назад</button>
       </div>
       {newsList.map(news => (<div className="singleNews__card" key={news.id}>
         <div className="singleNews__text-block">
