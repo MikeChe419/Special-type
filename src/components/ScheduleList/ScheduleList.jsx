@@ -4,7 +4,7 @@ import dataEvent from "../../TEMP_EVENT";
 import ScheduleItem from "../ScheduleItem/ScheduleItem";
 import Pagination from "../Pagination/Pagination";
 
-const ScheduleList = () => {
+const ScheduleList = ({ setItemForRegistration }) => {
   const [eventsList, setEventsList] = useState([]);
   const [currentEvent, setCurrentEvent] = useState(1)
   const [eventsCount] = useState(10)
@@ -23,7 +23,7 @@ const ScheduleList = () => {
   return (
   <>
     <ul className="schedule__list">
-      <ScheduleItem events={currentEventsPage}/>
+      <ScheduleItem events={currentEventsPage} setItemForRegistration={setItemForRegistration} />
     </ul>
     <Pagination
       eventsCount={eventsCount}

@@ -1,0 +1,61 @@
+@import "../../styles/@global.sass"
+@import "../../styles/@mixins.sass"
+
+.companies
+  display: flex
+  flex-direction: column
+  align-items: center
+  position: relative
+
+.companies__title
+  @include heading-h1
+  color: rgba(243, 66, 71, 1)
+  text-align: center
+  margin-top: 74px
+
+.companies__cards
+  padding-top: 74px
+  display: flex
+  flex-wrap: wrap
+  max-width: 996px
+  justify-content: space-between
+
+.companies-card
+  max-width: 420px
+  overflow: hidden
+
+.companies-card__img
+  max-width: 383px
+
+.companies-card__title
+  padding: 40px 0 24px 0
+  @include heading-h3
+  color: rgba(243, 66, 71, 1)
+  text-overflow: ellipsis
+
+.companies-card__text
+  padding-bottom: 88px
+  @include textRegular-20
+
+.companies__navigation
+  display: flex
+  position: absolute
+  cursor: pointer
+  left: -30px
+
+.companies__goBack-button
+  background-color: transparent
+  border: none
+  color: #FF3744
+  position: relative
+  left: 10px
+  @include textBold-20
+
+.companies__goBack-button_type_img
+  // background-image: url('../../assets/images/button-news.svg')
+  content: " "
+  width: 12px
+  height: 11px
+  top: 5px
+  position: relative
+  transform: rotate(180deg)
