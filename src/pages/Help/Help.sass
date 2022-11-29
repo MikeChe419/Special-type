@@ -5,6 +5,7 @@
 .help
   display: flex
   flex-direction: column
+  padding-bottom: 128px
 
 .help__title
   @include heading-h1
@@ -39,3 +40,35 @@
 .help__right-intro-author
   text-align: right
   @include textRegular-20
+
+.help__list
+  list-style: none
+  display: flex
+  max-width: 1200px
+
+.help__method
+  background: #F8F8F8
+  border: 1px solid #FF3744
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.1)
+  border-radius: 30px
+  padding: 65px 77px
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.help__method:first-child
+  margin-right: 24px
+
+.help__item-title
+  @include heading-h3
+  color: #FF3744
+  margin-bottom: 32px
+
+.help__item-descr
+  @include textRegular-20
+  text-align: center
+  margin-bottom: 25px
+
+
+.help__item-img
+  margin-bottom: 47px

@@ -1,6 +1,9 @@
 import '../../styles/@global.sass';
 import '../../styles/@mixins.sass';
 import './Help.sass'
+import Button from '../../components/Button/Button';
+import Pay from "../../assets/images/Pay.png";
+import Volonter from "../../assets/images/Volonter.png";
 
 const Help = () => {
   return (
@@ -19,6 +22,20 @@ const Help = () => {
             <span className='help__right-intro-author'>Марк Твен</span>
         </div>
       </div>
+      <ul className='help__list'>
+        <li className='help__method'>
+          <h3 className='help__item-title'>Сделать пожертвование</h3>
+          <p className='help__item-descr'>Вы можете внести пожертвование любым способом - все средства идут на развите нашего проекта.</p>
+          <img className='help__item-img' src={Pay} alt="Пожертвования" />
+          <Button title='Помочь' width='287px' route ='/help'/>
+        </li>
+        <li className='help__method'>
+          <h3 className='help__item-title'>Стать волонтером</h3>
+          <p className='help__item-descr'>Вы можете внести пожертвование любым способом - все средства идут на развите нашего проекта.</p>
+          <img className='help__item-img' src={Volonter} alt="Волонтеры"/>
+          <Button title='Помочь' width='287px' route ='/help'/>
+        </li>
+      </ul>
   </section>
   )
 
