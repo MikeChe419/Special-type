@@ -17,7 +17,6 @@ import Registration from './pages/Registration/Registration';
 import { Companies } from "./pages/Сompanies/Companies";
 
 function App({ id }) {
-  console.log(id)
 
   const [itemForRegistration, setItemForRegistration] = useState({})
 
