@@ -2,7 +2,6 @@ import "../../styles/@global.sass";
 import "../../styles/@mixins.sass";
 import "./ScheduleItem.sass";
 import ScheduleImg from "../../assets/images/ScheduleImg.png";
-//import {ScheduleImg} from ;
 
 const ScheduleItem = ({events}) => {
   for (let i=0; i<events.length; i++) {
