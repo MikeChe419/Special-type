@@ -26,7 +26,6 @@ const ReviewSingle = () => {
           <img className="review-single__card-img" src={review.image} alt={review.user} />
         </div>
       </div>
-
       {getMask("review")}
     </section>
   )
