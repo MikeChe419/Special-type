@@ -15,14 +15,26 @@
   cursor: pointer
   @include heading-h3
 
-.notFound__title
-  padding-top: 150px
-  color: rgba(243, 66, 71, 1)
-  @include heading-h1
-  font-size: 160px
+.notFound__img
+  padding-top:  17px
 
-.notFound__description
-  color: rgba(243, 66, 71, 1)
-  padding-top: 60px
-  padding-bottom: 80px
-  @include heading-h2
+.notFound__title
+  @include heading-h1
+  padding-bottom: 115px
+
+.notFound__buttons
+  width: 40vw
+  justify-content: space-between
+  display: flex
+  padding-bottom: 143px
+
+.notFound__button
+  width: 281px
+  height: 41px
+  border: 2px solid rgba(243, 66, 71, 1)
+  border-radius: 30px
+  @include textRegular-16
+
+.notFound__button:last-of-type
+  background-color: rgba(243, 66, 71, 1)
+  color: #fff

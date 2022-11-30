@@ -17,6 +17,7 @@ import Registration from './pages/Registration/Registration';
 import { Companies } from "./pages/Сompanies/Companies";
 import ReviewsAll from './pages/ReviewsAll/ReviewsAll';
 import ReviewSingle from './pages/ReviewSingle/ReviewSingle';
+import { Payment } from "./pages/Payment/Payment";
 
 function App({ id }) {
 
@@ -41,6 +42,7 @@ function App({ id }) {
           <Route element={<ReviewSingle />} exact path="/reviews/:id" />
           <Route path='*' element={<NotFound />} />
           <Route path='/companies' element={<Companies />} />
+          <Route path='/payment' element={<Payment />} />
         </Routes>
       </div>
       <NavigationBlock />

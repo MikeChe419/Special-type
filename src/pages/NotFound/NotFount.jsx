@@ -1,5 +1,6 @@
 import './NotFound.sass'
 import { useNavigate } from 'react-router-dom'
+import notFound from '../../assets/images/NotFound.png'
 
 export const NotFound = () => {
 
@@ -7,8 +8,12 @@ export const NotFound = () => {
 
   return (
     <div className='nonFound'>
-      <h2 className='notFound__title'>404</h2>
-      <p className='notFound__description'>Страница не найдена</p>
-      <button className='notFound__button' onClick={() => navigate(-1)}>Вернуться назад</button>
+      <img src={notFound} alt="" />
+      <h1 className='notFound__title'>Что-то пошло не так...</h1>
+      <div className="notFound__buttons">
+      <button className='notFound__button' onClick={() => navigate('/')}>Вернуться на главную</button>
+      <button className='notFound__button' onClick={() => navigate('/help')}>Помочь</button>
+      </div>
+      
     </div>)
 }
