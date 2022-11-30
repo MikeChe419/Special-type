@@ -18,6 +18,7 @@ import { Companies } from "./pages/Сompanies/Companies";
 import ReviewsAll from './pages/ReviewsAll/ReviewsAll';
 import ReviewSingle from './pages/ReviewSingle/ReviewSingle';
 import { Payment } from "./pages/Payment/Payment";
+import { Thanks } from "./pages/Thanks/Thanks";
 
 function App({ id }) {
 
@@ -43,6 +44,7 @@ function App({ id }) {
           <Route path='*' element={<NotFound />} />
           <Route path='/companies' element={<Companies />} />
           <Route path='/payment' element={<Payment />} />
+          <Route path='/thanks' element={<Thanks />} />
         </Routes>
       </div>
       <NavigationBlock />
