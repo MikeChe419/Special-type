@@ -15,6 +15,6 @@ const Review = ({ item }) => {
       {getMask("review")}
     </li>
   );
-};
+}; 
 
 export default Review;

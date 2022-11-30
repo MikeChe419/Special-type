@@ -36,7 +36,7 @@ function App({ id }) {
           <Route element={<Friends />} exact path="/friends" />
           <Route element={<Contacts />} exact path="/contacts" />
           <Route element={<Help />} exact path="/help" />
-          <Route path='/singlenews/:id' element={<SingleNews />} />
+          <Route exact path='/singlenews/:id' element={<SingleNews />} />
           <Route element={<Registration itemForRegistration={itemForRegistration} />} exact path="/registration/:id" />
           <Route element={<ReviewsAll />} exact path="/reviews" />
           <Route element={<ReviewSingle />} exact path="/reviews/:id" />

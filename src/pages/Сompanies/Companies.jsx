@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import { useNavigate } from 'react-router-dom'
 import Pagination from '../../components/Pagination/Pagination';
+import { GoBackButton } from '../../components/GoBackButton/GoBackButton';
 
 export const Companies = () => {
   const [dataCount, setDataCount] = useState(3)
@@ -28,10 +29,7 @@ export const Companies = () => {
 
   return (
     <div className="companies">
-      <div className='companies__navigation'>
-        <div className='companies__goBack-button_type_img'></div>
-        <button className='companies__goBack-button' onClick={() => navigate('/friends')}> &larr; Главная страница / Друзья / Компании</button>
-      </div>
+      <GoBackButton label='Главная страница / Друзья / Компании'/>
       <h1 className="companies__title">КОМПАНИИ</h1>
       <div className="companies__cards">
         {dataList.map(data => (<div className="companies-card" key={data.id}>

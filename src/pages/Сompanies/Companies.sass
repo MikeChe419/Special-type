@@ -2,16 +2,17 @@
 @import "../../styles/@mixins.sass"
 
 .companies
+  justify-content: space-between
   display: flex
-  flex-direction: column
-  align-items: center
-  position: relative
+  flex-direction: row
+  max-width: 1020px
+  flex-wrap: wrap
 
 .companies__title
   @include heading-h1
   color: rgba(243, 66, 71, 1)
   text-align: center
-  margin-top: 74px
+  margin: 74px auto 0
 
 .companies__cards
   padding-top: 74px
@@ -37,25 +38,4 @@
   padding-bottom: 88px
   @include textRegular-20
 
-.companies__navigation
-  display: flex
-  position: absolute
-  cursor: pointer
-  left: -30px
 
-.companies__goBack-button
-  background-color: transparent
-  border: none
-  color: #FF3744
-  position: relative
-  left: 10px
-  @include textBold-20
-
-.companies__goBack-button_type_img
-  // background-image: url('../../assets/images/button-news.svg')
-  content: " "
-  width: 12px
-  height: 11px
-  top: 5px
-  position: relative
-  transform: rotate(180deg)

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import data from '../../TEMP_REVIEWS';
 import getMask from '../../utils/getMask/getMask';
 import { useNavigate } from 'react-router-dom';
+import { GoBackButton } from '../../components/GoBackButton/GoBackButton';
 
 const ReviewSingle = () => {
   const { id } = useParams();
@@ -12,10 +13,8 @@ const ReviewSingle = () => {
 
   return(
     <section className='review-single'>
-      <div className='review-single__navigation' onClick={() => navigate('/reviews')}>
-        <div className='review-single__goBack-button_type_img' />
-        <button className='review-single__goBack-button'>Вернуться к списку отзывов</button>
-      </div>
+      <GoBackButton label='Вернуться к списку отзывов' />
+
       <div className='review-single__block'>
         <div className='review-single__review-block'>
           <h2 className="review-single__date">{review.date}</h2>
