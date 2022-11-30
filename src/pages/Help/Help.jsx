@@ -27,7 +27,12 @@ const Help = () => {
           <h3 className='help__item-title'>Сделать пожертвование</h3>
           <p className='help__item-descr'>Вы можете внести пожертвование любым способом - все средства идут на развите нашего проекта.</p>
           <img className='help__item-img' src={Pay} alt="Пожертвования" />
-          <Button title='Помочь' width='287px' route ='/payment'/>
+          <Button 
+          // title='Помочь'
+          title='Временно невозможно'
+           width='287px' 
+          // route ='/payment'
+          />
         </li>
         <li className='help__method'>
           <h3 className='help__item-title'>Стать волонтером</h3>
