@@ -9,7 +9,6 @@ const ScheduleItem = ({ events, setItemForRegistration }) => {
   const handleOnCLick = (data) => {
     setItemForRegistration(data);
     navigate(`/registration/${data.id}`);
-
   }
 
   for (let i = 0; i < events.length; i++) {

@@ -2,9 +2,13 @@ import "./Form.sass";
 import { useForm } from "react-hook-form";
 
 const Form = ({ itemForRegistration }) => {
-  const { register, handleSubmit, formState: { errors, isValid } } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({
     mode: "all",
-  });;
+  });
   const { name } = itemForRegistration;
 
   // Меня последнюю букву в названии формы для переиспользования в subtitle
@@ -21,12 +25,16 @@ const Form = ({ itemForRegistration }) => {
     //  }
   };
 
-  console.log(errors)
+  console.log(errors);
 
   const subtitle = changeEnding();
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+    const registrationData = {
+      ...data,
+      ...itemForRegistration,
+    };
+    alert(JSON.stringify(registrationData));
   };
 
   return (
@@ -53,12 +61,16 @@ const Form = ({ itemForRegistration }) => {
               },
               pattern: {
                 value: /^([а-яё\s]+|[a-z\s]+)$/iu,
-                message: "Допустимы только русские или английские буквы"
-              }
+                message: "Допустимы только русские или английские буквы",
+              },
             })}
             aria-invalid={errors.firstName ? "true" : "false"}
           />
-         {errors.firstName && <p role="alert" className='form__error-text'>{errors.firstName?.message}</p>}
+          {errors.firstName && (
+            <p role="alert" className="form__error-text">
+              {errors.firstName?.message}
+            </p>
+          )}
         </label>
 
         <label className="form__input-lable">
@@ -76,12 +88,16 @@ const Form = ({ itemForRegistration }) => {
               },
               pattern: {
                 value: /^([а-яё\s]+|[a-z\s]+)$/iu,
-                message: "Допустимы только русские или английские буквы"
-              }
+                message: "Допустимы только русские или английские буквы",
+              },
             })}
             aria-invalid={errors.secondName ? "true" : "false"}
           />
-         {errors.secondName && <p role="alert" className='form__error-text'>{errors.secondName?.message}</p>}
+          {errors.secondName && (
+            <p role="alert" className="form__error-text">
+              {errors.secondName?.message}
+            </p>
+          )}
         </label>
 
         <label className="form__input-lable">
@@ -95,15 +111,19 @@ const Form = ({ itemForRegistration }) => {
               required: "Обязательное поле",
               maxLength: {
                 value: 12,
-                message: "Не более 12 символов"
-               },
+                message: "Не более 12 символов",
+              },
               pattern: {
-                value: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
-                message: "Введите корректный номер телефона"
-              }
+                value: /^((8|\+7)[- ]?)?(\(?\d{3}\)?[- ]?)?[\d\- ]{7,10}$/,
+                message: "Введите корректный номер телефона",
+              },
             })}
           />
-          {errors.phoneNumber && <p role="alert" className='form__error-text'>{errors.phoneNumber?.message}</p>}
+          {errors.phoneNumber && (
+            <p role="alert" className="form__error-text">
+              {errors.phoneNumber?.message}
+            </p>
+          )}
         </label>
 
         <label className="form__input-lable">
@@ -116,16 +136,21 @@ const Form = ({ itemForRegistration }) => {
             {...register("email", {
               required: "Обязательное поле",
               maxLength: {
-               value: 50,
-               message: "Не более 50 символов"
+                value: 50,
+                message: "Не более 50 символов",
               },
               pattern: {
-              value: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu,
-              message: "Введите корректный адрес электронной почты"
-              }
+                value:
+                  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu,
+                message: "Введите корректный адрес электронной почты",
+              },
             })}
           />
-          {errors.email && <p role="alert" className='form__error-text'>{errors.email?.message}</p>}
+          {errors.email && (
+            <p role="alert" className="form__error-text">
+              {errors.email?.message}
+            </p>
+          )}
         </label>
 
         <label className="form__input-lable">
@@ -139,17 +164,20 @@ const Form = ({ itemForRegistration }) => {
               required: false,
               maxLength: {
                 value: 200,
-                message: "Не более 200 символов"
+                message: "Не более 200 символов",
               },
               pattern: {
                 value: /^([а-яё\s]+|[a-z\s]+)$/iu,
-                message: "Допустимы только русские или английские буквы"
-              }
+                message: "Допустимы только русские или английские буквы",
+              },
             })}
           />
-          {errors.comments && <p role="alert" className='form__error-text'>{errors.comments?.message}</p>}
+          {errors.comments && (
+            <p role="alert" className="form__error-text">
+              {errors.comments?.message}
+            </p>
+          )}
         </label>
-
       </div>
 
       <div className="form__agreement">
@@ -172,7 +200,11 @@ const Form = ({ itemForRegistration }) => {
         </label>
       </div>
 
-      <button type="submit" className={`form__button ${!isValid && "form__button_disabled"}`} disabled={errors && "disabled"}>
+      <button
+        type="submit"
+        className={`form__button ${!isValid && "form__button_disabled"}`}
+        disabled={!isValid && "disabled"}
+      >
         Зарегистрироваться
       </button>
     </form>
