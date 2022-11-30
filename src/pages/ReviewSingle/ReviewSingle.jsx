@@ -2,19 +2,15 @@ import './ReviewSingle.sass';
 import { useParams } from 'react-router-dom';
 import data from '../../TEMP_REVIEWS';
 import getMask from '../../utils/getMask/getMask';
-import { useNavigate } from 'react-router-dom';
 import { GoBackButton } from '../../components/GoBackButton/GoBackButton';
 
 const ReviewSingle = () => {
   const { id } = useParams();
   const review = data.find(item => item.id == id);
 
-  const navigate = useNavigate();
-
   return(
     <section className='review-single'>
       <GoBackButton label='Вернуться к списку отзывов' />
-
       <div className='review-single__block'>
         <div className='review-single__review-block'>
           <h2 className="review-single__date">{review.date}</h2>
