@@ -15,6 +15,8 @@ import { SingleNews } from "./pages/SingleNews/SingleNews";
 import { NotFound } from "./pages/NotFound/NotFount";
 import Registration from './pages/Registration/Registration';
 import { Companies } from "./pages/Сompanies/Companies";
+import ReviewsAll from './pages/ReviewsAll/ReviewsAll';
+import ReviewSingle from './pages/ReviewSingle/ReviewSingle';
 
 function App({ id }) {
 
@@ -35,6 +37,8 @@ function App({ id }) {
           <Route element={<Help />} exact path="/help" />
           <Route path='/singlenews/:id' element={<SingleNews />} />
           <Route element={<Registration itemForRegistration={itemForRegistration} />} exact path="/registration/:id" />
+          <Route element={<ReviewsAll />} exact path="/reviews" />
+          <Route element={<ReviewSingle />} exact path="/reviews/:id" />
           <Route path='*' element={<NotFound />} />
           <Route path='/companies' element={<Companies />} />
         </Routes>
