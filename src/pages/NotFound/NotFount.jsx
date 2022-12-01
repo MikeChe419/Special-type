@@ -8,7 +8,7 @@ export const NotFound = () => {
 
   return (
     <div className='nonFound'>
-      <img src={notFound} alt="" />
+      <img src={notFound} alt="" className='notFound__img'/>
       <h1 className='notFound__title'>Что-то пошло не так...</h1>
       <div className="notFound__buttons">
       <button className='notFound__button' onClick={() => navigate('/')}>Вернуться на главную</button>

@@ -16,10 +16,15 @@ export const SingleNews = () => {
           <p className="singleNews__create-date">{news.createDate}</p>
           <h3 className="singleNews__title">{news.name}</h3>
           <p className="singleNews__text">{news.text}</p>
-        </div>
+          {/* {news.video ?
+          <iframe className="singleNews__video"
+          src={news.video} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          : ''} */}
+          </div>
         <div className="singleNews__img-block">
           <img className="singleNews__img" alt="" src={news.image} />
         </div>
+        
       </div>
     </section>
   );
