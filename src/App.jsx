@@ -1,6 +1,6 @@
 import "./styles/@global.sass";
 import { Routes, Route } from "react-router-dom";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Main from "./pages/Main/Main";
 import Header from "./components/Header/Header";
 import NavigationBlock from "./components/NavigationBlock/NavigationBlock";
@@ -19,10 +19,18 @@ import ReviewsAll from './pages/ReviewsAll/ReviewsAll';
 import ReviewSingle from './pages/ReviewSingle/ReviewSingle';
 import { Payment } from "./pages/Payment/Payment";
 import { Thanks } from "./pages/Thanks/Thanks";
+import {mainApi} from "./utils/api/mainApi"
 
 function App({ id }) {
 
   const [itemForRegistration, setItemForRegistration] = useState({})
+
+  // useEffect(() => {
+  //   mainApi
+  //   .getNews()
+  //   .then(res =>
+  //     console.log(res))
+  // },[])
 
   return (
 

@@ -2,6 +2,7 @@ import "./NewsCard.sass";
 import dataNews from "../../TEMP_NEWS";
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import newsPlug from '../../assets/images/news-plug.png'
 
 const News = () => {
   const [newsCount, setNewsCount] = useState(3);
@@ -30,7 +31,7 @@ const News = () => {
             читать дальше
           </NavLink>
 
-          <img className="news-card__img" alt="" src={news.image}></img>
+          <img className="news-card__img" alt="" src={news.image ? news.image : newsPlug}></img>
         </div>
       ))}
     </>
