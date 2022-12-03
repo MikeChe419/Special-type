@@ -32,6 +32,7 @@ function App({ id }) {
   const [scheduleData, setScheduleData] = useState([])
   const [playbillData, setPlaybillData] = useState([])
 
+  console.log(newsData)
   useEffect(() => {
     mainApi.getNews().then((res) => setNewsData(res));
     mainApi.getAnnouncements().then((res) => setAnnouncementsData(res));
@@ -47,7 +48,7 @@ function App({ id }) {
       <Header />
       <div className="main">
         <Routes>
-          <Route element={<Main />} exact path="/" />
+          <Route element={<Main newsData={newsData} feedbackData={feedbackData}/>} exact path="/" />
           <Route
             element={
               <Schedule setItemForRegistration={setItemForRegistration} />
