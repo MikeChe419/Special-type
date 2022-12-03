@@ -1,35 +1,33 @@
 import "./NewsCard.sass";
-import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import newsPlug from '../../assets/images/news-plug.png'
 
 const News = ({newsData}) => {
-  const [newsCount, setNewsCount] = useState(3);
   const { pathname } = useLocation();
-  useEffect(() => {
-    if (pathname === "/") {
-      setNewsCount(3);
-    } else if (pathname === "/news") {
-      setNewsCount(10);
-    } else setNewsCount(1);
-  }, [pathname]);
-
-  useEffect(() => {
-    newsData.slice(0, newsCount);
-  }, [ newsCount]);
+  let news = newsData
+console.log(news)
+  if (pathname === "/") {
+    news = newsData.slice(0, 3)
+  } else if (pathname === "/news") {
+    news = newsData.slice(0, 10);
+  } else news = newsData.slice(0, 1);
 
   return (
     <>
-      {newsData.map((news) => (
-        <div className="news-card" key={news.header}>
-          <p className="news-card__create-date">{news.date}</p>
-          <h3 className="news-card__title">{news.header}</h3>
-          <p className="news-card__text">{news.news_full_text}</p>
-          <NavLink to={`/singlenews/${news.id}`} className="news-card__button">
+      {news.map((newsData) => (
+        <div className="news-card" key={newsData.header}>
+          <p className="news-card__create-date">{newsData.date}</p>
+          <h3 className="news-card__title">{newsData.header}</h3>
+          <p className="news-card__text">{newsData.news_full_text}</p>
+          <NavLink to={`/singlenews/${newsData.id}`} className="news-card__button">
             читать дальше
           </NavLink>
 
-          <img className="news-card__img" alt="" src={news.news_images ? news.news_images : newsPlug}></img>
+{
+  newsData.news_images.length === 0 ? <img className="news-card__img" alt="" src={newsPlug}/>
+  : newsData.news_images.forEach(el => {<img className="news-card__img" alt="" src={el.image}/>
+  })
+}
         </div>
       ))}
     </>

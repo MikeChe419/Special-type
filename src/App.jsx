@@ -33,7 +33,10 @@ function App({ id }) {
   const [playbillData, setPlaybillData] = useState([])
 
   useEffect(() => {
-    mainApi.getNews().then((res) => setNewsData(res));
+    mainApi.getNews()
+    .then((res) => {
+    let newsArray = res.reverse()
+    setNewsData(newsArray)});
     mainApi.getAnnouncements().then((res) => setAnnouncementsData(res));
     mainApi.getCompanies().then((res) => setCompaniesData(res));
     mainApi.getFeedback().then((res) => setFeedbackData(res));
@@ -41,7 +44,6 @@ function App({ id }) {
     mainApi.getSchedule().then((res) => setScheduleData(res));
     mainApi.getPlaybill().then((res) => setPlaybillData(res));
   }, []);
-
   return (
     <div className="page">
       <Header />
