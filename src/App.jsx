@@ -32,7 +32,6 @@ function App({ id }) {
   const [scheduleData, setScheduleData] = useState([])
   const [playbillData, setPlaybillData] = useState([])
 
-  console.log(newsData)
   useEffect(() => {
     mainApi.getNews().then((res) => setNewsData(res));
     mainApi.getAnnouncements().then((res) => setAnnouncementsData(res));
@@ -63,11 +62,11 @@ function App({ id }) {
             exact
             path="/posters"
           />
-          <Route element={<AllNews />} exact path="/news" />
+          <Route element={<AllNews newsData={newsData}/>} exact path="/news" />
           <Route element={<Friends />} exact path="/friends" />
           <Route element={<Contacts />} exact path="/contacts" />
           <Route element={<Help />} exact path="/help" />
-          <Route exact path="/singlenews/:id" element={<SingleNews />} />
+          <Route exact path="/singlenews/:id" element={<SingleNews newsData={newsData}/>} />
           <Route
             element={<Registration itemForRegistration={itemForRegistration} />}
             exact

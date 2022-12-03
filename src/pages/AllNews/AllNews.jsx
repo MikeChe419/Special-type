@@ -2,7 +2,7 @@ import "./AllNews.sass";
 import NewsCard from "../../components/NewsCard/NewsCard";
 import { Search } from "../../components/Search/Search";
 
-const AllNews = () => {
+const AllNews = ({newsData}) => {
   return (
     <section className="AllNews">
       <div className="allNews__head">
@@ -10,7 +10,7 @@ const AllNews = () => {
       <Search />
       </div>
       <div className="AllNews__content">
-        <NewsCard />
+        <NewsCard newsData={newsData} />
       </div>
     </section>
   );
