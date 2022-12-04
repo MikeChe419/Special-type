@@ -1,6 +1,7 @@
 import "./UpLoad.sass";
 import { useState, useRef } from "react";
 import { useEffect } from 'react';
+import getMask from '../../utils/getMask/getMask';
 
 const UpLoad = () => {
   const filePicker = useRef(null);
@@ -69,6 +70,7 @@ const UpLoad = () => {
         onChange={handleChange}
         accept="image/*,.png,.jpg,.jpeg,.gif,.web,"
       />
+      {getMask('poster')}
     </label>
   );
 };
