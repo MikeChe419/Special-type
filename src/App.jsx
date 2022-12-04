@@ -20,8 +20,10 @@ import ReviewSingle from "./pages/ReviewSingle/ReviewSingle";
 import { Payment } from "./pages/Payment/Payment";
 import { Thanks } from "./pages/Thanks/Thanks";
 import { mainApi } from "./utils/api/mainApi";
+import tempNews from "./TEMP_NEWS";
 
 function App({ id }) {
+  console.log(tempNews, 'test')
   const [itemForRegistration, setItemForRegistration] = useState({});
 
   const [newsData, setNewsData] = useState([])
@@ -33,16 +35,20 @@ function App({ id }) {
   const [playbillData, setPlaybillData] = useState([])
 
   useEffect(() => {
-    mainApi.getNews()
-    .then((res) => {
-    let newsArray = res.reverse()
-    setNewsData(newsArray)});
-    mainApi.getAnnouncements().then((res) => setAnnouncementsData(res));
-    mainApi.getCompanies().then((res) => setCompaniesData(res));
-    mainApi.getFeedback().then((res) => setFeedbackData(res));
-    mainApi.getPeople().then((res) => setPeopleData(res));
-    mainApi.getSchedule().then((res) => setScheduleData(res));
-    mainApi.getPlaybill().then((res) => setPlaybillData(res));
+   
+    let reversedNews = [...tempNews].reverse()
+    console.log(reversedNews, '22222222222')
+    setNewsData(reversedNews)
+    // mainApi.getNews()
+    // .then((res) => {
+    // let newsArray = res.reverse()
+    // setNewsData(newsArray)});
+    // mainApi.getAnnouncements().then((res) => setAnnouncementsData(res));
+    // mainApi.getCompanies().then((res) => setCompaniesData(res));
+    // mainApi.getFeedback().then((res) => setFeedbackData(res));
+    // mainApi.getPeople().then((res) => setPeopleData(res));
+    // mainApi.getSchedule().then((res) => setScheduleData(res));
+    // mainApi.getPlaybill().then((res) => setPlaybillData(res));
   }, []);
   return (
     <div className="page">
