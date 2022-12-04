@@ -1,0 +1,52 @@
+.upload
+  display: flex
+  flex-direction: column
+  gap: 8px
+
+.upload__load
+  background: #FF3744
+  border-radius: 20px
+  width: 180px
+  height: 36px
+  border: none
+  color:  #FFFFFF
+
+.upload__load:hover
+  cursor: pointer
+
+.upload__input
+  opacity: 0
+  width: 0
+  height: 0
+  line-height: 0
+  overflow: hidden
+  padding: 0
+  margin: 0
+
+.upload__selected-foto
+  width: 180px
+  height: 161px
+  object-fit: cover
+
+.upload__preview-block
+  display: none
+
+.upload__preview-block_visible
+  display: flex
+  flex-direction: column
+  gap: 8px
+
+.upload__preview-buttons
+  display: flex
+  gap: 25px
+
+.upload__preview-button
+  width: 180px
+  height: 36px
+  border-radius: 20px
+  border: 2px solid #FF3744
+  background-color: #FFFFFF
+  color: #FF3744
+
+.upload__preview-button:hover
+  cursor: pointer

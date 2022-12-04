@@ -20,7 +20,11 @@ import ReviewSingle from "./pages/ReviewSingle/ReviewSingle";
 import { Payment } from "./pages/Payment/Payment";
 import { Thanks } from "./pages/Thanks/Thanks";
 import { mainApi } from "./utils/api/mainApi";
+<<<<<<< HEAD
 import tempNews from "./TEMP_NEWS";
+=======
+import AddReview from './pages/AddReview/AddReview';
+>>>>>>> 8520166 (Reviews refactoring and review form added)
 
 function App({ id }) {
   console.log(tempNews, 'test')
@@ -82,6 +86,7 @@ function App({ id }) {
           />
           <Route element={<ReviewsAll />} exact path="/reviews" />
           <Route element={<ReviewSingle />} exact path="/reviews/:id" />
+          <Route element={<AddReview />} exact path="/reviews/add-review" />
           <Route path="*" element={<NotFound />} />
           <Route path="/companies" element={<Companies />} />
           <Route path="/payment" element={<Payment />} />

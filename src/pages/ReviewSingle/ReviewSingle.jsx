@@ -10,12 +10,12 @@ const ReviewSingle = () => {
 
   return(
     <section className='review-single'>
-      <GoBackButton label='Вернуться к списку отзывов' />
+      <GoBackButton label='Отзывы / Подробный отзыв' />
       <div className='review-single__block'>
         <div className='review-single__review-block'>
           <h2 className="review-single__date">{review.date}</h2>
+          <h3 className='review-single__user'>{review.user.toLocaleUpperCase()}</h3>
           <p className='review-single__text'>{review.review}</p>
-          <p className='review-single__user'>{review.user}</p>
         </div>
         <div className="review-single__image-container">
           <img className="review-single__card-img" src={review.image} alt={review.user} />
