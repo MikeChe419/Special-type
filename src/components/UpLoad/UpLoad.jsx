@@ -17,18 +17,9 @@ const UpLoad = () => {
     filePicker.current.click();
   }
 
-  // Обработчик удаления картинки
-  const deletePick = () => {
+  const handleDelete = () => {
     setSelectedFile(null);
-  }
-
-  // Смена функции основной кнопки Загрузить
-  const changeFunction = () => {
-    if (selectedFile === null) {
-      handlePick();
-    } else {
-      handleUpload()
-    }
+    setPreview(null);
   }
 
   // Обработчик отправки файла на сервер
@@ -53,10 +44,9 @@ const UpLoad = () => {
 
   }
 
-
   // Обработчик отображения привью загруженной картинки
   useEffect(() => {
-    if (selectedFile) {
+    if (selectedFile !== null) {
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreview(reader.result)
@@ -70,26 +60,15 @@ const UpLoad = () => {
   return (
     <label className="upload">
       <span>Ваша фотография</span>
-
-        <div className={`upload__preview-block ${selectedFile !== null && 'upload__preview-block_visible'}`}>
-          <img className='upload__selected-foto' src={preview} alt="Ваша фотография"/>
-          <div className='upload__preview-buttons'>
-            <button className='upload__preview-button' name="change" onClick={handlePick} type="button">Изменить</button>
-            <button className='upload__preview-button' name="delete" onClick={deletePick} type="button">Удалить</button>
-          </div>
-
-        </div>
-
-      <button className="upload__load" onClick={changeFunction} type="button">Загрузить</button>
+      <img className={selectedFile === null ? "upload__selected-foto_hidden" : "upload__selected-foto"} src={preview} alt="Ваша фотография"/>
+      <button className={selectedFile === null ? "upload__load" : "upload__delete"} onClick={selectedFile === null ? handlePick : handleDelete} type="button">{selectedFile === null ? "Загрузить" : "Удалить"}</button>
       <input
         className="upload__input"
         ref={filePicker}
         type="file"
         onChange={handleChange}
-        placeholder="Загрузить"
         accept="image/*,.png,.jpg,.jpeg,.gif,.web,"
       />
-
     </label>
   );
 };
