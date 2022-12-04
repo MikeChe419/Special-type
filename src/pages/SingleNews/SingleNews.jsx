@@ -11,7 +11,7 @@ export const SingleNews = ({newsData}) => {
   return (
     <section className="singleNews">
       <GoBackButton />
-      <div className="singleNews__card" key={news.header}>
+    {news ?  <div className="singleNews__card" key={news.header}>
         <div className="singleNews__text-block">
           <p className="singleNews__create-date">{news.date.slice(0, 10).replace(/-/g, '.')}</p>
           <h3 className="singleNews__title">{news.header}</h3>
@@ -28,7 +28,7 @@ export const SingleNews = ({newsData}) => {
           <img className="singleNews__img" alt="" src={news.news_images} />
         </div>
         
-      </div>
+      </div> : ''}
     </section>
   );
 };
