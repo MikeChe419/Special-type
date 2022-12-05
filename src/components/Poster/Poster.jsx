@@ -4,22 +4,20 @@ import { useNavigate } from "react-router-dom";
 
 
 const Poster = ({ 
-  // poster, 
   postersData,
-  setItemForRegistration }) => {
-  // const { title, image, startTime, price, address } = poster;
+  setItemForRegistration = Function.prototype }) => {
   const navigate = useNavigate();
-  const handleOnClick = () => {
-    // setItemForRegistration(poster);
-    // navigate(`/registration/${poster.id}`);
+  const handleOnClick = (poster) => {
+    setItemForRegistration(poster);
+    navigate(`/registration/${poster.id}`);
   };
 
   return (
     <>
       {postersData.map((el) => 
  (
-        <li className="poster" onClick={handleOnClick} key={el.id}>
-          <div className="poster__image-container">
+        <li className="poster" key={el.id} onClick={() => handleOnClick(el)}>
+          <div className="poster__image-container" >
             <img src={el.image} alt="title" className="poster__image" />
           </div>
           <h3 className="poster__title">{el.name}</h3>
