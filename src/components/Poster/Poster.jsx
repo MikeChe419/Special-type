@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Poster = ({ 
   postersData,
-  setItemForRegistration = Function.prototype }) => {
+  setItemForRegistration }) => {
   const navigate = useNavigate();
   const handleOnClick = (poster) => {
     setItemForRegistration(poster);

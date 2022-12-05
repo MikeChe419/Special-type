@@ -26,7 +26,7 @@ export const AllCards = ({
           ""
         )}
         {location.pathname === "/news" ? <NewsCard newsData={cardsData} /> : ""}
-        {location.pathname === "/posters" ? <Poster postersData={cardsData}/> : ''}
+        {location.pathname === "/posters" ? <Poster postersData={cardsData} setItemForRegistration={setItemForRegistration}/> : ''}
       </ul>
     </section>
   );
