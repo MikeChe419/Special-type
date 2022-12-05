@@ -5,9 +5,9 @@ import Main from "./pages/Main/Main";
 import Header from "./components/Header/Header";
 import NavigationBlock from "./components/NavigationBlock/NavigationBlock";
 import Footer from "./components/Footer/Footer";
-import Schedule from "./pages/Schedule/Schedule";
-import Posters from "./pages/Posters/Posters";
-import AllNews from "./pages/AllNews/AllNews";
+// import Schedule from "./pages/Schedule/Schedule";
+// import Posters from "./pages/Posters/Posters";
+// import AllNews from "./pages/AllNews/AllNews";
 import Friends from "./pages/Friends/Friends";
 import Contacts from "./pages/Contacts/Contacts";
 import Help from "./pages/Help/Help";
@@ -21,25 +21,26 @@ import { Payment } from "./pages/Payment/Payment";
 import { Thanks } from "./pages/Thanks/Thanks";
 import { mainApi } from "./utils/api/mainApi";
 import tempNews from "./TEMP_NEWS";
-import AddReview from './pages/AddReview/AddReview';
+import AddReview from "./pages/AddReview/AddReview";
+import { AllCards } from "./pages/AllCards/AllCards";
+import dataEvent from "./TEMP_EVENT";
+import dataPosters from "./TEMP_DATA_POSTERS";
 
 function App({ id }) {
-  console.log(tempNews, 'test')
   const [itemForRegistration, setItemForRegistration] = useState({});
 
-  const [newsData, setNewsData] = useState([])
-  const [announcementsData, setAnnouncementsData] = useState([])
-  const [companiesData, setCompaniesData] = useState([])
-  const [feedbackData, setFeedbackData] = useState([])
-  const [peopleData, setPeopleData] = useState([])
-  const [scheduleData, setScheduleData] = useState([])
-  const [playbillData, setPlaybillData] = useState([])
+  const [newsData, setNewsData] = useState([]);
+  const [announcementsData, setAnnouncementsData] = useState([]);
+  const [companiesData, setCompaniesData] = useState([]);
+  const [feedbackData, setFeedbackData] = useState([]);
+  const [peopleData, setPeopleData] = useState([]);
+  const [scheduleData, setScheduleData] = useState([]);
+  const [playbillData, setPlaybillData] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-
-    let reversedNews = [...tempNews].reverse()
-    console.log(reversedNews, '22222222222')
-    setNewsData(reversedNews)
+    let reversedNews = [...tempNews].reverse();
+    setNewsData(reversedNews);
     // mainApi.getNews()
     // .then((res) => {
     // let newsArray = res.reverse()
@@ -51,31 +52,66 @@ function App({ id }) {
     // mainApi.getSchedule().then((res) => setScheduleData(res));
     // mainApi.getPlaybill().then((res) => setPlaybillData(res));
   }, []);
+
+  const handleSearch = (event) => {
+    const search = event.target.value.toLowerCase();
+    setSearchValue(search);
+  };
+
+
+  ///настроить поиск по разным страницам
+
+  const showSearchedNews = newsData.filter((data) => {
+    if (searchValue !== "") {
+      return data.header.toLowerCase().includes(searchValue);
+    } else return newsData;
+  });
+
+  const showSearchedPosters = dataPosters.filter((data) => {
+    if (searchValue !== "") {
+      return data.name.toLowerCase().includes(searchValue);
+    } else return dataPosters;
+  });
+
+  const showSearchedSchedule = dataEvent.filter((data) => {
+    if (searchValue !== "") {
+      return data.name.toLowerCase().includes(searchValue);
+    } else return dataEvent;
+  });
+
   return (
     <div className="page">
       <Header />
       <div className="main">
         <Routes>
-          <Route element={<Main newsData={newsData} feedbackData={feedbackData}/>} exact path="/" />
+          <Route
+            element={<Main newsData={newsData} feedbackData={feedbackData} />}
+            exact
+            path="/"
+          />
           <Route
             element={
-              <Schedule setItemForRegistration={setItemForRegistration} />
+              <AllCards setItemForRegistration={setItemForRegistration} cardsData={showSearchedSchedule} title='РАСПИСАНИЕ ЗАНЯТИЙ И РЕПЕТИЦИЙ' handleSearch={handleSearch}/>
             }
             exact
             path="/schedule"
           />
           <Route
             element={
-              <Posters setItemForRegistration={setItemForRegistration} />
+              <AllCards cardsData={showSearchedPosters} setItemForRegistration={setItemForRegistration} title='АФИША' />
             }
             exact
             path="/posters"
           />
-          <Route element={<AllNews newsData={newsData}/>} exact path="/news" />
+          <Route element={<AllCards cardsData={showSearchedNews} title='НОВОСТИ' handleSearch={handleSearch} />} exact path="/news" />
           <Route element={<Friends />} exact path="/friends" />
           <Route element={<Contacts />} exact path="/contacts" />
           <Route element={<Help />} exact path="/help" />
-          <Route exact path="/singlenews/:id" element={<SingleNews newsData={newsData}/>} />
+          <Route
+            exact
+            path="/singlenews/:id"
+            element={<SingleNews newsData={newsData} />}
+          />
           <Route
             element={<Registration itemForRegistration={itemForRegistration} />}
             exact

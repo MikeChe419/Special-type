@@ -4,13 +4,13 @@ import dataEvent from "../../TEMP_EVENT";
 import ScheduleItem from "../ScheduleItem/ScheduleItem";
 import Pagination from "../Pagination/Pagination";
 
-const ScheduleList = ({ setItemForRegistration }) => {
+const ScheduleList = ({ setItemForRegistration, scheduleData }) => {
   const [eventsList, setEventsList] = useState([]);
   const [currentEvent, setCurrentEvent] = useState(1)
   const [eventsCount] = useState(10)
 
   useEffect(() => {
-    setEventsList(dataEvent);
+    setEventsList(scheduleData);
   }, [setEventsList, eventsCount]);
 
 
