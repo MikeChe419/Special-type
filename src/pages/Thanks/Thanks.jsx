@@ -3,13 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export const Thanks = () => {
-//   const navigate = useNavigate();
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       navigate("/");
-//     }, 10000);
-//     return () => clearInterval(interval);
-//   }, [navigate]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const interval = setInterval(() => {
+      navigate("/");
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [navigate]);
 
   return (
     <div className="thanks">

@@ -21,12 +21,22 @@ export const AllCards = ({
       </div>
       <ul className="allCards__content">
         {location.pathname === "/schedule" ? (
-          <ScheduleList setItemForRegistration={setItemForRegistration} scheduleData={cardsData} />
+          <ScheduleList
+            setItemForRegistration={setItemForRegistration}
+            scheduleData={cardsData}
+          />
         ) : (
           ""
         )}
         {location.pathname === "/news" ? <NewsCard newsData={cardsData} /> : ""}
-        {location.pathname === "/posters" ? <Poster postersData={cardsData} setItemForRegistration={setItemForRegistration}/> : ''}
+        {location.pathname === "/posters" ? (
+          <Poster
+            postersData={cardsData}
+            setItemForRegistration={setItemForRegistration}
+          />
+        ) : (
+          ""
+        )}
       </ul>
     </section>
   );

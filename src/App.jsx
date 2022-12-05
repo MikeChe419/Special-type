@@ -5,9 +5,6 @@ import Main from "./pages/Main/Main";
 import Header from "./components/Header/Header";
 import NavigationBlock from "./components/NavigationBlock/NavigationBlock";
 import Footer from "./components/Footer/Footer";
-// import Schedule from "./pages/Schedule/Schedule";
-// import Posters from "./pages/Posters/Posters";
-// import AllNews from "./pages/AllNews/AllNews";
 import Friends from "./pages/Friends/Friends";
 import Contacts from "./pages/Contacts/Contacts";
 import Help from "./pages/Help/Help";
@@ -20,12 +17,13 @@ import ReviewSingle from "./pages/ReviewSingle/ReviewSingle";
 import { Payment } from "./pages/Payment/Payment";
 import { Thanks } from "./pages/Thanks/Thanks";
 import { mainApi } from "./utils/api/mainApi";
-import tempNews from "./TEMP_NEWS";
 import AddReview from "./pages/AddReview/AddReview";
 import { AllCards } from "./pages/AllCards/AllCards";
+
+///временные данные
 import dataEvent from "./TEMP_EVENT";
 import dataPosters from "./TEMP_DATA_POSTERS";
-
+import tempNews from "./TEMP_NEWS";
 function App({ id }) {
   const [itemForRegistration, setItemForRegistration] = useState({});
 
@@ -57,7 +55,6 @@ function App({ id }) {
     const search = event.target.value.toLowerCase();
     setSearchValue(search);
   };
-
 
   ///настроить поиск по разным страницам
 
@@ -91,19 +88,38 @@ function App({ id }) {
           />
           <Route
             element={
-              <AllCards setItemForRegistration={setItemForRegistration} cardsData={showSearchedSchedule} title='РАСПИСАНИЕ ЗАНЯТИЙ И РЕПЕТИЦИЙ' handleSearch={handleSearch}/>
+              <AllCards
+                setItemForRegistration={setItemForRegistration}
+                cardsData={showSearchedSchedule}
+                title="РАСПИСАНИЕ ЗАНЯТИЙ И РЕПЕТИЦИЙ"
+                handleSearch={handleSearch}
+              />
             }
             exact
             path="/schedule"
           />
           <Route
             element={
-              <AllCards cardsData={showSearchedPosters} setItemForRegistration={setItemForRegistration} title='АФИША' />
+              <AllCards
+                cardsData={showSearchedPosters}
+                setItemForRegistration={setItemForRegistration}
+                title="АФИША"
+              />
             }
             exact
             path="/posters"
           />
-          <Route element={<AllCards cardsData={showSearchedNews} title='НОВОСТИ' handleSearch={handleSearch} />} exact path="/news" />
+          <Route
+            element={
+              <AllCards
+                cardsData={showSearchedNews}
+                title="НОВОСТИ"
+                handleSearch={handleSearch}
+              />
+            }
+            exact
+            path="/news"
+          />
           <Route element={<Friends />} exact path="/friends" />
           <Route element={<Contacts />} exact path="/contacts" />
           <Route element={<Help />} exact path="/help" />
