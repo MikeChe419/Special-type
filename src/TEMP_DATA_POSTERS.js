@@ -31,7 +31,8 @@ const dataPosters = [
     startTime: "14:00",
     price: 1000,
     address: "ДК ТЮЗ, ул Яшко д 24",
-    image: "",
+    image:
+    "https://cdn.lifehacker.ru/wp-content/uploads/2010/02/4980CD4D-23DB-4551-A637-E0C8EFABA2AA.jpg",
     id: 4,
   },
   {
@@ -39,7 +40,8 @@ const dataPosters = [
     startTime: "14:00",
     price: 1000,
     address: "ДК ТЮЗ, ул Яшко д 24",
-    image: "",
+    image:
+    "https://cdn.lifehacker.ru/wp-content/uploads/2010/02/4980CD4D-23DB-4551-A637-E0C8EFABA2AA.jpg",
     id: 5,
   },
   {
@@ -47,7 +49,8 @@ const dataPosters = [
     startTime: "14:00",
     price: 1000,
     address: "ДК ТЮЗ, ул Яшко д 24",
-    image: "",
+    image:
+    "https://cdn.lifehacker.ru/wp-content/uploads/2010/02/4980CD4D-23DB-4551-A637-E0C8EFABA2AA.jpg",
     id: 6,
   },
 ];
