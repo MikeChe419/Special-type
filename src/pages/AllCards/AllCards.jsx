@@ -8,7 +8,6 @@ import Pagination from "../../components//Pagination/Pagination";
 import ScheduleItem from "../../components/ScheduleItem/ScheduleItem";
 import { FriendsList } from "../../components/FriendsList/FriendsList";
 import Review from "../../components/Review/Review";
-import { AddReviewButton } from "../../components/AddReviewButton/AddReviewButton";
 
 export const AllCards = ({
   cardsData,
