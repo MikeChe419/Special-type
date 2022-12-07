@@ -84,7 +84,7 @@ function App({ id }) {
       <div className="main">
         <Routes>
           <Route
-            element={<Main newsData={newsData} feedbackData={feedbackData} />}
+            element={<Main newsData={newsData} dataReviews={dataReviews} />}
             exact
             path="/"
           />
