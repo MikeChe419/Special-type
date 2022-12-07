@@ -4,17 +4,17 @@ import "./ScheduleItem.sass";
 import ScheduleImg from "../../assets/images/ScheduleImg.png";
 import { useNavigate } from 'react-router-dom';
 
-const ScheduleItem = ({ events, setItemForRegistration }) => {
+const ScheduleItem = ({ scheduleData, setItemForRegistration }) => {
   const navigate = useNavigate();
   const handleOnCLick = (data) => {
     setItemForRegistration(data);
     navigate(`/registration/${data.id}`);
   }
 
-  for (let i = 0; i < events.length; i++) {
+  for (let i = 0; i < scheduleData.length; i++) {
     return (
       <>
-        {events.map((event) => (
+        {scheduleData.map((event) => (
           <li className="scedule__item" key={event.id} onClick={() => handleOnCLick(event)}>
             <img src={ScheduleImg} alt="" />
             <h3 className="schedule__schedule-item">{event.name}</h3>

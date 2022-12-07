@@ -2,10 +2,10 @@ import "./AllCards.sass";
 import NewsCard from "../../components/NewsCard/NewsCard";
 import { Search } from "../../components/Search/Search";
 import { useLocation } from "react-router-dom";
-import ScheduleList from "../../components/ScheduleList/ScheduleList";
 import Poster from "../../components/Poster/Poster";
 import { useState, useEffect } from "react";
 import Pagination from "../../components//Pagination/Pagination";
+import ScheduleItem from "../../components/ScheduleItem/ScheduleItem";
 
 export const AllCards = ({
   cardsData,
@@ -21,7 +21,7 @@ export const AllCards = ({
   const paginate = pageNumber => setCurrentEvent(pageNumber);
   const nextPage = () => setCurrentEvent((pageNumber) => pageNumber + 1);
   const prevPage = () => setCurrentEvent((pageNumber) => pageNumber - 1);
-  
+
   useEffect(() => {
     if(eventsList !== undefined){
     let lastEventIndex = currentEvent * eventsCount;
@@ -41,7 +41,7 @@ export const AllCards = ({
       </div>
       <ul className="allCards__content">
         {location.pathname === "/schedule" ? (
-          <ScheduleList
+          <ScheduleItem
             setItemForRegistration={setItemForRegistration}
             scheduleData={currentEventsPage}
           />
