@@ -1,9 +1,9 @@
 import "./Poster.sass";
-import getMask from "../../utils/getMask/getMask";
+import ImageMasked from '../ImageMasked/ImageMasked';
 import { useNavigate } from "react-router-dom";
 
 
-const Poster = ({ 
+const Poster = ({
   postersData,
   setItemForRegistration }) => {
   const navigate = useNavigate();
@@ -14,12 +14,10 @@ const Poster = ({
 
   return (
     <>
-      {postersData.map((el) => 
+      {postersData.map((el) =>
  (
         <li className="poster" key={el.id} onClick={() => handleOnClick(el)}>
-          <div className="poster__image-container" >
-            <img src={el.image} alt="title" className="poster__image" />
-          </div>
+          <ImageMasked item={el} />
           <h3 className="poster__title">{el.name}</h3>
           <h5 className="poster__subtitle">Начало:</h5>
           <span className="poster__span">{el.startTime}</span>
