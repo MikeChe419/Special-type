@@ -19,7 +19,7 @@ import { Thanks } from "./pages/Thanks/Thanks";
 import { mainApi } from "./utils/api/mainApi";
 import AddReview from "./pages/AddReview/AddReview";
 import { AllCards } from "./pages/AllCards/AllCards";
-
+ 
 ///временные данные
 import dataEvent from "./TEMP_EVENT";
 import dataPosters from "./TEMP_DATA_POSTERS";

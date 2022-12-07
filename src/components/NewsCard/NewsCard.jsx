@@ -14,7 +14,7 @@ const News = ({newsData}) => {
   return (
     <>
       {news.map((newsData) => (
-        <li className="news-card" key={newsData.header}>
+        <li className="news-card" key={newsData.id}>
           <p className="news-card__create-date">{newsData.date.slice(0, 10).replace(/-/g, '.')}</p>
           <h3 className="news-card__title">{newsData.header}</h3>
           <p className="news-card__text">{newsData.news_full_text}</p>
