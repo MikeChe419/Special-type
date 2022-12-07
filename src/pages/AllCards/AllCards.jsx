@@ -18,17 +18,13 @@ export const AllCards = ({
 }) => {
   let location = useLocation();
 
-  const [currentEventsPage, setCurrentEventPage] = useState(cardsData);
+  const [currentEventsPage, setCurrentEventPage] = useState([]);
   const [currentEvent, setCurrentEvent] = useState(1);
-  const paginate = (pageNumber) => setCurrentEvent(pageNumber);
-  const nextPage = () => setCurrentEvent((pageNumber) => pageNumber + 1);
-  const prevPage = () => setCurrentEvent((pageNumber) => pageNumber - 1);
-  let eventsCount = 10;
 
   useEffect(() => {
     if (cardsData !== undefined) {
-      let lastEventIndex = currentEvent * eventsCount;
-      let firstEventIndex = lastEventIndex - eventsCount;
+      let lastEventIndex = currentEvent * 10;
+      let firstEventIndex = lastEventIndex - 10;
       let pages = cardsData.slice(firstEventIndex, lastEventIndex);
       setCurrentEventPage(pages);
     }
@@ -79,12 +75,8 @@ export const AllCards = ({
         )}
       </ul>
       <Pagination
-        eventsCount={eventsCount}
         totlalEvents={cardsData ? cardsData.length : 0}
-        paginate={paginate}
-        nextPage={nextPage}
-        prevPage={prevPage}
-        currentEventsPage={currentEventsPage}
+        setCurrentEvent={setCurrentEvent}
       />
     </section>
   );

@@ -5,15 +5,16 @@ import { AddReviewButton } from "../AddReviewButton/AddReviewButton";
 import "./Pagination.sass";
 
 const Pagination = ({
-  eventsCount,
   totlalEvents,
-  paginate,
-  nextPage,
-  prevPage,
+  setCurrentEvent
 }) => {
   let location = useLocation()
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totlalEvents / eventsCount); i++) {
+  const paginate = (pageNumber) => setCurrentEvent(pageNumber);
+  const nextPage = () => setCurrentEvent((pageNumber) => pageNumber + 1);
+  const prevPage = () => setCurrentEvent((pageNumber) => pageNumber - 1);
+
+  for (let i = 1; i <= Math.ceil(totlalEvents / 10); i++) {
     pageNumbers.push(`${i}`);
   }
   return (
