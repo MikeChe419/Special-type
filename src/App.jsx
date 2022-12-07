@@ -25,6 +25,7 @@ import dataPosters from "./TEMP_DATA_POSTERS";
 import tempNews from "./TEMP_NEWS";
 import dataCompany from "./TEMP_COMPANY";
 import dataPeople from "./TEMP_PEOPLE";
+import dataReviews from "./TEMP_REVIEWS";
 function App({ id }) {
   const [itemForRegistration, setItemForRegistration] = useState({});
 
@@ -90,6 +91,7 @@ function App({ id }) {
           <Route
             element={
               <AllCards
+                search
                 setItemForRegistration={setItemForRegistration}
                 cardsData={showSearchedSchedule}
                 title="РАСПИСАНИЕ ЗАНЯТИЙ И РЕПЕТИЦИЙ"
@@ -102,6 +104,7 @@ function App({ id }) {
           <Route
             element={
               <AllCards
+                search
                 cardsData={showSearchedPosters}
                 setItemForRegistration={setItemForRegistration}
                 title="АФИША"
@@ -113,6 +116,7 @@ function App({ id }) {
           <Route
             element={
               <AllCards
+                search
                 cardsData={showSearchedNews}
                 title="НОВОСТИ"
                 handleSearch={handleSearch}
@@ -134,7 +138,7 @@ function App({ id }) {
             exact
             path="/registration/:id"
           />
-          <Route element={<ReviewsAll />} exact path="/reviews" />
+          <Route element={<AllCards cardsData={dataReviews} title="ОТЗЫВЫ"/>} exact path="/reviews" />
           <Route element={<ReviewSingle />} exact path="/reviews/:id" />
           <Route element={<AddReview />} exact path="/reviews/add-review" />
           <Route path="*" element={<NotFound />} />

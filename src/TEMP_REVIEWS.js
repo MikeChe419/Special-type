@@ -1,6 +1,6 @@
 import tempFoto from "./tempFoto.jpeg";
 
-const data = [
+const dataReviews = [
   {
     date: '08.10.2022',
     user: 'Елена Романова',
@@ -38,4 +38,4 @@ const data = [
   }
 ]
 
-export default data;
+export default dataReviews;

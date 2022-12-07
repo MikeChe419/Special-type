@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import "../../styles/@global.sass";
 import "../../styles/@mixins.sass";
+import { AddReviewButton } from "../AddReviewButton/AddReviewButton";
 import "./Pagination.sass";
 
 const Pagination = ({
@@ -10,6 +11,7 @@ const Pagination = ({
   nextPage,
   prevPage,
 }) => {
+  let location = useLocation()
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totlalEvents / eventsCount); i++) {
     pageNumbers.push(`${i}`);
@@ -43,6 +45,7 @@ const Pagination = ({
           onClick={nextPage}
         ></button>
       </div>
+      {location.pathname === "/reviews" ? <AddReviewButton /> : "" }
     </nav>
   );
 };

@@ -7,12 +7,15 @@ import { useState, useEffect } from "react";
 import Pagination from "../../components//Pagination/Pagination";
 import ScheduleItem from "../../components/ScheduleItem/ScheduleItem";
 import { FriendsList } from "../../components/FriendsList/FriendsList";
+import Review from "../../components/Review/Review";
+import { AddReviewButton } from "../../components/AddReviewButton/AddReviewButton";
 
 export const AllCards = ({
   cardsData,
   handleSearch,
   title = "",
   setItemForRegistration,
+  search
 }) => {
   let location = useLocation();
   let eventsList = cardsData;
@@ -38,7 +41,7 @@ export const AllCards = ({
     <section className="allCards">
       <div className="allCards__head">
         <h1 className="allCards__title">{title}</h1>
-        {location.pathname == '/companies' ?? '/people' ? '' : <Search handleSearch={handleSearch} />}
+        {!search  ? '' : <Search handleSearch={handleSearch} />}
         
       </div>
       <ul className="allCards__content">
@@ -61,6 +64,7 @@ export const AllCards = ({
         )}
         {location.pathname === "/companies" ? <FriendsList friendsData={currentEventsPage}/> : ""}
         {location.pathname === "/people" ? <FriendsList friendsData={currentEventsPage} /> : ""}
+        {location.pathname === "/reviews" ? <Review dataReviews={currentEventsPage} /> : ""}
       </ul>
       <Pagination
         eventsCount={eventsCount}
