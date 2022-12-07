@@ -1,5 +1,3 @@
-import "../../styles/@global.sass";
-import "../../styles/@mixins.sass";
 import "./ScheduleItem.sass";
 import { useNavigate } from 'react-router-dom';
 import plugSchedule from "../../assets/images/plugs/plugSchedule.png";
