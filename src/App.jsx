@@ -18,7 +18,7 @@ import { Thanks } from "./pages/Thanks/Thanks";
 import { mainApi } from "./utils/api/mainApi";
 import AddReview from "./pages/AddReview/AddReview";
 import { AllCards } from "./pages/AllCards/AllCards";
- 
+
 ///временные данные
 import dataEvent from "./TEMP_EVENT";
 import dataPosters from "./TEMP_DATA_POSTERS";
@@ -138,8 +138,14 @@ function App({ id }) {
           <Route element={<ReviewSingle />} exact path="/reviews/:id" />
           <Route element={<AddReview />} exact path="/reviews/add-review" />
           <Route path="*" element={<NotFound />} />
-          <Route path="/companies" element={<AllCards cardsData={dataCompany} title="КОМПАНИИ"/>} />
-          <Route path="/people" element={<AllCards cardsData={dataPeople} title="ЛЮДИ"/>} />
+          <Route
+            path="/companies"
+            element={<AllCards cardsData={dataCompany} title="КОМПАНИИ" />}
+          />
+          <Route
+            path="/people"
+            element={<AllCards cardsData={dataPeople} title="ЛЮДИ" />}
+          />
           <Route path="/payment" element={<Payment />} />
           <Route path="/thanks" element={<Thanks />} />
         </Routes>

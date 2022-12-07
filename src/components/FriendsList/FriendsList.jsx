@@ -1,12 +1,10 @@
 import "./FriendsList.sass";
-import tempPhoto from "./tempFoto.jpeg";
 import { useState, useEffect } from "react";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
-import Pagination from "../Pagination/Pagination";
 import { GoBackButton } from "../GoBackButton/GoBackButton";
 import { useLocation } from "react-router-dom";
 
-export const FriendsList = ({ friendsData, title }) => {
+export const FriendsList = ({ friendsData }) => {
   let location = useLocation();
 
   const [dataCount, setDataCount] = useState(3);
