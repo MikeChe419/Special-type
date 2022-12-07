@@ -17,6 +17,7 @@ import { Thanks } from "./pages/Thanks/Thanks";
 import { mainApi } from "./utils/api/mainApi";
 import AddReview from "./pages/AddReview/AddReview";
 import { AllCards } from "./pages/AllCards/AllCards";
+import serverErrorImg from "./assets/images/serverError.jpg";
 
 ///временные данные
 import dataEvent from "./TEMP_EVENT";
@@ -37,14 +38,21 @@ function App({ id }) {
   const [scheduleData, setScheduleData] = useState([]);
   const [playbillData, setPlaybillData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [serverError, setServerError] = useState(false);
 
   useEffect(() => {
     let reversedNews = [...tempNews].reverse();
     setNewsData(reversedNews);
-    // mainApi.getNews()
-    // .then((res) => {
-    // let newsArray = res.reverse()
-    // setNewsData(newsArray)});
+    // mainApi
+    //   .getNews()
+    //   .then((res) => {
+    //     let newsArray = res.reverse();
+    //     setNewsData(newsArray);
+    //   })
+    //   .catch((res) => {
+    //     console.log(res);
+    //     setServerError(true);
+    //   });
     // mainApi.getAnnouncements().then((res) => setAnnouncementsData(res));
     // mainApi.getCompanies().then((res) => setCompaniesData(res));
     // mainApi.getFeedback().then((res) => setFeedbackData(res));
@@ -79,84 +87,106 @@ function App({ id }) {
   });
 
   return (
-    <div className="page">
-      <Header />
-      <div className="main">
-        <Routes>
-          <Route
-            element={<Main newsData={newsData} dataReviews={dataReviews} />}
-            exact
-            path="/"
-          />
-          <Route
-            element={
-              <AllCards
-                search
-                setItemForRegistration={setItemForRegistration}
-                cardsData={showSearchedSchedule}
-                title="РАСПИСАНИЕ ЗАНЯТИЙ И РЕПЕТИЦИЙ"
-                handleSearch={handleSearch}
-              />
-            }
-            exact
-            path="/schedule"
-          />
-          <Route
-            element={
-              <AllCards
-                search
-                cardsData={showSearchedPosters}
-                setItemForRegistration={setItemForRegistration}
-                title="АФИША"
-              />
-            }
-            exact
-            path="/posters"
-          />
-          <Route
-            element={
-              <AllCards
-                search
-                cardsData={showSearchedNews}
-                title="НОВОСТИ"
-                handleSearch={handleSearch}
-              />
-            }
-            exact
-            path="/news"
-          />
-          <Route element={<Friends />} exact path="/friends" />
-          <Route element={<Contacts />} exact path="/contacts" />
-          <Route element={<Help />} exact path="/help" />
-          <Route
-            exact
-            path="/singlenews/:id"
-            element={<SingleNews newsData={newsData} />}
-          />
-          <Route
-            element={<Registration itemForRegistration={itemForRegistration} />}
-            exact
-            path="/registration/:id"
-          />
-          <Route element={<AllCards cardsData={dataReviews} title="ОТЗЫВЫ"/>} exact path="/reviews" />
-          <Route element={<ReviewSingle />} exact path="/reviews/:id" />
-          <Route element={<AddReview />} exact path="/reviews/add-review" />
-          <Route path="*" element={<NotFound />} />
-          <Route
-            path="/companies"
-            element={<AllCards cardsData={dataCompany} title="КОМПАНИИ" />}
-          />
-          <Route
-            path="/people"
-            element={<AllCards cardsData={dataPeople} title="ЛЮДИ" />}
-          />
-          <Route path="/payment" element={<Payment />} />
-          <Route path="/thanks" element={<Thanks />} />
-        </Routes>
+    <>
+      <div className="page">
+        {!serverError ? (
+          <>
+            <Header />
+            <div className="main">
+              <Routes>
+                <Route
+                  element={
+                    <Main newsData={newsData} dataReviews={dataReviews} />
+                  }
+                  exact
+                  path="/"
+                />
+                <Route
+                  element={
+                    <AllCards
+                      search
+                      setItemForRegistration={setItemForRegistration}
+                      cardsData={showSearchedSchedule}
+                      title="РАСПИСАНИЕ ЗАНЯТИЙ И РЕПЕТИЦИЙ"
+                      handleSearch={handleSearch}
+                    />
+                  }
+                  exact
+                  path="/schedule"
+                />
+                <Route
+                  element={
+                    <AllCards
+                      search
+                      cardsData={showSearchedPosters}
+                      setItemForRegistration={setItemForRegistration}
+                      title="АФИША"
+                    />
+                  }
+                  exact
+                  path="/posters"
+                />
+                <Route
+                  element={
+                    <AllCards
+                      search
+                      cardsData={showSearchedNews}
+                      title="НОВОСТИ"
+                      handleSearch={handleSearch}
+                    />
+                  }
+                  exact
+                  path="/news"
+                />
+                <Route element={<Friends />} exact path="/friends" />
+                <Route element={<Contacts />} exact path="/contacts" />
+                <Route element={<Help />} exact path="/help" />
+                <Route
+                  exact
+                  path="/singlenews/:id"
+                  element={<SingleNews newsData={newsData} />}
+                />
+                <Route
+                  element={
+                    <Registration itemForRegistration={itemForRegistration} />
+                  }
+                  exact
+                  path="/registration/:id"
+                />
+                <Route
+                  element={<AllCards cardsData={dataReviews} title="ОТЗЫВЫ" />}
+                  exact
+                  path="/reviews"
+                />
+                <Route element={<ReviewSingle />} exact path="/reviews/:id" />
+                <Route
+                  element={<AddReview />}
+                  exact
+                  path="/reviews/add-review"
+                />
+                <Route path="*" element={<NotFound />} />
+                <Route
+                  path="/companies"
+                  element={
+                    <AllCards cardsData={dataCompany} title="КОМПАНИИ" />
+                  }
+                />
+                <Route
+                  path="/people"
+                  element={<AllCards cardsData={dataPeople} title="ЛЮДИ" />}
+                />
+                <Route path="/payment" element={<Payment />} />
+                <Route path="/thanks" element={<Thanks />} />
+              </Routes>
+            </div>
+            <NavigationBlock />
+            <Footer />
+          </>
+        ) : (
+          <img className="serverError" src={serverErrorImg} alt="" />
+        )}
       </div>
-      <NavigationBlock />
-      <Footer />
-    </div>
+    </>
   );
 }
 
