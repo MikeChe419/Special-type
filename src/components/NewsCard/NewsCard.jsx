@@ -3,9 +3,8 @@ import { NavLink, useLocation } from "react-router-dom";
 import newsPlug from "../../assets/images/news-plug.png";
 
 const News = ({ newsData }) => {
-  console.log(newsData)
   const { pathname } = useLocation();
-  let news = newsData;
+  let news
   if (pathname === "/") {
     news = newsData.slice(0, 3);
   } else if (pathname === "/news") {

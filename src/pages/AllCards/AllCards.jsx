@@ -14,34 +14,31 @@ export const AllCards = ({
   handleSearch,
   title = "",
   setItemForRegistration,
-  search
+  search,
 }) => {
   let location = useLocation();
-  let eventsList = cardsData;
 
-  const [currentEventsPage, setCurrentEventPage] = useState([])
+  const [currentEventsPage, setCurrentEventPage] = useState(cardsData);
   const [currentEvent, setCurrentEvent] = useState(1);
-  const paginate = pageNumber => setCurrentEvent(pageNumber);
+  const paginate = (pageNumber) => setCurrentEvent(pageNumber);
   const nextPage = () => setCurrentEvent((pageNumber) => pageNumber + 1);
   const prevPage = () => setCurrentEvent((pageNumber) => pageNumber - 1);
+  let eventsCount = 10;
 
   useEffect(() => {
-    if(eventsList !== undefined){
-    let lastEventIndex = currentEvent * eventsCount;
-    let firstEventIndex = lastEventIndex - eventsCount;
-    let pages = eventsList.slice(firstEventIndex, lastEventIndex);
-    setCurrentEventPage(pages)}
-  }, [cardsData, currentEvent, location.pathname]);
-
-
-  let eventsCount = 10;
+    if (cardsData !== undefined) {
+      let lastEventIndex = currentEvent * eventsCount;
+      let firstEventIndex = lastEventIndex - eventsCount;
+      let pages = cardsData.slice(firstEventIndex, lastEventIndex);
+      setCurrentEventPage(pages);
+    }
+  }, [cardsData, currentEvent]);
 
   return (
     <section className="allCards">
       <div className="allCards__head">
         <h1 className="allCards__title">{title}</h1>
-        {!search  ? '' : <Search handleSearch={handleSearch} />}
-        
+        {!search ? "" : <Search handleSearch={handleSearch} />}
       </div>
       <ul className="allCards__content">
         {location.pathname === "/schedule" ? (
@@ -52,7 +49,11 @@ export const AllCards = ({
         ) : (
           ""
         )}
-        {location.pathname === "/news" ? <NewsCard newsData={currentEventsPage} /> : ""}
+        {location.pathname === "/news" ? (
+          <NewsCard newsData={currentEventsPage} />
+        ) : (
+          ""
+        )}
         {location.pathname === "/posters" ? (
           <Poster
             postersData={currentEventsPage}
@@ -61,13 +62,25 @@ export const AllCards = ({
         ) : (
           ""
         )}
-        {location.pathname === "/companies" ? <FriendsList friendsData={currentEventsPage}/> : ""}
-        {location.pathname === "/people" ? <FriendsList friendsData={currentEventsPage} /> : ""}
-        {location.pathname === "/reviews" ? <Review dataReviews={currentEventsPage} /> : ""}
+        {location.pathname === "/companies" ? (
+          <FriendsList friendsData={currentEventsPage} />
+        ) : (
+          ""
+        )}
+        {location.pathname === "/people" ? (
+          <FriendsList friendsData={currentEventsPage} />
+        ) : (
+          ""
+        )}
+        {location.pathname === "/reviews" ? (
+          <Review dataReviews={currentEventsPage} />
+        ) : (
+          ""
+        )}
       </ul>
       <Pagination
         eventsCount={eventsCount}
-        totlalEvents={eventsList ? eventsList.length : 0}
+        totlalEvents={cardsData ? cardsData.length : 0}
         paginate={paginate}
         nextPage={nextPage}
         prevPage={prevPage}

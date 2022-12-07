@@ -9,7 +9,7 @@ import Friends from "./pages/Friends/Friends";
 import Contacts from "./pages/Contacts/Contacts";
 import Help from "./pages/Help/Help";
 import { SingleNews } from "./pages/SingleNews/SingleNews";
-import { NotFound } from "./pages/NotFound/NotFount";
+import { NotFound } from "./pages/NotFound/NotFound";
 import Registration from "./pages/Registration/Registration";
 import ReviewSingle from "./pages/ReviewSingle/ReviewSingle";
 import { Payment } from "./pages/Payment/Payment";
