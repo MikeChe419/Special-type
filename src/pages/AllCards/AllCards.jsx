@@ -38,7 +38,7 @@ export const AllCards = ({
     <section className="allCards">
       <div className="allCards__head">
         <h1 className="allCards__title">{title}</h1>
-        {location.pathname == '/companies' || '/people' ? '' : <Search handleSearch={handleSearch} />}
+        {location.pathname == '/companies' ?? '/people' ? '' : <Search handleSearch={handleSearch} />}
         
       </div>
       <ul className="allCards__content">
