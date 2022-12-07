@@ -6,6 +6,7 @@ import Poster from "../../components/Poster/Poster";
 import { useState, useEffect } from "react";
 import Pagination from "../../components//Pagination/Pagination";
 import ScheduleItem from "../../components/ScheduleItem/ScheduleItem";
+import { FriendsList } from "../../components/FriendsList/FriendsList";
 
 export const AllCards = ({
   cardsData,
@@ -37,7 +38,8 @@ export const AllCards = ({
     <section className="allCards">
       <div className="allCards__head">
         <h1 className="allCards__title">{title}</h1>
-        <Search handleSearch={handleSearch} />
+        {location.pathname == '/companies' || '/people' ? '' : <Search handleSearch={handleSearch} />}
+        
       </div>
       <ul className="allCards__content">
         {location.pathname === "/schedule" ? (
@@ -57,6 +59,7 @@ export const AllCards = ({
         ) : (
           ""
         )}
+        {location.pathname === "/companies" ? <FriendsList friendsData={currentEventsPage}/> : ""}
       </ul>
       <Pagination
         eventsCount={eventsCount}
