@@ -11,6 +11,7 @@ const News = ({newsData}) => {
     news = newsData.slice(0, 10);
   } else news = newsData.slice(0, 1);
 
+  for (let i = 0; i < news.length; i++) {
   return (
     <>
       {news.map((newsData) => (
@@ -25,15 +26,14 @@ const News = ({newsData}) => {
 {
   newsData.news_images.length === 0 ? <img className="news-card__img" alt="" src={newsPlug}/>
   : <img className="news-card__img" alt="" src={newsData.news_images[0].image}/>
-
+  
 }
-
         </li>
       ))}
     </>
   );
 };
-
+}
 export default News;
 
 

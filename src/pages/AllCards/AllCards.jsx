@@ -9,7 +9,6 @@ import Pagination from "../../components//Pagination/Pagination";
 
 export const AllCards = ({
   cardsData,
-  newsData,
   handleSearch,
   title = "",
   setItemForRegistration,
@@ -20,19 +19,19 @@ export const AllCards = ({
   const [currentEvent, setCurrentEvent] = useState(1);
   const [currentEventsPage, setCurrentEventPage] = useState([])
   let eventsCount = 10;
-  console.log(eventsList)
 
+  // console.log(currentEventsPage)
   useEffect(() => {
     
     if(eventsList !== undefined){
     let lastEventIndex = currentEvent * eventsCount;
     let firstEventIndex = lastEventIndex - eventsCount;
-    let currentEventsPage = eventsList.slice(firstEventIndex, lastEventIndex);
-    console.log('test')
-    setCurrentEventPage(currentEventsPage)}
-  }, [cardsData]);
+    let pages = eventsList.slice(firstEventIndex, lastEventIndex);
+    console.log(pages, 'test')
+    setCurrentEventPage(pages)}
+  }, [cardsData, currentEvent]);
 
-  const paginate = (pageNumber) => setCurrentEvent(pageNumber);
+  const paginate = pageNumber => setCurrentEvent(pageNumber);
   const nextPage = () => setCurrentEvent((pageNumber) => pageNumber + 1);
   const prevPage = () => setCurrentEvent((pageNumber) => pageNumber - 1);
 
@@ -51,7 +50,7 @@ export const AllCards = ({
         ) : (
           ""
         )}
-        {location.pathname === "/news" ? <NewsCard newsData={cardsData} /> : ""}
+        {location.pathname === "/news" ? <NewsCard newsData={currentEventsPage} /> : ""}
         {location.pathname === "/posters" ? (
           <Poster
             postersData={cardsData}
