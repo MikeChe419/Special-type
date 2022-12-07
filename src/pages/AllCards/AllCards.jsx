@@ -60,6 +60,7 @@ export const AllCards = ({
           ""
         )}
         {location.pathname === "/companies" ? <FriendsList friendsData={currentEventsPage}/> : ""}
+        {location.pathname === "/people" ? <FriendsList friendsData={currentEventsPage} /> : ""}
       </ul>
       <Pagination
         eventsCount={eventsCount}

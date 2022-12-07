@@ -13,7 +13,7 @@ const  Friends = () => {
     <section className='friends'>
       <h1 className='friends__title'>ДРУЗЬЯ</h1>
     <ul className='friends__list'>
-        <li className='friends__method' onClick={() => navigate('/')}>
+        <li className='friends__method' onClick={() => navigate("/people")}>
           <h3 className='friends__item-title'>Люди</h3>
           <img className='friends__item-img' src={People} alt="Люди" />
         </li>

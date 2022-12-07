@@ -139,6 +139,7 @@ function App({ id }) {
           <Route element={<AddReview />} exact path="/reviews/add-review" />
           <Route path="*" element={<NotFound />} />
           <Route path="/companies" element={<AllCards cardsData={dataCompany} title="КОМПАНИИ"/>} />
+          <Route path="/people" element={<AllCards cardsData={dataPeople} title="ЛЮДИ"/>} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/thanks" element={<Thanks />} />
         </Routes>
