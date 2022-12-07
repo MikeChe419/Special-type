@@ -1,6 +1,6 @@
 import "./NewsCard.sass";
 import { NavLink, useLocation } from "react-router-dom";
-import newsPlug from "../../assets/images/news-plug.png";
+import plugNews from "../../assets/images/plugs/plugNews.png";
 
 const News = ({ newsData }) => {
   const { pathname } = useLocation();
@@ -28,7 +28,7 @@ const News = ({ newsData }) => {
             </NavLink>
 
             {newsData.news_images.length === 0 ? (
-              <img className="news-card__img" alt="" src={newsPlug} />
+              <img className="news-card__img" alt="" src={plugNews} />
             ) : (
               <img
                 className="news-card__img"

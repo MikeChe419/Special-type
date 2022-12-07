@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import "./SingleNews.sass";
 import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
-import newsPlug from '../../assets/images/news-plug.png'
+import plugNews from "../../assets/images/plugs/plugNews.png";
 
 export const SingleNews = ({newsData}) => {
   let { id } = useParams();
@@ -22,7 +22,7 @@ export const SingleNews = ({newsData}) => {
           : ''}
           </div>
         <div className="singleNews__img-block">
-        {  news.news_images.length === 0 ? <img className="singleNews__img" alt="" src={newsPlug}/>
+        {  news.news_images.length === 0 ? <img className="singleNews__img" alt="" src={plugNews}/>
   : news.news_images.map(el => <img className="singleNews__img" alt="" src={el.image}/>)
   }
           <img className="singleNews__img" alt="" src={news.news_images} />

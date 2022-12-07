@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import { GoBackButton } from "../GoBackButton/GoBackButton";
 import { useLocation } from "react-router-dom";
+import plugCompanie from "../../assets/images/plugs/plugCompanie.png";
 
 export const FriendsList = ({ friendsData }) => {
   let location = useLocation();
@@ -38,8 +39,8 @@ export const FriendsList = ({ friendsData }) => {
             <img
               className="friendsList-card__img"
               alt=""
-              src={data.image}
-            ></img>
+              src={data.image ? data.image : plugCompanie}
+            />
             <h2 className="friendsList-card__title">
               {data.name ? data.name : data.firstName + " " + data.lastName}
             </h2>
