@@ -10,7 +10,7 @@ const News = ({newsData}) => {
   } else if (pathname === "/news") {
     news = newsData.slice(0, 10);
   } else news = newsData.slice(0, 1);
-
+console.log(news)
   for (let i = 0; i < news.length; i++) {
   return (
     <>

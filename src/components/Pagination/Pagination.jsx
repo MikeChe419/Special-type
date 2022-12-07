@@ -15,22 +15,22 @@ const Pagination = ({
     pageNumbers.push(`${i}`);
   }
   return (
-    <nav className="schedule__nav">
-      <div className="schedule__page-conntainer">
+    <nav className="pagination__nav">
+      <div className="pagination__page-conntainer">
         <NavLink
-          className="schedule__pag-btn schedule__reverse-btn"
+          className="pagination__pag-btn pagination__reverse-btn"
           onClick={prevPage}
         ></NavLink>
-        <ul className="schedule__pages-list">
+        <ul className="pagination__pages-list">
           {" "}
           {pageNumbers.map((number) => (
-            <li className="schedule__pages-item" key={number}>
+            <li className="pagination__pages-item" key={number}>
               <NavLink
                 onClick={() => paginate(number)}
                 className={({ isActive }) =>
                   isActive
-                    ? "schedule__pages schedule__pages_active"
-                    : "schedule__pages"
+                    ? "pagination__pages pagination__pages_active"
+                    : "pagination__pages"
                 }
               >
                 {number * 10 - 9 + "-" + number * 10}
@@ -39,7 +39,7 @@ const Pagination = ({
           ))}
         </ul>
         <button
-          className="schedule__pag-btn schedule__forward-btn"
+          className="pagination__pag-btn pagination__forward-btn"
           onClick={nextPage}
         ></button>
       </div>

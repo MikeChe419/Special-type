@@ -15,25 +15,23 @@ export const AllCards = ({
 }) => {
   let location = useLocation();
   let eventsList = cardsData;
- 
-  const [currentEvent, setCurrentEvent] = useState(1);
-  const [currentEventsPage, setCurrentEventPage] = useState([])
-  let eventsCount = 10;
 
-  // console.log(currentEventsPage)
+  const [currentEventsPage, setCurrentEventPage] = useState([])
+  const [currentEvent, setCurrentEvent] = useState(1);
+  const paginate = pageNumber => setCurrentEvent(pageNumber);
+  const nextPage = () => setCurrentEvent((pageNumber) => pageNumber + 1);
+  const prevPage = () => setCurrentEvent((pageNumber) => pageNumber - 1);
+  
   useEffect(() => {
-    
     if(eventsList !== undefined){
     let lastEventIndex = currentEvent * eventsCount;
     let firstEventIndex = lastEventIndex - eventsCount;
     let pages = eventsList.slice(firstEventIndex, lastEventIndex);
-    console.log(pages, 'test')
     setCurrentEventPage(pages)}
-  }, [cardsData, currentEvent]);
+  }, [cardsData, currentEvent, location.pathname]);
 
-  const paginate = pageNumber => setCurrentEvent(pageNumber);
-  const nextPage = () => setCurrentEvent((pageNumber) => pageNumber + 1);
-  const prevPage = () => setCurrentEvent((pageNumber) => pageNumber - 1);
+
+  let eventsCount = 10;
 
   return (
     <section className="allCards">
@@ -45,7 +43,7 @@ export const AllCards = ({
         {location.pathname === "/schedule" ? (
           <ScheduleList
             setItemForRegistration={setItemForRegistration}
-            scheduleData={cardsData}
+            scheduleData={currentEventsPage}
           />
         ) : (
           ""
@@ -53,7 +51,7 @@ export const AllCards = ({
         {location.pathname === "/news" ? <NewsCard newsData={currentEventsPage} /> : ""}
         {location.pathname === "/posters" ? (
           <Poster
-            postersData={cardsData}
+            postersData={currentEventsPage}
             setItemForRegistration={setItemForRegistration}
           />
         ) : (
