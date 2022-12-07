@@ -1,6 +1,6 @@
 import "./Review.sass";
-import getMask from '../../utils/getMask/getMask';
 import { NavLink } from 'react-router-dom';
+import ImageMasked from '../ImageMasked/ImageMasked';
 
 const Review = ({ item }) => {
   return (
@@ -9,12 +9,9 @@ const Review = ({ item }) => {
       <h3 className="review__card-title">{item.user}</h3>
       <p className="review__text">{item.review}</p>
       <NavLink to={`/reviews/${item.id}`} className="review__button">читать дальше </NavLink>
-      <div className="review__image-container">
-        <img className="review__card-img" src={item.image} alt={item.user} />
-      </div>
-      {getMask("review")}
+      <ImageMasked item={item} />
     </li>
   );
-}; 
+};
 
 export default Review;

@@ -25,8 +25,9 @@ const News = ({newsData}) => {
 {
   newsData.news_images.length === 0 ? <img className="news-card__img" alt="" src={newsPlug}/>
   : <img className="news-card__img" alt="" src={newsData.news_images[0].image}/>
-  
+
 }
+
         </li>
       ))}
     </>
