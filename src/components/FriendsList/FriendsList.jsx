@@ -4,6 +4,7 @@ import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import { GoBackButton } from "../GoBackButton/GoBackButton";
 import { useLocation } from "react-router-dom";
 import plugCompanie from "../../assets/images/plugs/plugCompanie.png";
+import ImageMasked from '../ImageMasked/ImageMasked';
 
 export const FriendsList = ({ friendsData }) => {
   let location = useLocation();
@@ -36,11 +37,7 @@ export const FriendsList = ({ friendsData }) => {
       <div className="friendsList__cards">
         {dataList.map((data) => (
           <div className="friendsList-card" key={data.id}>
-            <img
-              className="friendsList-card__img"
-              alt=""
-              src={data.image ? data.image : plugCompanie}
-            />
+            <ImageMasked item={data} lable="company" />
             <h2 className="friendsList-card__title">
               {data.name ? data.name : data.firstName + " " + data.lastName}
             </h2>

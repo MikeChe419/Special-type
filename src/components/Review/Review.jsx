@@ -21,7 +21,7 @@ const Review = ({ dataReviews }) => {
             <NavLink to={`/reviews/${item.id}`} className="review__button">
               читать дальше{" "}
             </NavLink>
-            <ImageMasked item={item} />
+            <ImageMasked item={item} lable="review" />
           </li>
         ))}
       </>

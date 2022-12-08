@@ -27,7 +27,7 @@ const News = ({ newsData }) => {
             >
               читать дальше
             </NavLink>
-            <ImageMasked item={newsData} />
+            <ImageMasked item={newsData} lable="news" />
           </li>
         ))}
       </>

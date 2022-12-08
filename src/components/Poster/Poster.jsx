@@ -14,7 +14,7 @@ const Poster = ({ postersData, setItemForRegistration }) => {
       <>
         {postersData.map((el) => (
           <li className="poster" key={el.id} onClick={() => handleOnClick(el)}>
-            <ImageMasked item={el} />
+            <ImageMasked item={el} lable="poster" />
             <h3 className="poster__title">{el.name}</h3>
             <h5 className="poster__subtitle">Начало:</h5>
             <span className="poster__span">{el.startTime}</span>

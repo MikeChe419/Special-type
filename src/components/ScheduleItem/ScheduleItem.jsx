@@ -14,7 +14,7 @@ const ScheduleItem = ({ scheduleData, setItemForRegistration }) => {
       <>
         {scheduleData.map((event) => (
           <li className="scedule__item" key={event.id} onClick={() => handleOnCLick(event)}>
-            <ImageMasked item={event} />
+            <ImageMasked item={event} lable="schedule" />
             <h3 className="schedule__schedule-item">{event.name}</h3>
             <h5 className="schedule__item-address-head">Адрес проведения</h5>
             <address className="schedule_item-address">{event.address}</address>
