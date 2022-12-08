@@ -4,7 +4,7 @@ import plugNews from "../../assets/images/plugs/plugNews.png";
 
 const News = ({ newsData }) => {
   const { pathname } = useLocation();
-  let news
+  let news;
   if (pathname === "/") {
     news = newsData.slice(0, 3);
   } else if (pathname === "/news") {
@@ -26,16 +26,17 @@ const News = ({ newsData }) => {
             >
               читать дальше
             </NavLink>
-
-            {newsData.news_images.length === 0 ? (
-              <img className="news-card__img" alt="" src={plugNews} />
-            ) : (
-              <img
-                className="news-card__img"
-                alt=""
-                src={newsData.news_images[0].image}
-              />
-            )}
+            <div className="news__image-container">
+              {newsData.news_images.length === 0 ? (
+                <img className="news-card__img" alt="" src={plugNews} />
+              ) : (
+                <img
+                  className="news-card__img"
+                  alt=""
+                  src={newsData.news_images[0].image}
+                />
+              )}
+            </div>
           </li>
         ))}
       </>
