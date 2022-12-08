@@ -12,7 +12,7 @@
 
 .footer__info-block
   display: flex
-  gap: 34px
+  gap: 68px
 
 .footer__info-block-element:hover
   cursor: pointer
@@ -26,11 +26,12 @@
 
 .footer__first-block
   display: flex
-  flex-direction: column
   font-weight: 600
   font-size: 20px
   line-height: 100%
-  margin-right: 136px
+
+.footer__first-block-content
+  margin-left: 34px
 
 .footer__first-block-title
   color: red
@@ -104,11 +105,20 @@
 .footer__law-block
   display: flex
   gap: 89.16px
-  margin: 0 auto 0
+  margin: 0 auto
 
 .footer__law-block-text
   color: rgba(111, 111, 111, 1)
   font-size: 16px
   line-height: 100%
 
+.footer__law-block-link
+  @include textRegular-16
+  display: flex
+  text-decoration: none
+  color: black
+
+.footer__law-block-link:after
+  content: url('../../assets/images/God.png')
+  margin-left: 6px
 

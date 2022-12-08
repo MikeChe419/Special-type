@@ -17,7 +17,6 @@
 .news-card
   max-width: 383px
   list-style: none
-  margin: 0 20px
 
 .news-card__create-date
   @include heading-h3
@@ -33,8 +32,6 @@
   -webkit-line-clamp: 2
   -webkit-box-orient: vertical
   overflow: hidden
-  // overflow: hidden
-  // max-height: 48px
 
 .news-card__text
   @include textRegular-20
@@ -48,8 +45,9 @@
 .news-card__img
   margin: 36px 0 0
   width: 100%
-  height: 335px
   object-fit: cover
+  max-height: 335px
+  height: 100%
 
 .news-card__button
   @include textBold-16
