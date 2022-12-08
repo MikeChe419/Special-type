@@ -1,5 +1,6 @@
 import getMask from '../../utils/getMask/getMask';
 import './ImageMasked.sass';
+import plugSchedule from "../../assets/images/plugs/plugSchedule.png";
 
 // Принимает объект: новость, отзыв и так далее, внутри которого есть id, image и name
 const ImageMasked = ({item}) => {
@@ -13,7 +14,7 @@ const ImageMasked = ({item}) => {
   return (
     <>
       <div className="image-masked__container">
-        <img className="image-masked__img" src={item.image} alt={item.user} style={{ clipPath: `url(#${generateMaskId(item.id)})` }} />
+        <img className="image-masked__img" src={item.image ? item.image : plugSchedule} alt={item.user} style={{ clipPath: `url(#${generateMaskId(item.id)})` }} />
       </div>
       {getMask(generateMaskId(item.id))}
     </>
