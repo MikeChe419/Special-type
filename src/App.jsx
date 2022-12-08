@@ -26,6 +26,7 @@ import tempNews from "./TEMP_NEWS";
 import dataCompany from "./TEMP_COMPANY";
 import dataPeople from "./TEMP_PEOPLE";
 import dataReviews from "./TEMP_REVIEWS";
+import { Preloader } from "./components/Preloader/Preloadex";
 
 function App({ id }) {
   const [itemForRegistration, setItemForRegistration] = useState({});
@@ -39,10 +40,12 @@ function App({ id }) {
   const [playbillData, setPlaybillData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [serverError, setServerError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let reversedNews = [...tempNews].reverse();
-    setNewsData(reversedNews);
+    setNewsData(reversedNews)
+
     // mainApi
     //   .getNews()
     //   .then((res) => {
@@ -88,6 +91,7 @@ function App({ id }) {
 
   return (
     <>
+    {isLoading ? <Preloader /> :  
       <div className="page">
         {!serverError ? (
           <>
@@ -186,6 +190,7 @@ function App({ id }) {
           <img className="serverError" src={serverErrorImg} alt="" />
         )}
       </div>
+      }
     </>
   );
 }
