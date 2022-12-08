@@ -80,7 +80,7 @@ const Footer = () => {
       <div className="footer__law-block">
         <p className="footer__law-block-text">{`© ${new Date().getFullYear()}, Особенный ТИП, все права защищены`}</p>
         <p className="footer__law-block-text">Политика конфиденциальности</p>
-        <a className="footer__law-block-link" href="http://guild-of-developers.ru/" target="_blank">Разработка сайта </a>
+        <a className="footer__law-block-link" href="http://guild-of-developers.ru/" target="_blank"  rel="noreferrer">Разработка сайта </a>
       </div>
     </footer>
   )
