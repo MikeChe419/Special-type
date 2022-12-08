@@ -1,6 +1,7 @@
 import "./NewsCard.sass";
 import { NavLink, useLocation } from "react-router-dom";
 import plugNews from "../../assets/images/plugs/plugNews.png";
+import ImageMasked from '../ImageMasked/ImageMasked';
 
 const News = ({ newsData }) => {
   const { pathname } = useLocation();
@@ -26,17 +27,7 @@ const News = ({ newsData }) => {
             >
               читать дальше
             </NavLink>
-            <div className="news__image-container">
-              {newsData.news_images.length === 0 ? (
-                <img className="news-card__img" alt="" src={plugNews} />
-              ) : (
-                <img
-                  className="news-card__img"
-                  alt=""
-                  src={newsData.news_images[0].image}
-                />
-              )}
-            </div>
+            <ImageMasked item={newsData} />
           </li>
         ))}
       </>

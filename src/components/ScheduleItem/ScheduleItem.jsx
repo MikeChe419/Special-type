@@ -1,6 +1,6 @@
 import "./ScheduleItem.sass";
 import { useNavigate } from 'react-router-dom';
-import plugSchedule from "../../assets/images/plugs/plugSchedule.png";
+import ImageMasked from '../ImageMasked/ImageMasked';
 
 const ScheduleItem = ({ scheduleData, setItemForRegistration }) => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const ScheduleItem = ({ scheduleData, setItemForRegistration }) => {
       <>
         {scheduleData.map((event) => (
           <li className="scedule__item" key={event.id} onClick={() => handleOnCLick(event)}>
-            <img src={event.image? event.image : plugSchedule} alt="" />
+            <ImageMasked item={event} />
             <h3 className="schedule__schedule-item">{event.name}</h3>
             <h5 className="schedule__item-address-head">Адрес проведения</h5>
             <address className="schedule_item-address">{event.address}</address>
