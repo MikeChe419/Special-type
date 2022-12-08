@@ -3,6 +3,7 @@
 
 .contacts
   text-align: center
+  width: 100%
 
 .contacts__title
   @include heading-h1
@@ -11,8 +12,10 @@
 
 .contacts__img
   padding-top: 57px
-  width: 871px
-  object-fit: contain
+  max-width: 871px
+  width: 100%
+  // object-fit: contain
+  margin: 0 60px
 
 .contacts__main
   margin-top: 88px
@@ -24,11 +27,9 @@
   margin-bottom: 128px
 
 .contacts__text-block
-  padding-bottom: 100px
+  padding-bottom: 40px
   border: 2px solid rgba(246, 246, 246, 1)
   color: black
-
-
 
 .contacts__subtitle
   margin: 73px 73px 23px 73px
@@ -38,3 +39,32 @@
   margin: 0 73px
   @include textRegular-20
   text-decoration: none
+
+@media screen and (max-width: 999px)
+  .contacts__text-block
+    padding: 0 40px 36px
+
+  .contacts__img
+    padding-top: 57px
+
+  .contacts__subtitle
+    margin: 36px 60px 12px
+
+  .contacts__text
+    margin: 0 60px
+
+@media screen and (max-width: 500px)
+
+  .contacts__title
+    @include heading-h2
+
+  .contacts__text-block
+    padding: 0 40px 9px
+
+  .contacts__subtitle
+    margin: 32px 28px 16px
+    @include textBold-16
+
+  .contacts__text
+    margin: 0 28px
+    @include textRegular-16

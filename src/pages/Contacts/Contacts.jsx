@@ -1,7 +1,7 @@
 import './Contacts.sass'
 import contacts from '../../assets/images/contacts.png'
 
-
+ 
 const Contacts = () => {
   return (
     <section className='contacts'>
