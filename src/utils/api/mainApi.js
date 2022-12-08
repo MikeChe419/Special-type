@@ -11,12 +11,6 @@ class specialPeopleApi {
     return Promise.reject(`Ошибка ${res.status}`);
   }
 
-  getAnnouncements() {
-    return fetch(`${this._baseUrl}/announcements/`, {
-      headers: this._headers,
-    }).then(this._checkResponse);
-  }
-
   getCompanies() {
     return fetch(`${this._baseUrl}/companies/`, {
       headers: this._headers,

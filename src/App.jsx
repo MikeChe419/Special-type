@@ -32,7 +32,6 @@ function App({ id }) {
   const [itemForRegistration, setItemForRegistration] = useState({});
 
   const [newsData, setNewsData] = useState([]);
-  const [announcementsData, setAnnouncementsData] = useState([]);
   const [companiesData, setCompaniesData] = useState([]);
   const [feedbackData, setFeedbackData] = useState([]);
   const [peopleData, setPeopleData] = useState([]);
@@ -46,22 +45,20 @@ function App({ id }) {
     let reversedNews = [...tempNews].reverse();
     setNewsData(reversedNews)
 
-    // mainApi
-    //   .getNews()
-    //   .then((res) => {
-    //     let newsArray = res.reverse();
-    //     setNewsData(newsArray);
-    //   })
+    mainApi
+      .getNews()
+      .then((res) => {
+        console.log(res)
+      })
     //   .catch((res) => {
     //     console.log(res);
     //     setServerError(true);
     //   });
-    // mainApi.getAnnouncements().then((res) => setAnnouncementsData(res));
-    // mainApi.getCompanies().then((res) => setCompaniesData(res));
-    // mainApi.getFeedback().then((res) => setFeedbackData(res));
-    // mainApi.getPeople().then((res) => setPeopleData(res));
-    // mainApi.getSchedule().then((res) => setScheduleData(res));
-    // mainApi.getPlaybill().then((res) => setPlaybillData(res));
+    // mainApi.getCompanies().then((res) => console.log(res));
+    // mainApi.getFeedback().then((res) => console.log(res));
+    // mainApi.getPeople().then((res) => console.log(res));
+    // mainApi.getSchedule().then((res) => console.log(res));
+    // mainApi.getPlaybill().then((res) => console.log(res));
   }, []);
 
   const handleSearch = (event) => {
