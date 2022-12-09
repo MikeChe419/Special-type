@@ -103,8 +103,6 @@
   width: 40px
   height: 30px
 
-.footer__second-block-phone-text
-
 .footer__second-block-mail-icon
   background-image: url('../../assets/images/footer-mail.svg')
   background-position: center
@@ -157,13 +155,14 @@
   .footer__first-block
     display: grid
     grid-template-columns: repeat(2, 1fr)
-    grid-template-rows: repeat(2, 1fr)
+    grid-template-rows: 1fr
     grid-column-gap: 0px
     grid-row-gap: 0px
 
   .footer__info-block
     flex-direction: column
     align-items: center
+    width: 50%
 
   .footer__law-block
     text-align: center
@@ -182,3 +181,7 @@
 
   .footer__second-block-address-text
     @include textSemiBold-14
+
+  @media screen and (max-width: 600px)
+    .footer__info-block
+      width: 100%
