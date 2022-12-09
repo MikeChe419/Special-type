@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Button = ({ title, width, route }) => {
   return(
     <Link to={route}>
-      <button className="button" style={{'width': `${width}`}} onClick={()=> `${route}`}>{title}</button>
+      <button className="button" onClick={()=> `${route}`}>{title}</button>
     </Link>
   )
 }
