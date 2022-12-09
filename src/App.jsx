@@ -57,9 +57,9 @@ function App({ id }) {
     //     console.log(res);
     //     setServerError(true);
     //   });
-    mainApi.getCompanies().then((res) => setCompaniesData(res));
+    mainApi.getCompanies().then((res) => setCompaniesData(res.results));
     // mainApi.getFeedback().then((res) => console.log(res));
-    mainApi.getPeople().then((res) => setPeopleData(res));
+    mainApi.getPeople().then((res) => setPeopleData(res.results));
     // mainApi.getSchedule().then((res) => console.log(res));
     // mainApi.getPlaybill().then((res) => console.log(res));
   }, []);

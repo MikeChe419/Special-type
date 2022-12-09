@@ -21,10 +21,10 @@ export const AllCards = ({
   const [currentEventsPage, setCurrentEventPage] = useState([]);
   const [currentEvent, setCurrentEvent] = useState(1);
   useEffect(() => {
-    if (cardsData.results) {
+    if (cardsData.length !== undefined) {
       let lastEventIndex = currentEvent * 10;
       let firstEventIndex = lastEventIndex - 10;
-      let pages = cardsData.results.slice(firstEventIndex, lastEventIndex);
+      let pages = cardsData.slice(firstEventIndex, lastEventIndex);
       setCurrentEventPage(pages);
     }
   }, [cardsData, currentEvent]);
