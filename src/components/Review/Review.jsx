@@ -15,9 +15,9 @@ const Review = ({ dataReviews }) => {
       <>
         {reviews.map((item) => (
           <li className="review__card" key={item.id}>
-            <p className="review__create-date">{item.date}</p>
-            <h3 className="review__card-title">{item.user}</h3>
-            <p className="review__text">{item.review}</p>
+            <p className="review__create-date">{item.date.slice(0, 10).replace(/-/g, ".")}</p>
+            <h3 className="review__card-title">{item.name}</h3>
+            <p className="review__text">{item.description}</p>
             <NavLink to={`/reviews/${item.id}`} className="review__button">
               читать дальше{" "}
             </NavLink>

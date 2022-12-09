@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import ImageMasked from '../ImageMasked/ImageMasked';
 
 export const FriendsList = ({ friendsData }) => {
+  console.log(friendsData)
   let location = useLocation();
   const [dataCount, setDataCount] = useState(3);
   const [dataList, setDataList] = useState([]);
@@ -36,7 +37,7 @@ export const FriendsList = ({ friendsData }) => {
           <div className="friendsList-card" key={data.id}>
             <ImageMasked item={data} lable="company" />
             <h2 className="friendsList-card__title">
-              {data.name ? data.name : data.firstName + " " + data.lastName}
+              {data.name ? data.name : data.first_name + " " + data.last_name}
             </h2>
             <p className="friendsList-card__text">{data.description}</p>
           </div>

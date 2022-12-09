@@ -21,12 +21,13 @@ import serverErrorImg from "./assets/images/serverError.jpg";
 import Volunteering from "./pages/Volunteering/Volunteering";
 
 ///временные данные
-import dataEvent from "./TEMP_EVENT";
-import dataPosters from "./TEMP_DATA_POSTERS";
-import tempNews from "./TEMP_NEWS";
-import dataCompany from "./TEMP_COMPANY";
-import dataPeople from "./TEMP_PEOPLE";
-import dataReviews from "./TEMP_REVIEWS";
+// import dataEvent from "./TEMP_EVENT";
+// import dataPosters from "./TEMP_DATA_POSTERS";
+// import tempNews from "./TEMP_NEWS";
+// import dataCompany from "./TEMP_COMPANY";
+// import dataPeople from "./TEMP_PEOPLE";
+// import dataReviews from "./TEMP_REVIEWS";
+///временные данные
 import { Preloader } from "./components/Preloader/Preloadex";
 
 function App({ id }) {
@@ -42,26 +43,24 @@ function App({ id }) {
   const [serverError, setServerError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-
-  console.log(peopleData)
   useEffect(() => {
-    let reversedNews = [...tempNews].reverse();
-    setNewsData(reversedNews);
+    // let reversedNews = [...tempNews].reverse();
+    // setNewsData(reversedNews);
 
-    // mainApi
-    //   .getNews()
-    //   .then((res) => {
-    //     console.log(res)
-    //   })
-    //   .catch((res) => {
-    //     console.log(res);
-    //     setServerError(true);
-    //   });
+    mainApi
+      .getNews()
+      .then((res) => {
+        setNewsData(res.results)
+      })
+      .catch((res) => {
+        console.log(res);
+        setServerError(true);
+      });
     mainApi.getCompanies().then((res) => setCompaniesData(res.results));
-    // mainApi.getFeedback().then((res) => console.log(res));
+    mainApi.getFeedback().then((res) => setFeedbackData(res.results));
     mainApi.getPeople().then((res) => setPeopleData(res.results));
-    // mainApi.getSchedule().then((res) => console.log(res));
-    // mainApi.getPlaybill().then((res) => console.log(res));
+    mainApi.getSchedule().then((res) => setScheduleData(res.results));
+    mainApi.getPlaybill().then((res) => setPlaybillData(res.results));
   }, []);
 
   const handleSearch = (event) => {
@@ -77,16 +76,16 @@ function App({ id }) {
     } else return newsData;
   });
 
-  const showSearchedPosters = dataPosters.filter((data) => {
+  const showSearchedPosters = playbillData.filter((data) => {
     if (searchValue !== "") {
       return data.name.toLowerCase().includes(searchValue);
-    } else return dataPosters;
+    } else return playbillData;
   });
 
-  const showSearchedSchedule = dataEvent.filter((data) => {
+  const showSearchedSchedule = scheduleData.filter((data) => {
     if (searchValue !== "") {
       return data.name.toLowerCase().includes(searchValue);
-    } else return dataEvent;
+    } else return scheduleData;
   });
 
   return (
@@ -102,7 +101,7 @@ function App({ id }) {
                 <Routes>
                   <Route
                     element={
-                      <Main newsData={newsData} dataReviews={dataReviews} />
+                      <Main newsData={newsData} dataReviews={feedbackData} />
                     }
                     exact
                     path="/"
@@ -162,7 +161,7 @@ function App({ id }) {
                   />
                   <Route
                     element={
-                      <AllCards cardsData={dataReviews} title="ОТЗЫВЫ" />
+                      <AllCards cardsData={feedbackData} title="ОТЗЫВЫ" />
                     }
                     exact
                     path="/reviews"

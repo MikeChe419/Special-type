@@ -19,8 +19,8 @@ const News = ({ newsData }) => {
             <p className="news-card__create-date">
               {newsData.date.slice(0, 10).replace(/-/g, ".")}
             </p>
-            <h3 className="news-card__title">{newsData.header}</h3>
-            <p className="news-card__text">{newsData.news_full_text}</p>
+            <h3 className="news-card__title">{newsData.name}</h3>
+            <p className="news-card__text">{newsData.description}</p>
             <NavLink
               to={`/singlenews/${newsData.id}`}
               className="news-card__button"
