@@ -13,13 +13,13 @@ export const SingleNews = ({ newsData }) => {
       <GoBackButton label="Вернуться к списку новостей" />
       <section className="singleNews">
         {news ? (
-          <div className="singleNews__card" key={news.header}>
+          <div className="singleNews__card" key={news.id}>
             <div className="singleNews__text-block">
               <p className="singleNews__create-date">
-                {news.date.slice(0, 10).replace(/-/g, ".")}
+              {news.date ? news.date.slice(0, 10).replace(/-/g, ".") : ''}
               </p>
-              <h3 className="singleNews__title">{news.header}</h3>
-              <p className="singleNews__text">{news.news_full_text}</p>
+              <h3 className="singleNews__title">{news.name}</h3>
+              <p className="singleNews__text">{news.description}</p>
               {news.video ? (
                 <iframe
                   className="singleNews__video"
@@ -34,14 +34,14 @@ export const SingleNews = ({ newsData }) => {
               )}
             </div>
             <div className="singleNews__img-block">
-              {news.news_images.length === 0 ? (
+              {news.images.length === 0 ? (
                 <img className="singleNews__img" alt="" src={plugNews} />
               ) : (
-                news.news_images.map((el) => (
+                news.images.map((el) => (
                   <img className="singleNews__img" alt="" src={el.image} />
                 ))
               )}
-              <img className="singleNews__img" alt="" src={news.news_images} />
+              <img className="singleNews__img" alt="" src={news.images} />
             </div>
           </div>
         ) : (

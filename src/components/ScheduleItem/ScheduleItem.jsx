@@ -19,7 +19,7 @@ const ScheduleItem = ({ scheduleData, setItemForRegistration }) => {
             <h5 className="schedule__item-address-head">Адрес проведения</h5>
             <address className="schedule_item-address">{event.address}</address>
             <h5 className="schedule__item-time-head">Время проведения</h5>
-            <span className="schedule__item-time">{event.time}</span>
+            <span className="schedule__item-time">ВЫСТАВИТЬ ВРЕМЯ, ЕП!</span>
           </li>
         ))}
       </>

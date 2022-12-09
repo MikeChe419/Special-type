@@ -166,7 +166,7 @@ function App({ id }) {
                     exact
                     path="/reviews"
                   />
-                  <Route element={<ReviewSingle />} exact path="/reviews/:id" />
+                  <Route element={<ReviewSingle dataReviews={feedbackData}/>} exact path="/reviews/:id" />
                   <Route
                     element={<AddReview />}
                     exact
