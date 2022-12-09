@@ -18,6 +18,7 @@ import { mainApi } from "./utils/api/mainApi";
 import AddReview from "./pages/AddReview/AddReview";
 import { AllCards } from "./pages/AllCards/AllCards";
 import serverErrorImg from "./assets/images/serverError.jpg";
+import Volunteering from "./pages/Volunteering/Volunteering";
 
 ///временные данные
 import dataEvent from "./TEMP_EVENT";
@@ -88,7 +89,7 @@ function App({ id }) {
 
   return (
     <>
-    {isLoading ? <Preloader /> :  
+    {isLoading ? <Preloader /> :
       <div className="page">
         {!serverError ? (
           <>
@@ -142,6 +143,7 @@ function App({ id }) {
                 <Route element={<Friends />} exact path="/friends" />
                 <Route element={<Contacts />} exact path="/contacts" />
                 <Route element={<Help />} exact path="/help" />
+                <Route element={<Volunteering />} path='/help/volunteering' />
                 <Route
                   exact
                   path="/singlenews/:id"
