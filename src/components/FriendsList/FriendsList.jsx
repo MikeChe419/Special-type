@@ -3,17 +3,14 @@ import { useState, useEffect } from "react";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import { GoBackButton } from "../GoBackButton/GoBackButton";
 import { useLocation } from "react-router-dom";
-import plugCompanie from "../../assets/images/plugs/plugCompanie.png";
 import ImageMasked from '../ImageMasked/ImageMasked';
 
 export const FriendsList = ({ friendsData }) => {
   let location = useLocation();
-
   const [dataCount, setDataCount] = useState(3);
   const [dataList, setDataList] = useState([]);
   const isTablet = useMediaQuery("(max-width: 999px)");
   const isMobile = useMediaQuery("(max-width: 500px)");
-
   useEffect(() => {
     if (isMobile) {
       setDataCount(4);
@@ -41,7 +38,7 @@ export const FriendsList = ({ friendsData }) => {
             <h2 className="friendsList-card__title">
               {data.name ? data.name : data.firstName + " " + data.lastName}
             </h2>
-            <p className="friendsList-card__text">{data.text}</p>
+            <p className="friendsList-card__text">{data.description}</p>
           </div>
         ))}
       </div>
