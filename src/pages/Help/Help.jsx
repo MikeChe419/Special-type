@@ -27,10 +27,10 @@ const Help = () => {
           <h3 className='help__item-title'>Сделать пожертвование</h3>
           <p className='help__item-descr'>Вы можете внести пожертвование любым способом - все средства идут на развите нашего проекта.</p>
           <img className='help__item-img' src={Pay} alt="Пожертвования" />
-          <Button 
+          <Button
           // title='Помочь'
           title='Временно невозможно'
-           width='287px' 
+           width='287px'
           // route ='/payment'
           />
         </li>
@@ -38,7 +38,7 @@ const Help = () => {
           <h3 className='help__item-title'>Стать волонтером</h3>
           <p className='help__item-descr'>Вы можете внести пожертвование любым способом - все средства идут на развите нашего проекта.</p>
           <img className='help__item-img' src={Volonter} alt="Волонтеры"/>
-          <Button title='Помочь' width='287px' route ='/help'/>
+          <Button title='Помочь' width='287px' route ='/help/volunteering'/>
         </li>
       </ul>
   </section>
