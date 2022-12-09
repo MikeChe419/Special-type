@@ -4,6 +4,7 @@
 .contacts
   text-align: center
   width: 100%
+  margin: 57px 60px 0
 
 .contacts__title
   @include heading-h1
@@ -11,19 +12,17 @@
   margin: 64px 0 0
 
 .contacts__img
-  padding-top: 57px
   max-width: 871px
   width: 100%
-  margin: 0 60px
+  padding: 0 60px
 
 .contacts__main
   margin-top: 88px
-  min-width: 100%
   max-width: 1028px
   box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.1)
   border-radius: 30px
   text-align: left
-  margin-bottom: 128px
+  margin: 0 60px 128px
 
 .contacts__text-block
   padding-bottom: 40px
@@ -50,20 +49,34 @@
     margin: 36px 60px 12px
 
   .contacts__text
-    margin: 0 60px
+    margin: 0
 
 @media screen and (max-width: 500px)
+
+  .contacts__main
+    margin: 0 20px 68px
+
+  .contacts
+    margin: 33px 30px 0
+
+  .contacts__title
+    @include heading-h1
+    color: rgba(243, 66, 71, 1)
+    margin: 0
+
+  .contacts__img
+    padding: 32px 33px 88px
 
   .contacts__title
     @include heading-h2
 
   .contacts__text-block
-    padding: 0 40px 9px
+    padding: 0 28px 9px
 
   .contacts__subtitle
-    margin: 32px 28px 16px
+    margin: 32px 0 16px
     @include textBold-16
 
   .contacts__text
-    margin: 0 28px
+    margin: 0
     @include textRegular-16
