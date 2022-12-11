@@ -46,6 +46,15 @@ class specialPeopleApi {
       headers: this._headers,
     }).then(this._checkResponse);
   }
+
+  postFeedback(feedback){
+    return fetch(`${this._baseUrl}/feedback/`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify(feedback),
+    }).then(this._checkResponse);
+  }
+
 }
 export const mainApi = new specialPeopleApi({
   baseUrl: "http://135.181.198.180:8080/api",
