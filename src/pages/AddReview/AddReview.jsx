@@ -41,6 +41,15 @@ const AddReview = () => {
                   },
                 })}
               />
+              {errors.name ? (
+                <p role="alert" className="add-review__error-text">
+                  {errors.name?.message}
+                </p>
+              ) : (
+                <p role="alert" className="add-review__error-text_hidden">
+                  1
+                </p>
+              )}
             </label>
             <label className="add-review__form-lable">
               Описание
@@ -59,6 +68,15 @@ const AddReview = () => {
                   },
                 })}
               />
+              {errors.text ? (
+                <p role="alert" className="add-review__error-text">
+                  {errors.text?.message}
+                </p>
+              ) : (
+                <p role="alert" className="add-review__error-text_hidden">
+                  1
+                </p>
+              )}
             </label>
             <UpLoad />
           </div>

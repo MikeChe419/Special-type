@@ -2,6 +2,7 @@ import "./ReviewSingle.sass";
 import { useParams } from "react-router-dom";
 import getMask from "../../utils/getMask/getMask";
 import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
+import ImageMasked from '../../components/ImageMasked/ImageMasked';
 
 const ReviewSingle = ({dataReviews}) => {
   const { id } = useParams();
@@ -21,11 +22,7 @@ const ReviewSingle = ({dataReviews}) => {
             <p className="review-single__text">{review.description}</p>
           </div>
           <div className="review-single__image-container">
-            <img
-              className="review-single__card-img"
-              src={review.images}
-              alt={review.name}
-            />
+            <ImageMasked item={review} />
           </div>
         </div>
         {getMask("review")}
