@@ -19,6 +19,7 @@ import AddReview from "./pages/AddReview/AddReview";
 import { AllCards } from "./pages/AllCards/AllCards";
 import serverErrorImg from "./assets/images/serverError.jpg";
 import Volunteering from "./pages/Volunteering/Volunteering";
+import Modal from "./components/Modal/Modal"
 
 ///временные данные
 // import dataEvent from "./TEMP_EVENT";
@@ -42,6 +43,8 @@ function App({ id }) {
   const [searchValue, setSearchValue] = useState("");
   const [serverError, setServerError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isOpened, setIsOpened] = useState(false);
+  const [dataForModal, setDataForModal] = useState({})
 
   useEffect(() => {
     // let reversedNews = [...tempNews].reverse();
@@ -87,6 +90,12 @@ function App({ id }) {
       return data.name.toLowerCase().includes(searchValue);
     } else return scheduleData;
   });
+
+  // Обработчик клика по картинке в отдельном ревью для открытия модального окна с фото
+  const handleClickOpenModal = (data = {}) => {
+    setDataForModal(data)
+    setIsOpened(!isOpened);
+  }
 
   return (
     <>
@@ -166,7 +175,7 @@ function App({ id }) {
                     exact
                     path="/reviews"
                   />
-                  <Route element={<ReviewSingle dataReviews={feedbackData}/>} exact path="/reviews/:id" />
+                  <Route element={<ReviewSingle dataReviews={feedbackData} handleClickOpenModal={handleClickOpenModal} />} exact path="/reviews/:id" />
                   <Route
                     element={<AddReview />}
                     exact
@@ -189,6 +198,7 @@ function App({ id }) {
               </div>
               <NavigationBlock />
               <Footer />
+              <Modal isOpened={isOpened} handleClickOpenModal={handleClickOpenModal} />
             </>
           ) : (
             <img className="serverError" src={serverErrorImg} alt="" />

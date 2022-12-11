@@ -4,10 +4,13 @@ import getMask from "../../utils/getMask/getMask";
 import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 import ImageMasked from '../../components/ImageMasked/ImageMasked';
 
-const ReviewSingle = ({dataReviews}) => {
+const ReviewSingle = ({dataReviews, handleClickOpenModal}) => {
   const { id } = useParams();
-  console.log(dataReviews)
   const review = dataReviews.find((item) => item.id == id);
+
+  const onClick = () => {
+    handleClickOpenModal(review)
+  }
 
   return (
     <>
@@ -21,7 +24,7 @@ const ReviewSingle = ({dataReviews}) => {
             </h3>
             <p className="review-single__text">{review.description}</p>
           </div>
-          <div className="review-single__image-container">
+          <div className="review-single__image-container" onClick={onClick}>
             <ImageMasked item={review} />
           </div>
         </div>
