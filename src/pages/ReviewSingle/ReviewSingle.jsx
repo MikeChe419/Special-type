@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import getMask from "../../utils/getMask/getMask";
 import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 import ImageMasked from "../../components/ImageMasked/ImageMasked";
+import { NotFound } from "../../components/NotFound/NotFound";
 
 const ReviewSingle = ({ dataReviews, handleClickOpenModal }) => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const ReviewSingle = ({ dataReviews, handleClickOpenModal }) => {
     <>
       <GoBackButton label="Отзывы / Подробный отзыв" />
       <section className="review-single">
-        {review && (
+        {review ? (
           <div className="review-single__block">
             <div className="review-single__review-block">
               <h2 className="review-single__date">
@@ -31,6 +32,8 @@ const ReviewSingle = ({ dataReviews, handleClickOpenModal }) => {
               <ImageMasked item={review} />
             </div>
           </div>
+        ):(
+          <NotFound />
         )}
         {getMask("review")}
       </section>

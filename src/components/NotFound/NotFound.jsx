@@ -7,7 +7,7 @@ export const NotFound = () => {
   const navigate = useNavigate();
 
   return (
-    <div className='nonFound'>
+    <div className='notFound'>
       <img src={notFound} alt="" className='notFound__img'/>
       <h1 className='notFound__title'>Что-то пошло не так...</h1>
       <div className="notFound__buttons">

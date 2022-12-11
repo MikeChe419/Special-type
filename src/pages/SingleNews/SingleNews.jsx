@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import "./SingleNews.sass";
 import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 import plugNews from "../../assets/images/plugs/plugNews.png";
+import { NotFound } from "../../components/NotFound/NotFound";
 
 export const SingleNews = ({ newsData }) => {
   let { id } = useParams();
@@ -30,7 +31,7 @@ export const SingleNews = ({ newsData }) => {
                   allowFullScreen
                 ></iframe>
               ) : (
-                ""
+                <NotFound />
               )}
             </div>
             <div className="singleNews__img-block">

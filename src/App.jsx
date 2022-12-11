@@ -9,7 +9,7 @@ import Friends from "./pages/Friends/Friends";
 import Contacts from "./pages/Contacts/Contacts";
 import Help from "./pages/Help/Help";
 import { SingleNews } from "./pages/SingleNews/SingleNews";
-import { NotFound } from "./pages/NotFound/NotFound";
+import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 import Registration from "./pages/Registration/Registration";
 import ReviewSingle from "./pages/ReviewSingle/ReviewSingle";
 import { Payment } from "./pages/Payment/Payment";
@@ -181,7 +181,7 @@ function App({ id }) {
                     exact
                     path="/reviews/add-review"
                   />
-                  <Route path="*" element={<NotFound />} />
+                  <Route path="*" element={<NotFoundPage />} />
                   <Route
                     path="/companies"
                     element={
