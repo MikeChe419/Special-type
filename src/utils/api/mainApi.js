@@ -50,8 +50,7 @@ class specialPeopleApi {
   postFeedback(feedback){
     return fetch(`${this._baseUrl}/feedback/`, {
       method: "POST",
-      headers: this._headers,
-      body: JSON.stringify(feedback),
+      body: feedback,
     }).then(this._checkResponse);
   }
 

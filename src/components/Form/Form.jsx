@@ -1,5 +1,6 @@
 import "./Form.sass";
 import { useForm } from "react-hook-form";
+import { nameRegExp, descriptionRegExp, emailRegExp, phoneRegExp } from '../../utils/regExp';
 
 const Form = ({ itemForRegistration }) => {
   const {
@@ -60,7 +61,7 @@ const Form = ({ itemForRegistration }) => {
                 message: "Не более 30 символов",
               },
               pattern: {
-                value: /^([а-яё\s]+|[a-z\s]+)$/iu,
+                value: nameRegExp,
                 message: "Допустимы только русские или английские буквы",
               },
             })}
@@ -87,7 +88,7 @@ const Form = ({ itemForRegistration }) => {
                 message: "Не более 30 символов",
               },
               pattern: {
-                value: /^([а-яё\s]+|[a-z\s]+)$/iu,
+                value: nameRegExp,
                 message: "Допустимы только русские или английские буквы",
               },
             })}
@@ -114,7 +115,7 @@ const Form = ({ itemForRegistration }) => {
                 message: "Не более 12 символов",
               },
               pattern: {
-                value: /^((8|\+7)[- ]?)?(\(?\d{3}\)?[- ]?)?[\d\- ]{7,10}$/,
+                value: phoneRegExp,
                 message: "Введите корректный номер телефона",
               },
             })}
@@ -140,8 +141,7 @@ const Form = ({ itemForRegistration }) => {
                 message: "Не более 50 символов",
               },
               pattern: {
-                value:
-                  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu,
+                value: emailRegExp,
                 message: "Введите корректный адрес электронной почты",
               },
             })}
@@ -167,7 +167,7 @@ const Form = ({ itemForRegistration }) => {
                 message: "Не более 200 символов",
               },
               pattern: {
-                value: /^([а-яё\s]+|[a-z\s]+)$/iu,
+                value: descriptionRegExp,
                 message: "Допустимы только русские или английские буквы",
               },
             })}

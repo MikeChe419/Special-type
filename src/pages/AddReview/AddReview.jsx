@@ -2,8 +2,15 @@ import "./AddReview.sass";
 import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 import { useForm } from "react-hook-form";
 import UpLoad from "../../components/UpLoad/UpLoad";
+import { useNavigate } from 'react-router-dom';
+import { mainApi } from '../../utils/api/mainApi';
+import { useState } from 'react';
+import { nameRegExp, descriptionRegExp } from '../../utils/regExp';
 
 const AddReview = () => {
+  const navigate = useNavigate();
+  const [imageUpload, setImageUpload] = useState(null)
+
   const {
     register,
     handleSubmit,
@@ -13,8 +20,19 @@ const AddReview = () => {
   });
 
   const onSubmit = (data) => {
-    alert(JSON.stringify(data));
+
+    const formData = new FormData();
+
+    formData.append("images", imageUpload);
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+
+    mainApi.postFeedback(formData)
+    .then(res => navigate('/reviews'))
+    .catch(err => console.log(err))
   };
+
+  console.log(imageUpload)
 
   return (
     <>
@@ -28,6 +46,7 @@ const AddReview = () => {
               <input
                 className="add-review__input-name"
                 placeholder="Введите"
+                autoFocus={true}
                 type="text"
                 {...register("name", {
                   required: "Обязательное поле",
@@ -36,7 +55,7 @@ const AddReview = () => {
                     message: "Не более 50 символов",
                   },
                   pattern: {
-                    value: /^([а-яё\s]+|[a-z\s]+)$/iu,
+                    value: nameRegExp,
                     message: "Допустимы только русские или английские буквы",
                   },
                 })}
@@ -56,21 +75,21 @@ const AddReview = () => {
               <textarea
                 className="add-review__input-review"
                 placeholder="Начните вводить..."
-                {...register("text", {
+                {...register("description", {
                   required: "Обязательное поле",
                   maxLength: {
                     value: 500,
                     message: "Не более 500 символов",
                   },
                   pattern: {
-                    value: /^([а-яё\s]+|[a-z\s]+)$/iu,
+                    value: descriptionRegExp,
                     message: "Допустимы только русские или английские буквы",
                   },
                 })}
               />
               {errors.text ? (
                 <p role="alert" className="add-review__error-text">
-                  {errors.text?.message}
+                  {errors.description?.message}
                 </p>
               ) : (
                 <p role="alert" className="add-review__error-text_hidden">
@@ -78,7 +97,7 @@ const AddReview = () => {
                 </p>
               )}
             </label>
-            <UpLoad />
+            <UpLoad setImageUpload={setImageUpload} />
           </div>
           <button
             className={`add-review__form-submit ${

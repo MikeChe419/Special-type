@@ -1,6 +1,5 @@
 import "./NewsCard.sass";
 import { NavLink, useLocation } from "react-router-dom";
-import plugNews from "../../assets/images/plugs/plugNews.png";
 import ImageMasked from '../ImageMasked/ImageMasked';
 
 const News = ({ newsData }) => {
