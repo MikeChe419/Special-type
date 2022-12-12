@@ -3,14 +3,14 @@ import { useState, useRef } from "react";
 import { useEffect } from 'react';
 import getMask from '../../utils/getMask/getMask';
 
-const UpLoad = () => {
+const UpLoad = ({setImageUpload}) => {
   const filePicker = useRef(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
-  const [upload, setUpload] = useState();
 
   const handleChange = (event) => {
     setSelectedFile(event.target.files[0]);
+    setImageUpload(event.target.files[0])
   };
 
   // Обработчик загрузки картинки
@@ -21,28 +21,7 @@ const UpLoad = () => {
   const handleDelete = () => {
     setSelectedFile(null);
     setPreview(null);
-  }
-
-  // Обработчик отправки файла на сервер
-  const handleUpload = async () => {
-    if (!selectedFile) {
-      alert("Please, select file!");
-      return;
-    };
-
-    const formData = new FormData();
-    formData.append("file", selectedFile);
-
-    alert('Картинка отправлена на сервер!!!')
-
-    // *** Логика отправки файла на сервер ***
-    // const res = await fetch("url", {
-    // method: "POST",
-    // body: formData,
-    // });
-    // const data = await res.json();
-    // setUpload(data);
-
+    setImageUpload(null);
   }
 
   // Обработчик отображения привью загруженной картинки
