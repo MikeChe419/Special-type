@@ -161,11 +161,11 @@ const PayForm = () => {
                     <div className="payment__checkbox-wrapper">
                         <label className="check-label one-check" htmlFor="one-time">Разово
                             <input className="check" type="checkbox" id="one-time" />
-                            <span class="check-decor-span"></span>
+                            <span className="check-decor-span"></span>
                         </label>
                         <label className="check-label" htmlFor="one-month">Ежемесячно
                             <input className="check" type="checkbox" id="one-month" />
-                            <span class="check-decor-span"></span>
+                            <span className="check-decor-span"></span>
                         </label>
                     </div>
                     <div className="payment__comment-wrapper">
