@@ -5,6 +5,7 @@ import UpLoad from "../../components/UpLoad/UpLoad";
 import { useNavigate } from 'react-router-dom';
 import { mainApi } from '../../utils/api/mainApi';
 import { useState } from 'react';
+import { nameRegExp, descriptionRegExp } from '../../utils/regExp';
 
 const AddReview = () => {
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ const AddReview = () => {
                     message: "Не более 50 символов",
                   },
                   pattern: {
-                    value: /^[a-z0-9а-яё; .,-]+$/iu,
+                    value: nameRegExp,
                     message: "Допустимы только русские или английские буквы",
                   },
                 })}
@@ -81,7 +82,7 @@ const AddReview = () => {
                     message: "Не более 500 символов",
                   },
                   pattern: {
-                    value: /^[a-z0-9а-яё; .,-]+$/iu,
+                    value: descriptionRegExp,
                     message: "Допустимы только русские или английские буквы",
                   },
                 })}
