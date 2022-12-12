@@ -40,7 +40,7 @@ const Header = () => {
           ) : (
             <>
               {" "}
-              <Button title="Помочь" width="147px" route="/help" />{" "}
+              <Button title="Помочь" width="100px" route="/help" />{" "}
               <BurgerMenu />{" "}
             </>
           )}

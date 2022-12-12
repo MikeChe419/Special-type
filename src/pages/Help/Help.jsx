@@ -4,6 +4,7 @@ import './Help.sass'
 import Button from '../../components/Button/Button';
 import Pay from "../../assets/images/Pay.png";
 import Volonter from "../../assets/images/Volonter.png";
+import PayForm from '../../components/PayForm/PayForm';
 
 const Help = () => {
   return (
@@ -28,10 +29,9 @@ const Help = () => {
           <p className='help__item-descr'>Вы можете внести пожертвование любым способом - все средства идут на развите нашего проекта.</p>
           <img className='help__item-img' src={Pay} alt="Пожертвования" />
           <Button
-          // title='Помочь'
-          title='Временно невозможно'
-           width='287px'
-          // route ='/payment'
+          title='Помочь'
+          width='287px'
+          route ='/payment'
           />
         </li>
         <li className='help__method'>

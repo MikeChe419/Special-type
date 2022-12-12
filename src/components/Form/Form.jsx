@@ -105,7 +105,7 @@ const Form = ({ itemForRegistration }) => {
           <input
             className="form__input-field"
             placeholder="+7 (ххх) ххх-хх-хх"
-            type="number"
+            type="tel"
             name="phoneNumber"
             {...register("phoneNumber", {
               required: "Обязательное поле",

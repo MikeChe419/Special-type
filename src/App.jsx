@@ -12,7 +12,6 @@ import { SingleNews } from "./pages/SingleNews/SingleNews";
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 import Registration from "./pages/Registration/Registration";
 import ReviewSingle from "./pages/ReviewSingle/ReviewSingle";
-import { Payment } from "./pages/Payment/Payment";
 import { Thanks } from "./pages/Thanks/Thanks";
 import { mainApi } from "./utils/api/mainApi";
 import AddReview from "./pages/AddReview/AddReview";
@@ -20,6 +19,7 @@ import { AllCards } from "./pages/AllCards/AllCards";
 import serverErrorImg from "./assets/images/serverError.jpg";
 import Volunteering from "./pages/Volunteering/Volunteering";
 import Modal from "./components/Modal/Modal"
+import Payment from "./pages/Payment/Payment";
 
 ///временные данные
 // import dataEvent from "./TEMP_EVENT";
@@ -156,6 +156,7 @@ function App({ id }) {
                   <Route element={<Contacts />} exact path="/contacts" />
                   <Route element={<Help />} exact path="/help" />
                   <Route element={<Volunteering />} path="/help/volunteering" />
+                  <Route element={<Payment />} path="/payment" />
                   <Route
                     exact
                     path="/singlenews/:id"
@@ -192,7 +193,6 @@ function App({ id }) {
                     path="/people"
                     element={<AllCards cardsData={peopleData} title="ЛЮДИ" />}
                   />
-                  <Route path="/payment" element={<Payment />} />
                   <Route path="/thanks" element={<Thanks />} />
                 </Routes>
               </div>
