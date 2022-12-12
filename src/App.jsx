@@ -33,13 +33,12 @@ import { Preloader } from "./components/Preloader/Preloadex";
 
 function App({ id }) {
   const [itemForRegistration, setItemForRegistration] = useState({});
-
-  const [newsData, setNewsData] = useState([]);
-  const [companiesData, setCompaniesData] = useState([]);
-  const [feedbackData, setFeedbackData] = useState([]);
-  const [peopleData, setPeopleData] = useState([]);
-  const [scheduleData, setScheduleData] = useState([]);
-  const [playbillData, setPlaybillData] = useState([]);
+  const [newsData, setNewsData] = useState([]); //массив 
+  const [companiesData, setCompaniesData] = useState([]); //объект
+  const [feedbackData, setFeedbackData] = useState([]); //объект
+  const [peopleData, setPeopleData] = useState([]); //объект
+  const [scheduleData, setScheduleData] = useState([]); //нет images
+  const [playbillData, setPlaybillData] = useState([]); //нет images
   const [searchValue, setSearchValue] = useState("");
   const [serverError, setServerError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
