@@ -51,7 +51,6 @@ const itemImgString = (images) => {
 
 // Основная функция
 export const changeUrl = (images) => {
-    console.log(images)
   if (isObject(images)) {
     return itemImgObject(images);
   } else if (isArray(images)) {
