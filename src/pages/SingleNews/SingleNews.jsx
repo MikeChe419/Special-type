@@ -31,7 +31,7 @@ export const SingleNews = ({ newsData }) => {
                   allowFullScreen
                 ></iframe>
               ) : (
-                <NotFound />
+                ""
               )}
             </div>
             <div className="singleNews__img-block">
@@ -39,14 +39,14 @@ export const SingleNews = ({ newsData }) => {
                 <img className="singleNews__img" alt="" src={plugNews} />
               ) : (
                 news.images.map((el) => (
-                  <img className="singleNews__img" alt="" src={el.image} />
+                  <img className="singleNews__img" alt="" src={`http://135.181.198.180:8080${el.image.slice(22, 2000)}`} />
                 ))
               )}
               <img className="singleNews__img" alt="" src={news.images} />
             </div>
           </div>
         ) : (
-          ""
+          <NotFound />
         )}
       </section>
     </>
