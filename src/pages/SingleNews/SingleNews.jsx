@@ -9,7 +9,7 @@ export const SingleNews = ({ newsData }) => {
   let { id } = useParams();
 
   const news = newsData.find((item) => item.id == id);
-  const isMobile = useMediaQuery("(max-width: 500px)");
+  const isMobile = useMediaQuery("(max-width: 600px)");
 
   return (
     <>

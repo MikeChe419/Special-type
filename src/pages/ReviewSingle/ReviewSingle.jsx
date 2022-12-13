@@ -9,7 +9,7 @@ import useMediaQuery from "../../utils/hooks/useMediaQuery";
 const ReviewSingle = ({ dataReviews, handleClickOpenModal }) => {
   const { id } = useParams();
   const review = dataReviews.find((item) => item.id == id);
-  const isMobile = useMediaQuery("(max-width: 500px)");
+  const isMobile = useMediaQuery("(max-width: 600px)");
 
   const onClick = () => {
     handleClickOpenModal(review);

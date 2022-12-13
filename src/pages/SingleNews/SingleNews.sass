@@ -5,7 +5,7 @@
   margin: 43px 0 0
   justify-content: space-between
   display: flex
-  width: 1200px
+  width: 100%
   position: relative
   padding-bottom: 127px
 
@@ -13,6 +13,7 @@
   display: flex
   justify-content: space-between
   width: 100%
+  padding: 0 56px
 
 .singleNews__create-date
   @include heading-h3
@@ -26,7 +27,7 @@
 .singleNews__text
   @include textRegular-20
   margin: 32px 0
- 
+
 .singleNews__video
   width: 560px
   height: 315px
@@ -45,5 +46,18 @@
   box-sizing: content-box
   overflow: hidden
 
-
 @media screen and (max-width: 999px)
+  .singleNews__text
+    @include textRegular-16
+  .singleNews__title
+    @include heading-h3
+
+  .singleNews
+    padding-bottom: 136px
+
+@media screen and (max-width: 500px)
+  .singleNews__text
+    @include textRegular-14
+
+  .singleNews
+    padding-bottom: 109px
