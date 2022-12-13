@@ -1,32 +1,64 @@
-import './Slider.sass'
-import { slides as img } from '../../utils/constants';
-import { useEffect, useState } from 'react';
+import "./Slider.sass";
+import { useEffect, useState } from "react";
+import { changeUrl } from "../../utils/changeUrl";
+import { getPlug } from '../../utils/getPlug';
 
+const Slider = ({ data }) => {
+    console.log(data, 'slider')
+  const { images, name } = data;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [img, setImg] = useState();
 
-const Slider = ({activeIndex, img = []}) => {
+  // Вычисляем индекс предыдущего слайда
+  const prevImgIndex = activeIndex ? activeIndex - 1 : img?.length - 1;
+  // Вычисляем индекс следующего слайда
+  const nextImgIndex = activeIndex === img?.length - 1 ? 0 : activeIndex + 1;
 
-// Вычисляем индекс предыдущего слайда
-const prevImgIndex = activeIndex ? activeIndex - 1 : img?.length - 1
-// Вычисляем индекс следующего слайда
-const nextImgIndex = activeIndex === img?.length - 1 ? 0 : activeIndex + 1
+  const handleClickNext = () => {
+    if (activeIndex >= img.length - 1) {
+      return;
+    }
+    setActiveIndex(activeIndex + 1);
+  };
 
+  const handleClickPrev = () => {
+    if (activeIndex === 0) {
+      return;
+    }
+    setActiveIndex(activeIndex - 1);
+  };
 
-return (
-  <div className="slider">
-      <div className="slider-img slider-img-prev"
-              key={prevImgIndex}>
-          {img[prevImgIndex]}
-      </div>
-      <div className="slider-img"
-              key={activeIndex}>
-          {img[activeIndex]}
-      </div>
-      <div className="slider-img slider-img-next"
-              key={nextImgIndex}>
-          {img[nextImgIndex]}
-      </div>
-  </div>
-)
-}
+  // Временная функция
+  useEffect(() => {
+    images && setImg(changeUrl(images));
+    !images && setImg(getPlug());
+  }, [images]);
+
+  return (
+    <div className="slider">
+      {Array.isArray(img) ? (
+        <>
+          <button className="slider__prev-img-btn" onClick={handleClickPrev} />
+          <div className="slider-container">
+            <div className="slider-img slider-img-prev" key={prevImgIndex}>
+              {img[prevImgIndex]}
+            </div>
+            <div className="slider-img" key={activeIndex}>
+              {img[activeIndex]}
+            </div>
+            <div className="slider-img slider-img-next" key={nextImgIndex}>
+              {img[nextImgIndex]}
+            </div>
+          </div>
+          <button className="slider__next-img-btn" onClick={handleClickNext} />
+        </>
+      ) : (
+        <div className="slider-container">
+          <img className="slider__single-img" src={img} alt={name} />
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default Slider;

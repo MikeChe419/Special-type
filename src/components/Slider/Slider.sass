@@ -1,4 +1,38 @@
 .slider
+  margin-top: 90px
+  display: flex
+  align-items: center
+  gap: 10vw
+
+.slider__prev-img-btn
+  background-image: url('../../assets/images/prev-img.svg')
+  background-size: 16px 35px
+  background-position: center
+  background-color: transparent
+  width: 16px
+  height: 35px
+  border: none
+  transition: 0.3s
+
+.slider__prev-img-btn:hover
+  cursor: pointer
+  opacity: 0.6
+
+.slider__next-img-btn
+  background-image: url('../../assets/images/next-img.svg')
+  background-size: 16px 35px
+  background-position: center
+  background-color: transparent
+  width: 16px
+  height: 35px
+  border: none
+  transition: 0.3s
+
+.slider__next-img-btn:hover
+  cursor: pointer
+  opacity: 0.6
+
+.slider-container
   position: relative
   width: 588px
   height: 588px
@@ -21,3 +55,7 @@
 
 .slider-img-next
   transform: translateX(100%)
+
+.slider__single-img
+  widows: 100%
+  height: 100%

@@ -33,7 +33,7 @@ import { Preloader } from "./components/Preloader/Preloadex";
 
 function App({ id }) {
   const [itemForRegistration, setItemForRegistration] = useState({});
-  const [newsData, setNewsData] = useState([]); //массив 
+  const [newsData, setNewsData] = useState([]); //массив
   const [companiesData, setCompaniesData] = useState([]); //объект
   const [feedbackData, setFeedbackData] = useState([]); //объект
   const [peopleData, setPeopleData] = useState([]); //объект
@@ -159,7 +159,7 @@ function App({ id }) {
                   <Route
                     exact
                     path="/singlenews/:id"
-                    element={<SingleNews newsData={newsData} />}
+                    element={<SingleNews newsData={newsData} handleClickOpenModal={handleClickOpenModal} />}
                   />
                   <Route
                     element={
@@ -197,7 +197,7 @@ function App({ id }) {
               </div>
               <NavigationBlock />
               <Footer />
-              <Modal isOpened={isOpened} handleClickOpenModal={handleClickOpenModal} />
+              <Modal isOpened={isOpened} handleClickOpenModal={handleClickOpenModal} dataForModal={dataForModal} />
             </>
           ) : (
             <img className="serverError" src={serverErrorImg} alt="" />
