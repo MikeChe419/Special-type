@@ -6,7 +6,7 @@ import { getPlug } from "../../utils/getPlug";
 // Принимает объект: новость, отзыв и так далее, внутри которого есть id, image и name
 const ImageMasked = ({ item, lable }) => {
   //ВРЕМЕННО. Подстановка порта в ЮРЛ
-  const itemImg = () => {
+  const itemImgArray = () => {
     if (item.images.length == 0) {
       return plugImg;
     } else {
@@ -15,6 +15,19 @@ const ImageMasked = ({ item, lable }) => {
       return newImgUrl;
     }
   };
+
+  const itemImgObject = () => {
+    if (item.images.length == 0) {
+      return plugImg;
+    } else {
+      let newImg = item.images.slice(22, 2000);
+      let newImgUrl = `http://135.181.198.180:8080${newImg}`;
+      return newImgUrl;
+    }
+  };
+  
+
+
 
   //ВРЕМЕННО. Подстановка порта в ЮРЛ
 
@@ -35,14 +48,14 @@ const ImageMasked = ({ item, lable }) => {
         {Array.isArray(item.images) ? (
           <img
             className="image-masked__img"
-            src={itemImg()}
+            src={itemImgArray()}
             alt={item.user}
             style={{ clipPath: `url(#${generateMaskId(item.id)})` }}
           />
         ) : (
           <img
             className="image-masked__img"
-            src={item.image ? item.image : plugImg}
+            src={item.images ? itemImgObject() : plugImg}
             alt={item.user}
             style={{ clipPath: `url(#${generateMaskId(item.id)})` }}
           />
