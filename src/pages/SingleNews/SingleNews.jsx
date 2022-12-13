@@ -44,7 +44,7 @@ export const SingleNews = ({ newsData, handleClickOpenModal }) => {
                 ""
               )}
             </div>
-            <div className="singleNews__img-block" >
+            <div className="singleNews__img-block" onClick={() => handleClickOpenModal(news) }>
               {news.images.length === 0 ? (
                 <img className="singleNews__img" alt="" src={plugNews} />
               ) : (

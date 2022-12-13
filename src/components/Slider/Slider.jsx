@@ -4,7 +4,6 @@ import { changeUrl } from "../../utils/changeUrl";
 import { getPlug } from '../../utils/getPlug';
 
 const Slider = ({ data }) => {
-    console.log(data, 'slider')
   const { images, name } = data;
   const [activeIndex, setActiveIndex] = useState(0);
   const [img, setImg] = useState();
@@ -41,13 +40,13 @@ const Slider = ({ data }) => {
           <button className="slider__prev-img-btn" onClick={handleClickPrev} />
           <div className="slider-container">
             <div className="slider-img slider-img-prev" key={prevImgIndex}>
-              {img[prevImgIndex]}
+            <img className="slider__single-img" src={img[prevImgIndex].image} alt={img[prevImgIndex].news} />
             </div>
             <div className="slider-img" key={activeIndex}>
-              {img[activeIndex]}
+              <img className="slider__single-img" src={img[activeIndex].image} alt={img[activeIndex].news} />
             </div>
             <div className="slider-img slider-img-next" key={nextImgIndex}>
-              {img[nextImgIndex]}
+            <img className="slider__single-img" src={img[nextImgIndex].image} alt={img[nextImgIndex].news} />
             </div>
           </div>
           <button className="slider__next-img-btn" onClick={handleClickNext} />

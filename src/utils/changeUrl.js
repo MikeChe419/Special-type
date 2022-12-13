@@ -19,7 +19,7 @@ const itemImgArray = (images) => {
     const newImages = images.map((item) => {
       const newImg = item.image.slice(22, 2000);
       let newImgUrl = `http://135.181.198.180:8080${newImg}`;
-      return newImgUrl;
+      return {...item, image: newImgUrl}
     });
     return newImages;
   }
