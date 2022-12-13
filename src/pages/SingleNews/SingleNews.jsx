@@ -5,7 +5,7 @@ import plugNews from "../../assets/images/plugs/plugNews.png";
 import { NotFound } from "../../components/NotFound/NotFound";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 
-export const SingleNews = ({ newsData }) => {
+export const SingleNews = ({ newsData, handleClickOpenModal }) => {
   let { id } = useParams();
 
   const news = newsData.find((item) => item.id == id);
@@ -44,7 +44,7 @@ export const SingleNews = ({ newsData }) => {
                 ""
               )}
             </div>
-            <div className="singleNews__img-block">
+            <div className="singleNews__img-block" >
               {news.images.length === 0 ? (
                 <img className="singleNews__img" alt="" src={plugNews} />
               ) : (
