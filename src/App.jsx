@@ -16,7 +16,6 @@ import { Thanks } from "./pages/Thanks/Thanks";
 import { mainApi } from "./utils/api/mainApi";
 import AddReview from "./pages/AddReview/AddReview";
 import { AllCards } from "./pages/AllCards/AllCards";
-import serverErrorImg from "./assets/images/serverError.jpg";
 import Volunteering from "./pages/Volunteering/Volunteering";
 import Modal from "./components/Modal/Modal";
 import Payment from "./pages/Payment/Payment";

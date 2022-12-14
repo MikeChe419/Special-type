@@ -1,6 +1,5 @@
 import getMask from "../../utils/getMask/getMask";
 import "./ImageMasked.sass";
-import plugSchedule from "../../assets/images/plugs/plugSchedule.png";
 import { getPlug } from "../../utils/getPlug";
 
 // Принимает объект: новость, отзыв и так далее, внутри которого есть id, image и name
@@ -25,9 +24,6 @@ const ImageMasked = ({ item, lable }) => {
       return newImgUrl;
     }
   };
-  
-
-
 
   //ВРЕМЕННО. Подстановка порта в ЮРЛ
 

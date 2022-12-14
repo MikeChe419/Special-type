@@ -1,6 +1,4 @@
 import { NavLink, useLocation } from "react-router-dom";
-import "../../styles/@global.sass";
-import "../../styles/@mixins.sass";
 import { AddReviewButton } from "../AddReviewButton/AddReviewButton";
 import "./Pagination.sass";
 
