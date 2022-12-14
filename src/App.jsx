@@ -41,7 +41,7 @@ function App({ id }) {
   const [playbillData, setPlaybillData] = useState([]); //нет images
   const [searchValue, setSearchValue] = useState("");
   const [serverError, setServerError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false); //true на prod
   const [isOpened, setIsOpened] = useState(false);
   const [dataForModal, setDataForModal] = useState({});
 
