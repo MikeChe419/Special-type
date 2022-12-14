@@ -18,7 +18,7 @@ import AddReview from "./pages/AddReview/AddReview";
 import { AllCards } from "./pages/AllCards/AllCards";
 import serverErrorImg from "./assets/images/serverError.jpg";
 import Volunteering from "./pages/Volunteering/Volunteering";
-import Modal from "./components/Modal/Modal"
+import Modal from "./components/Modal/Modal";
 import Payment from "./pages/Payment/Payment";
 
 ///временные данные
@@ -41,36 +41,62 @@ function App({ id }) {
   const [playbillData, setPlaybillData] = useState([]); //нет images
   const [searchValue, setSearchValue] = useState("");
   const [serverError, setServerError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [isOpened, setIsOpened] = useState(false);
-  const [dataForModal, setDataForModal] = useState({})
+  const [dataForModal, setDataForModal] = useState({});
 
   useEffect(() => {
-    // let reversedNews = [...tempNews].reverse();
-    // setNewsData(reversedNews);
-
     mainApi
       .getNews()
-      .then((res) => {
-        setNewsData(res.results)
+      .then((res) => setNewsData(res.results))
+      .catch((res) => {
+        console.log(res);
+        setServerError(true);
       })
+      .finally(()=> {
+        setIsLoading(false)
+      })
+    mainApi
+      .getCompanies()
+      .then((res) => setCompaniesData(res.results))
       .catch((res) => {
         console.log(res);
         setServerError(true);
       });
-    mainApi.getCompanies().then((res) => setCompaniesData(res.results));
-    mainApi.getFeedback().then((res) => setFeedbackData(res.results));
-    mainApi.getPeople().then((res) => setPeopleData(res.results));
-    mainApi.getSchedule().then((res) => setScheduleData(res.results));
-    mainApi.getPlaybill().then((res) => setPlaybillData(res.results));
+    mainApi
+      .getFeedback()
+      .then((res) => setFeedbackData(res.results))
+      .catch((res) => {
+        console.log(res);
+        setServerError(true);
+      });
+    mainApi
+      .getPeople()
+      .then((res) => setPeopleData(res.results))
+      .catch((res) => {
+        console.log(res);
+        setServerError(true);
+      });
+    mainApi
+      .getSchedule()
+      .then((res) => setScheduleData(res.results))
+      .catch((res) => {
+        console.log(res);
+        setServerError(true);
+      });
+    mainApi
+      .getPlaybill()
+      .then((res) => setPlaybillData(res.results))
+      .catch((res) => {
+        console.log(res);
+        setServerError(true);
+      });
   }, []);
 
   const handleSearch = (event) => {
     const search = event.target.value.toLowerCase();
     setSearchValue(search);
   };
-
-  ///настроить поиск по разным страницам
 
   const showSearchedNews = newsData.filter((data) => {
     if (searchValue !== "") {
@@ -92,9 +118,9 @@ function App({ id }) {
 
   // Обработчик клика по картинке в отдельном ревью для открытия модального окна с фото
   const handleClickOpenModal = (data = {}) => {
-    setDataForModal(data)
+    setDataForModal(data);
     setIsOpened(!isOpened);
-  }
+  };
 
   return (
     <>
@@ -159,7 +185,12 @@ function App({ id }) {
                   <Route
                     exact
                     path="/singlenews/:id"
-                    element={<SingleNews newsData={newsData} handleClickOpenModal={handleClickOpenModal} />}
+                    element={
+                      <SingleNews
+                        newsData={newsData}
+                        handleClickOpenModal={handleClickOpenModal}
+                      />
+                    }
                   />
                   <Route
                     element={
@@ -175,7 +206,16 @@ function App({ id }) {
                     exact
                     path="/reviews"
                   />
-                  <Route element={<ReviewSingle dataReviews={feedbackData} handleClickOpenModal={handleClickOpenModal} />} exact path="/reviews/:id" />
+                  <Route
+                    element={
+                      <ReviewSingle
+                        dataReviews={feedbackData}
+                        handleClickOpenModal={handleClickOpenModal}
+                      />
+                    }
+                    exact
+                    path="/reviews/:id"
+                  />
                   <Route
                     element={<AddReview />}
                     exact
@@ -197,7 +237,11 @@ function App({ id }) {
               </div>
               <NavigationBlock />
               <Footer />
-              <Modal isOpened={isOpened} handleClickOpenModal={handleClickOpenModal} dataForModal={dataForModal} />
+              <Modal
+                isOpened={isOpened}
+                handleClickOpenModal={handleClickOpenModal}
+                dataForModal={dataForModal}
+              />
             </>
           ) : (
             <img className="serverError" src={serverErrorImg} alt="" />
