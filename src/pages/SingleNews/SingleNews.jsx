@@ -4,6 +4,7 @@ import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 import plugNews from "../../assets/images/plugs/plugNews.png";
 import { NotFound } from "../../components/NotFound/NotFound";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
+import ImageMasked from "../../components/ImageMasked/ImageMasked";
 
 export const SingleNews = ({ newsData, handleClickOpenModal }) => {
   let { id } = useParams();
@@ -44,20 +45,14 @@ export const SingleNews = ({ newsData, handleClickOpenModal }) => {
                 ""
               )}
             </div>
-            <div className="singleNews__img-block" onClick={() => handleClickOpenModal(news) }>
+            <div
+              className="singleNews__img-block"
+              onClick={() => handleClickOpenModal(news)}
+            >
               {news.images.length === 0 ? (
                 <img className="singleNews__img" alt="" src={plugNews} />
               ) : (
-                news.images.map((el) => (
-                  <img
-                    className="singleNews__img"
-                    alt=""
-                    src={`http://135.181.198.180:8080${el.image.slice(
-                      22,
-                      2000
-                    )}`}
-                  />
-                ))
+                <ImageMasked item={news} />
               )}
               <img className="singleNews__img" alt="" src={news.images} />
             </div>
