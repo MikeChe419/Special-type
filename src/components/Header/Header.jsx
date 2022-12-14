@@ -4,7 +4,6 @@ import Navigation from "../Navigation/Navigation";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import BurgerMenu from "../BurgerMenu/BurgerMenu.jsx";
 
 const Header = () => {

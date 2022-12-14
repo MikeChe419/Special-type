@@ -5,8 +5,10 @@ import Button from '../../components/Button/Button';
 import Pay from "../../assets/images/Pay.png";
 import Volonter from "../../assets/images/Volonter.png";
 import PayForm from '../../components/PayForm/PayForm';
+import useMediaQuery from "../../utils/hooks/useMediaQuery";
 
 const Help = () => {
+  const isDesktop = useMediaQuery("(min-width: 1000px)");
   return (
     <section className='help'>
       <h1 className='help__title'>
@@ -30,7 +32,7 @@ const Help = () => {
           <img className='help__item-img' src={Pay} alt="Пожертвования" />
           <Button
           title='Помочь'
-          width='287px'
+          width={isDesktop ? '287px' : '100px'}
           route ='/payment'
           />
         </li>
@@ -38,7 +40,7 @@ const Help = () => {
           <h3 className='help__item-title'>Стать волонтером</h3>
           <p className='help__item-descr'>Вы можете внести пожертвование любым способом - все средства идут на развите нашего проекта.</p>
           <img className='help__item-img' src={Volonter} alt="Волонтеры"/>
-          <Button title='Помочь' width='287px' route ='/help/volunteering'/>
+          <Button title='Помочь' width={isDesktop ? '287px' : '100px'} route ='/help/volunteering'/>
         </li>
       </ul>
   </section>
