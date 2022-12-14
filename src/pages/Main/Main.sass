@@ -1,3 +1,6 @@
+@import "../../styles/@global.sass"
+@import "../../styles/@mixins.sass"
+
 .main
   display: flex
   flex-direction: column
@@ -15,5 +18,41 @@
   gap: 30px
 
 .serverError
-  margin: 10% auto 0
-  height: 50vh
+  width: 100%
+  max-width: 792px
+  margin: 0 auto
+  margin-top: 15%
+
+.serverError__container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  margin: 0 20px
+  padding: 75px 0
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.1)
+  border: 1px solid rgba(255, 55, 68, 1)
+  background: #F8F8F8
+  border-radius: 30px
+
+.serverError__logo
+  background-image: url('../../assets/images/footer-logo.svg')
+  width: 150px
+  height: 150px
+  border-radius: 15px
+  background-repeat: no-repeat
+  background-position: center
+  background-size: contain
+
+.serverError__text
+  padding-top: 27px
+  @include heading-h3
+
+@media screen and (max-width: 600px)
+    .serverError__logo
+      width: 86px
+      height: 86px
+
+    .serverError__text
+      padding-top: 20px
+      @include textRegular-16

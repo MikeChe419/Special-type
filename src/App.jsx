@@ -53,9 +53,9 @@ function App({ id }) {
         console.log(res);
         setServerError(true);
       })
-      .finally(()=> {
-        setIsLoading(false)
-      })
+      .finally(() => {
+        setIsLoading(false);
+      });
     mainApi
       .getCompanies()
       .then((res) => setCompaniesData(res.results))
@@ -244,7 +244,17 @@ function App({ id }) {
               />
             </>
           ) : (
-            <img className="serverError" src={serverErrorImg} alt="" />
+            <div className="serverError">
+              <div className="serverError__container">
+                <div className="serverError__logo" />
+                <p className="serverError__text">
+                  Похоже, что-то сломалось...
+                </p>
+                <p className="serverError__text">
+                  И мы уже устраняем проблему!
+                </p>
+              </div>
+            </div>
           )}
         </div>
       )}
