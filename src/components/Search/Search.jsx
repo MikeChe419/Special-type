@@ -1,8 +1,17 @@
 import "./Search.sass";
-
 import React from "react";
+import useMediaQuery from "../../utils/hooks/useMediaQuery";
+import { useEffect, useState } from "react";
+
 export const Search = ({ handleSearch }) => {
-  const [isSearchOpen, setIsSearchOpen] = React.useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const isMobile = useMediaQuery("(max-width: 900px)");
+
+  useEffect(() => {
+    if (isMobile) {
+      handleOpenSearch()
+    } else setIsSearchOpen(false)
+  },[isMobile]);
 
   const handleOpenSearch = () => {
     setIsSearchOpen(true);
