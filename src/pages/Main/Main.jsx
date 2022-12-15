@@ -7,16 +7,18 @@ const Main = ({ newsData, dataReviews }) => {
   return (
     <div className="main">
       <About />
-      <section className="news">
-        <h2 className="news__title">новости</h2>
+      <section className="main__section">
+        <h2 className="main__title">новости</h2>
         <div className="main__content">
           <NewsCard newsData={newsData} />
         </div>
       </section>
-      <h2 className="news__title">отзывы</h2>
-      <div className="main__content">
-        <Review dataReviews={dataReviews} />
-      </div>
+      <section className="main__section">
+        <h2 className="main__title">отзывы</h2>
+        <div className="main__content">
+          <Review dataReviews={dataReviews} />
+        </div>
+      </section>
     </div>
   );
 };
