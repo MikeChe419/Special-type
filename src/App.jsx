@@ -21,12 +21,12 @@ import Modal from "./components/Modal/Modal";
 import Payment from "./pages/Payment/Payment";
 
 ///временные данные
-// import dataEvent from "./TEMP_EVENT";
-// import dataPosters from "./TEMP_DATA_POSTERS";
-// import tempNews from "./TEMP_NEWS";
-// import dataCompany from "./TEMP_COMPANY";
-// import dataPeople from "./TEMP_PEOPLE";
-// import dataReviews from "./TEMP_REVIEWS";
+import dataSchedule from "./TEMP_SCHEDULE";
+import dataPosters from "./TEMP_DATA_POSTERS";
+import tempNews from "./TEMP_NEWS";
+import dataCompany from "./TEMP_COMPANY";
+import dataPeople from "./TEMP_PEOPLE";
+import dataReviews from "./TEMP_REVIEWS";
 ///временные данные
 import { Preloader } from "./components/Preloader/Preloadex";
 
@@ -45,51 +45,57 @@ function App({ id }) {
   const [dataForModal, setDataForModal] = useState({});
 
   useEffect(() => {
-    mainApi
-      .getNews()
-      .then((res) => setNewsData(res.results))
-      .catch((res) => {
-        console.log(res);
-        // setServerError(true);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-    mainApi
-      .getCompanies()
-      .then((res) => setCompaniesData(res.results))
-      .catch((res) => {
-        console.log(res);
-        // setServerError(true);
-      });
-    mainApi
-      .getFeedback()
-      .then((res) => setFeedbackData(res.results))
-      .catch((res) => {
-        console.log(res);
-        // setServerError(true);
-      });
-    mainApi
-      .getPeople()
-      .then((res) => setPeopleData(res.results))
-      .catch((res) => {
-        console.log(res);
-        // setServerError(true);
-      });
-    mainApi
-      .getSchedule()
-      .then((res) => setScheduleData(res.results))
-      .catch((res) => {
-        console.log(res);
-        // setServerError(true);
-      });
-    mainApi
-      .getPlaybill()
-      .then((res) => setPlaybillData(res.results))
-      .catch((res) => {
-        console.log(res);
-        // setServerError(true);
-      });
+    setNewsData(tempNews)
+    setCompaniesData(dataCompany)
+    setFeedbackData(dataReviews)
+    setPeopleData(dataPeople)
+    setScheduleData(dataSchedule)
+    setPlaybillData(dataPosters)
+    // mainApi
+    //   .getNews()
+    //   .then((res) => setNewsData(res.results))
+    //   .catch((res) => {
+    //     console.log(res);
+    //     // setServerError(true);
+    //   })
+    //   .finally(() => {
+    //     setIsLoading(false);
+    //   });
+    // mainApi
+    //   .getCompanies()
+    //   .then((res) => setCompaniesData(res.results))
+    //   .catch((res) => {
+    //     console.log(res);
+    //     // setServerError(true);
+    //   });
+    // mainApi
+    //   .getFeedback()
+    //   .then((res) => setFeedbackData(res.results))
+    //   .catch((res) => {
+    //     console.log(res);
+    //     // setServerError(true);
+    //   });
+    // mainApi
+    //   .getPeople()
+    //   .then((res) => setPeopleData(res.results))
+    //   .catch((res) => {
+    //     console.log(res);
+    //     // setServerError(true);
+    //   });
+    // mainApi
+    //   .getSchedule()
+    //   .then((res) => setScheduleData(res.results))
+    //   .catch((res) => {
+    //     console.log(res);
+    //     // setServerError(true);
+    //   });
+    // mainApi
+    //   .getPlaybill()
+    //   .then((res) => setPlaybillData(res.results))
+    //   .catch((res) => {
+    //     console.log(res);
+    //     // setServerError(true);
+    //   });
   }, []);
 
   const handleSearch = (event) => {

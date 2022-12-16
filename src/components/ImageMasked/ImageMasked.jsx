@@ -44,14 +44,16 @@ const ImageMasked = ({ item, lable }) => {
         {Array.isArray(item.images) ? (
           <img
             className="image-masked__img"
-            src={itemImgArray()}
+            // src={itemImgArray()}
+            src={item.images.length !== 0 ? item.images[0].image : plugImg}
             alt={item.user}
             style={{ clipPath: `url(#${generateMaskId(item.id)})` }}
           />
         ) : (
           <img
             className="image-masked__img"
-            src={item.images ? itemImgObject() : plugImg}
+            // src={item.images ? itemImgObject() : plugImg}
+            src={item.images ? item.images : plugImg}
             alt={item.user}
             style={{ clipPath: `url(#${generateMaskId(item.id)})` }}
           />

@@ -6,7 +6,7 @@ const dataPosters = [
     address: "ДК ТЮЗ, ул Яшко д 24",
     id: 1,
   },
-  {
+  { 
     name: "В начале было соло 2",
     startTime: "14:00",
     price: 1000,
