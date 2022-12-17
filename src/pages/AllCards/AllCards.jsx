@@ -25,6 +25,7 @@ export const AllCards = ({
 
   const isTablet = useMediaQuery("(max-width: 1000px)");
   const isMobile = useMediaQuery("(max-width: 500px)");
+
   useEffect(() => {
     if (isMobile) {
       setDataCount(4);
@@ -100,6 +101,8 @@ export const AllCards = ({
         <Pagination
           totlalEvents={cardsData ? cardsData.length : 0}
           setCurrentEvent={setCurrentEvent}
+          currentEvent={currentEvent}
+          dataCount={dataCount}
         />
       </section>
     </>

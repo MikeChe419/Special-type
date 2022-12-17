@@ -28,11 +28,12 @@
   color: #6F6F6F
   cursor: pointer
   text-decoration: none
+  border: none
 
-// .pagination__pages_active
-//   @include textSemiBold-16
-//   background-color: white
-//   color: #000000
+.pagination__pages_active
+  @include textSemiBold-16
+  background-color: white
+  color: red
 
 .pagination__pag-btn
   cursor: pointer
@@ -53,6 +54,17 @@
   border-right: 3px solid #FF3744
   transform: rotate(-45deg)
 
+.pagination__forward-btn_disabled:before
+  position: absolute
+  top: 4px
+  left: -4px
+  width: 12px
+  height: 12px
+  content: ""
+  border-bottom: 3px solid grey
+  border-right: 3px solid grey
+  transform: rotate(-45deg)
+
 .pagination__reverse-btn:before
   position: absolute
   top: 4px
@@ -62,4 +74,15 @@
   content: ""
   border-top: 3px solid #FF3744
   border-left: 3px solid #FF3744
+  transform: rotate(-45deg)
+
+.pagination__reverse-btn_disabled:before
+  position: absolute
+  top: 4px
+  left: 0
+  width: 12px
+  height: 12px
+  content: ""
+  border-top: 3px solid grey
+  border-left: 3px solid grey
   transform: rotate(-45deg)
