@@ -9,6 +9,7 @@ import ScheduleItem from "../../components/ScheduleItem/ScheduleItem";
 import { FriendsList } from "../../components/FriendsList/FriendsList";
 import Review from "../../components/Review/Review";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
+import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 
 export const AllCards = ({
   cardsData,
@@ -35,60 +36,72 @@ export const AllCards = ({
   useEffect(() => {
     if (cardsData.length !== undefined) {
       let lastEventIndex = currentEvent * dataCount;
-      let firstEventIndex = lastEventIndex -  dataCount;
+      let firstEventIndex = lastEventIndex - dataCount;
       let pages = cardsData.slice(firstEventIndex, lastEventIndex);
       setCurrentEventPage(pages);
     }
   }, [cardsData, currentEvent, dataCount]);
 
   return (
-    <section className="allCards">
-      <div className="allCards__head">
-        <h1 className="allCards__title">{title}</h1>
-        {!search ? "" : <Search handleSearch={handleSearch} />}
-      </div>
-      <ul className="allCards__content">
-        {location.pathname === "/schedule" ? (
-          <ScheduleItem
-            setItemForRegistration={setItemForRegistration}
-            scheduleData={currentEventsPage}
-          />
-        ) : (
-          ""
-        )}
-        {location.pathname === "/news" ? (
-          <NewsCard newsData={currentEventsPage} />
-        ) : (
-          ""
-        )}
-        {location.pathname === "/posters" ? (
-          <Poster
-            postersData={currentEventsPage}
-            setItemForRegistration={setItemForRegistration}
-          />
-        ) : (
-          ""
-        )}
-        {location.pathname === "/companies" ? (
-          <FriendsList friendsData={currentEventsPage} />
-        ) : (
-          ""
-        )}
-        {location.pathname === "/people" ? (
-          <FriendsList friendsData={currentEventsPage} />
-        ) : (
-          ""
-        )}
-        {location.pathname === "/reviews" ? (
-          <Review dataReviews={currentEventsPage} />
-        ) : (
-          ""
-        )}
-      </ul>
-      <Pagination
-        totlalEvents={cardsData ? cardsData.length : 0}
-        setCurrentEvent={setCurrentEvent}
-      />
-    </section>
+    <>
+      {location.pathname == "/companies" ? (
+        <GoBackButton label="Главная страница / Друзья / Компании" />
+      ) : (
+        ""
+      )}
+      {location.pathname == "/people" ? (
+        <GoBackButton label="Главная страница / Друзья / Люди" />
+      ) : (
+        ""
+      )}
+      <section className="allCards">
+        <div className="allCards__head">
+          <h1 className="allCards__title">{title}</h1>
+          {!search ? "" : <Search handleSearch={handleSearch} />}
+        </div>
+        <ul className="allCards__content">
+          {location.pathname === "/schedule" ? (
+            <ScheduleItem
+              setItemForRegistration={setItemForRegistration}
+              scheduleData={currentEventsPage}
+            />
+          ) : (
+            ""
+          )}
+          {location.pathname === "/news" ? (
+            <NewsCard newsData={currentEventsPage} />
+          ) : (
+            ""
+          )}
+          {location.pathname === "/posters" ? (
+            <Poster
+              postersData={currentEventsPage}
+              setItemForRegistration={setItemForRegistration}
+            />
+          ) : (
+            ""
+          )}
+          {location.pathname === "/companies" ? (
+            <FriendsList friendsData={currentEventsPage} />
+          ) : (
+            ""
+          )}
+          {location.pathname === "/people" ? (
+            <FriendsList friendsData={currentEventsPage} />
+          ) : (
+            ""
+          )}
+          {location.pathname === "/reviews" ? (
+            <Review dataReviews={currentEventsPage} />
+          ) : (
+            ""
+          )}
+        </ul>
+        <Pagination
+          totlalEvents={cardsData ? cardsData.length : 0}
+          setCurrentEvent={setCurrentEvent}
+        />
+      </section>
+    </>
   );
 };

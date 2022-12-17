@@ -2,6 +2,10 @@
 @import "../../styles/@mixins.sass"
 
 .friendsList
+    display: flex
+    flex-wrap: wrap
+    max-width: 996px
+    justify-content: space-between
     margin: 0 auto
 
 .friendsList__title
@@ -9,12 +13,6 @@
     color: rgba(243, 66, 71, 1)
     text-align: center
     margin: 74px auto 0
-
-.friendsList__cards
-    display: flex
-    flex-wrap: wrap
-    max-width: 996px
-    justify-content: space-between
 
 .friendsList-card
     max-width: 383px
