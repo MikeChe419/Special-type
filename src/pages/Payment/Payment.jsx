@@ -3,13 +3,14 @@ import PayForm from "../../components/PayForm/PayForm";
 import "./Payment.sass";
 
 const Payment = () => {
-    return (
+  return (
+    <>
+      <GoBackButton label="Как помочь/Сделать пожертвование" />
+      <section className="payment">
+        <PayForm />
+      </section>
+    </>
+  );
+};
 
-        <section className="payment">
-            <GoBackButton label="Как помочь/Сделать пожертвование" />
-            <PayForm />
-        </section>
-    )
-}
-
-export default Payment
+export default Payment;
