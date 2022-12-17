@@ -27,9 +27,9 @@ const Slider = ({ data }) => {
     setActiveIndex(activeIndex - 1);
   };
 
-  // Временная функция
   useEffect(() => {
-    images && setImg(changeUrl(images));
+    // images && setImg(changeUrl(images));
+    images && setImg(images);
     !images && setImg(getPlug());
   }, [images]);
 

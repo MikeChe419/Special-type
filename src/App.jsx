@@ -1,4 +1,3 @@
-import "./styles/@global.sass";
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Main from "./pages/Main/Main";
@@ -8,10 +7,8 @@ import Footer from "./components/Footer/Footer";
 import Friends from "./pages/Friends/Friends";
 import Contacts from "./pages/Contacts/Contacts";
 import Help from "./pages/Help/Help";
-import { SingleNews } from "./pages/SingleNews/SingleNews";
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 import Registration from "./pages/Registration/Registration";
-import ReviewSingle from "./pages/ReviewSingle/ReviewSingle";
 import { Thanks } from "./pages/Thanks/Thanks";
 import { mainApi } from "./utils/api/mainApi";
 import AddReview from "./pages/AddReview/AddReview";
@@ -29,6 +26,7 @@ import dataPeople from "./TEMP_PEOPLE";
 import dataReviews from "./TEMP_REVIEWS";
 ///временные данные
 import { Preloader } from "./components/Preloader/Preloadex";
+import SinglePage from "./pages/SinglePage/SinglePage";
 
 function App({ id }) {
   const [itemForRegistration, setItemForRegistration] = useState({});
@@ -45,12 +43,12 @@ function App({ id }) {
   const [dataForModal, setDataForModal] = useState({});
 
   useEffect(() => {
-    setNewsData(tempNews)
-    setCompaniesData(dataCompany)
-    setFeedbackData(dataReviews)
-    setPeopleData(dataPeople)
-    setScheduleData(dataSchedule)
-    setPlaybillData(dataPosters)
+    setNewsData(tempNews);
+    setCompaniesData(dataCompany);
+    setFeedbackData(dataReviews);
+    setPeopleData(dataPeople);
+    setScheduleData(dataSchedule);
+    setPlaybillData(dataPosters);
     // mainApi
     //   .getNews()
     //   .then((res) => setNewsData(res.results))
@@ -191,9 +189,10 @@ function App({ id }) {
                     exact
                     path="/singlenews/:id"
                     element={
-                      <SingleNews
-                        newsData={newsData}
+                      <SinglePage
+                        dataCard={newsData}
                         handleClickOpenModal={handleClickOpenModal}
+                        label="Вернуться к списку новостей"
                       />
                     }
                   />
@@ -213,9 +212,10 @@ function App({ id }) {
                   />
                   <Route
                     element={
-                      <ReviewSingle
-                        dataReviews={feedbackData}
+                      <SinglePage
+                        dataCard={feedbackData}
                         handleClickOpenModal={handleClickOpenModal}
+                        label="Отзывы / Подробный отзыв"
                       />
                     }
                     exact
@@ -252,9 +252,7 @@ function App({ id }) {
             <div className="serverError">
               <div className="serverError__container">
                 <div className="serverError__logo" />
-                <p className="serverError__text">
-                  Похоже, что-то сломалось...
-                </p>
+                <p className="serverError__text">Похоже, что-то сломалось...</p>
                 <p className="serverError__text">
                   И мы уже устраняем проблему!
                 </p>

@@ -12,7 +12,6 @@ const FormVolunteering = () => {
   });
 
   const onSubmit = (data) => {
-
     alert(JSON.stringify(data));
   };
 

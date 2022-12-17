@@ -1,5 +1,4 @@
 import "./Preloader.sass";
-import React from "react";
 
 export const Preloader = () => {
   return (

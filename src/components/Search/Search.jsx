@@ -1,5 +1,4 @@
 import "./Search.sass";
-import React from "react";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import { useEffect, useState } from "react";
 

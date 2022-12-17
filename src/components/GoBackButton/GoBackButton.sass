@@ -3,9 +3,10 @@
 
 .goBackButton
   display: flex
-  position: absolute
-  top: 120px
-  left: 7vw
+  justify-content: flex-start
+  width: 100%
+  padding: 0 20px
+
 
 .goBackButton__button
   background-color: transparent
@@ -26,8 +27,6 @@
   cursor: pointer
 
 @media screen and (max-width: 767px)
-  .goBackButton
-    left: 10vw
 
   .goBackButton__button
     @include textRegular-12

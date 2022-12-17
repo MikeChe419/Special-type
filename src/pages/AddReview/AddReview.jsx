@@ -2,14 +2,14 @@ import "./AddReview.sass";
 import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 import { useForm } from "react-hook-form";
 import UpLoad from "../../components/UpLoad/UpLoad";
-import { useNavigate } from 'react-router-dom';
-import { mainApi } from '../../utils/api/mainApi';
-import { useState } from 'react';
-import { nameRegExp, descriptionRegExp } from '../../utils/regExp';
+import { useNavigate } from "react-router-dom";
+import { mainApi } from "../../utils/api/mainApi";
+import { useState } from "react";
+import { nameRegExp, descriptionRegExp } from "../../utils/regExp";
 
 const AddReview = () => {
   const navigate = useNavigate();
-  const [imageUpload, setImageUpload] = useState(null)
+  const [imageUpload, setImageUpload] = useState(null);
 
   const {
     register,
@@ -20,19 +20,19 @@ const AddReview = () => {
   });
 
   const onSubmit = (data) => {
-
     const formData = new FormData();
 
     formData.append("images", imageUpload);
     formData.append("name", data.name);
     formData.append("description", data.description);
 
-    mainApi.postFeedback(formData)
-    .then(res => navigate('/reviews'))
-    .catch(err => console.log(err))
+    mainApi
+      .postFeedback(formData)
+      .then((res) => navigate("/reviews"))
+      .catch((err) => console.log(err));
   };
 
-  console.log(imageUpload)
+  console.log(imageUpload);
 
   return (
     <>
