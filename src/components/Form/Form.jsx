@@ -206,7 +206,7 @@ const Form = ({ itemForRegistration }) => {
         />
         <label htmlFor="form-checkbox" className="form__agreement-lable">
           Нажимая кнопку, я принимаю условия{" "}
-          <a className="form__agreement-link" href="!#">
+          <a className="form__agreement-link" href="/agreement">
             Пользовательского соглашения
           </a>{" "}
           и даю своё согласие на обработку моих персональных данных, в

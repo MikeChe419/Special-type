@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import "./Footer.sass";
 const Footer = () => {
   return (
@@ -79,7 +80,7 @@ const Footer = () => {
       </div>
       <div className="footer__law-block">
         <p className="footer__law-block-text">{`© ${new Date().getFullYear()}, Особенный ТИП, все права защищены`}</p>
-        <p className="footer__law-block-text">Политика конфиденциальности</p>
+        <a href='/agreement' className="footer__law-block-navlink">Политика конфиденциальности</a>
         <a
           className="footer__law-block-link"
           href="http://guild-of-developers.ru/"

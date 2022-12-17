@@ -168,7 +168,7 @@ const FormVolunteering = () => {
         />
         <label htmlFor="form-volunteering-checkbox" className="form-volunteering__agreement-lable">
           Нажимая кнопку, я принимаю условия{" "}
-          <a className="form-volunteering__agreement-link" href="!#">
+          <a className="form-volunteering__agreement-link" href="/agreement">
             Пользовательского соглашения
           </a>{" "}
           и даю своё согласие на обработку моих персональных данных, в

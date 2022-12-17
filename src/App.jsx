@@ -27,6 +27,7 @@ import dataReviews from "./TEMP_REVIEWS";
 ///временные данные
 import { Preloader } from "./components/Preloader/Preloadex";
 import SinglePage from "./pages/SinglePage/SinglePage";
+import Agreement from './pages/Agreement/Agreement';
 
 function App({ id }) {
   const [itemForRegistration, setItemForRegistration] = useState({});
@@ -238,6 +239,7 @@ function App({ id }) {
                     element={<AllCards cardsData={peopleData} title="ЛЮДИ" />}
                   />
                   <Route path="/thanks" element={<Thanks />} />
+                  <Route path="/agreement" element={<Agreement />} />
                 </Routes>
               </div>
               <NavigationBlock />
