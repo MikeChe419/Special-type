@@ -29,9 +29,12 @@ const Slider = ({ data }) => {
 
   useEffect(() => {
     // images && setImg(changeUrl(images));
-    images && setImg(images);
-    !images && setImg(getPlug());
+    if(!images || images?.length === 0) { setImg(getPlug('news')) } else { setImg(images) };
+
   }, [images]);
+
+  console.log(img)
+  console.log(data)
 
   return (
     <div className="slider">
@@ -40,13 +43,13 @@ const Slider = ({ data }) => {
           <button className="slider__prev-img-btn" onClick={handleClickPrev} />
           <div className="slider-container">
             <div className="slider-img slider-img-prev" key={prevImgIndex}>
-            <img className="slider__single-img" src={img[prevImgIndex].image} alt={img[prevImgIndex].news} />
+            <img className="slider__single-img" src={img[prevImgIndex]?.image} alt={img[prevImgIndex]?.news} />
             </div>
             <div className="slider-img" key={activeIndex}>
-              <img className="slider__single-img" src={img[activeIndex].image} alt={img[activeIndex].news} />
+              <img className="slider__single-img" src={img[activeIndex]?.image} alt={img[activeIndex]?.news} />
             </div>
             <div className="slider-img slider-img-next" key={nextImgIndex}>
-            <img className="slider__single-img" src={img[nextImgIndex].image} alt={img[nextImgIndex].news} />
+            <img className="slider__single-img" src={img[nextImgIndex]?.image} alt={img[nextImgIndex]?.news} />
             </div>
           </div>
           <button className="slider__next-img-btn" onClick={handleClickNext} />
