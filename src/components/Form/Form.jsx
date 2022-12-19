@@ -202,7 +202,9 @@ const Form = ({ itemForRegistration }) => {
           name="form-checkbox"
           id="form-checkbox"
           required
-          {...register("checked")}
+          {...register("checked", {
+            required: true,
+          })}
         />
         <label htmlFor="form-checkbox" className="form__agreement-lable">
           Нажимая кнопку, я принимаю условия{" "}
