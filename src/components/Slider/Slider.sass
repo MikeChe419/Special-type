@@ -45,19 +45,27 @@
 
 .slider-img
   position: absolute
-  width: 588px
-  height: 588px
+  width: 100%
+  height: 100%
   transition: all 0.2s
   object-fit: cover
 
 .slider-img-prev
   transform: translateX(-100%)
+  display: none
 
 .slider-img-next
   transform: translateX(100%)
+  display: none
 
 .slider__single-img
-  widows: 100%
+  width: 100%
   height: 100%
   object-fit: cover
   object-position: center top
+
+
+@media screen and (max-width: 860px)
+  .slider-container
+    width: 65vw
+    height: 65vh
