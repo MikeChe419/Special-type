@@ -1,15 +1,15 @@
 const tempNews = [
   {
     date: "08-10-2022T23:02:11+03:00",
-    name: "Елена Романова",
+    name: "Елена Романова3",
     description:
       'Друзья! У меня есть очень юный телеграм-канал, который ждёт своих подписчиков!   Вчера я там запустила проект "Сказки на ночь" (это для взрослых), каждый вечер буду публиковать сказки,       читаю их я, может, вы оцените....',
     images: [
       {
-        image: "https://w-dog.ru/wallpapers/14/3/476417582809897/sergej-andrejchenko-ded-starik-muzhik-ushanka-zvezda-sneg.jpg",
+        image: "https://thumbs.dreamstime.com/b/%D1%81%D0%B5%D1%80%D1%8C%D0%B5%D0%B7%D0%BD%D1%8B%D0%B9-%D0%B3%D1%80%D1%83%D1%81%D1%82%D0%BD%D1%8B%D0%B9-%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA-%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B0%D0%B5%D1%82-%D0%B3%D1%80%D1%83%D1%81%D1%82%D0%BD%D0%BE%D0%B5-%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BD%D0%B5%D1%87%D0%B5%D1%81%D1%82%D0%BD%D1%83%D1%8E-153800546.jpg",
       },
       {
-        image: "https://w-dog.ru/wallpapers/14/3/476417582809897/sergej-andrejchenko-ded-starik-muzhik-ushanka-zvezda-sneg.jpg",
+        image: "https://cdn-st1.rtr-vesti.ru/vh/pictures/xw/319/179/6.jpg",
       },
       {
         image: "https://w-dog.ru/wallpapers/14/3/476417582809897/sergej-andrejchenko-ded-starik-muzhik-ushanka-zvezda-sneg.jpg",
