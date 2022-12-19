@@ -1,9 +1,12 @@
+@import "../../styles/@mixins.sass"
+
 .add-review
   margin: 40px 0 125px
   display: flex
   flex-direction: column
   position: relative
   max-width: 1200px
+  min-width: 320px
   width: 100%
 
 .add-review__form
@@ -92,3 +95,19 @@
 .add-review__error-text_hidden
   visibility: hidden
   font-size: 12px
+
+@media screen and (max-width: 635px)
+  .add-review
+    margin: 0 0 110px
+  .add-review__title
+    @include textRegular-20
+    margin: 32px 0 30px
+  .add-review
+    padding: 0 20px 0
+    box-sizing: border-box
+  .add-review__form-block
+    padding: 32px 28px 40px
+  .add-review__input-review
+    min-width: 100%
+  .add-review__form-submit
+    height: 41px
