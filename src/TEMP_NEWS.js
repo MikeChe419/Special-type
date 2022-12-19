@@ -14,6 +14,10 @@ const tempNews = [
       {
         image: "https://w-dog.ru/wallpapers/14/3/476417582809897/sergej-andrejchenko-ded-starik-muzhik-ushanka-zvezda-sneg.jpg",
       },
+      {
+        image: "https://www.e-xecutive.ru/uploads/article/image/1990772/thumb_Irina_Travkina_executive_ru.jpg",
+      },
+      
     ],
     id: 1,
   },
@@ -26,6 +30,9 @@ const tempNews = [
     images: [
       {
         image: "https://w-dog.ru/wallpapers/14/3/476417582809897/sergej-andrejchenko-ded-starik-muzhik-ushanka-zvezda-sneg.jpg",
+      },
+      {
+        image: "https://www.e-xecutive.ru/uploads/article/image/1990772/thumb_Irina_Travkina_executive_ru.jpg",
       },
     ],
     id: 2,

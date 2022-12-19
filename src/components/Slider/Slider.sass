@@ -34,8 +34,8 @@
 
 .slider-container
   position: relative
-  width: 588px
-  height: 588px
+  width: 65vw
+  height: 65vh
   box-sizing: border-box
   display: flex
   align-items: center
@@ -47,25 +47,16 @@
   position: absolute
   width: 100%
   height: 100%
-  transition: all 0.3s
+  transition: all .5s
   object-fit: cover
 
-.slider-img-prev
-  transform: translateX(-100%)
-  display: none
-
 .slider-img-next
-  transform: translateX(100%)
-  display: none
+  transform: translateX(1000px)
+
+.slider-img-prev
+  transform: translateX(-1000px)
 
 .slider__single-img
   width: 100%
   height: 100%
   object-fit: cover
-  object-position: center top
-
-
-@media screen and (max-width: 860px)
-  .slider-container
-    width: 65vw
-    height: 65vh
