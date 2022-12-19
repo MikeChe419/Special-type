@@ -10,7 +10,7 @@ const Modal = ({ isOpened, handleClickOpenModal, dataForModal }) => {
     <div className={`modal ${isOpened && "modal_status_opened"}`}>
       <div className="modal__container">
         <button className="modal__close" onClick={onClickClose} />
-        <Slider data={dataForModal} />
+        <Slider data={dataForModal} isOpened={isOpened} />
       </div>
     </div>
   );

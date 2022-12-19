@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { changeUrl } from "../../utils/changeUrl";
 import { getPlug } from '../../utils/getPlug';
 
-const Slider = ({ data }) => {
+const Slider = ({ data, isOpened }) => {
   const { images, name } = data;
   const [activeIndex, setActiveIndex] = useState(0);
   const [img, setImg] = useState();
@@ -33,8 +33,10 @@ const Slider = ({ data }) => {
 
   }, [images]);
 
-  console.log(img)
-  console.log(data)
+  // Обнуление индекса картинки при повторном открытии слайдера
+  useEffect(() => {
+    if (isOpened === false) setActiveIndex(0);
+  }, [isOpened])
 
   return (
     <div className="slider">
