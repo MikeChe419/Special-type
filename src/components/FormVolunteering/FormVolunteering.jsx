@@ -1,7 +1,7 @@
 import "./FormVolunteering.sass";
 import { useForm } from "react-hook-form";
 import { nameRegExp, descriptionRegExp, emailRegExp, phoneRegExp } from '../../utils/regExp';
-import { YOUR_PUBLIC_KEY, YOUR_TEMPLATE_ID, YOUR_SERVICE_ID } from '../../utils/emailJS';
+import { YOUR_PUBLIC_KEY, VOLUNTEER_TEMPLATE_ID, YOUR_SERVICE_ID } from '../../utils/emailJS';
 import { sendEmail } from '../../utils/api/emailJSApi';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,10 +20,14 @@ const FormVolunteering = () => {
 
     const dataToSend = {
       service_id: YOUR_SERVICE_ID,
-      template_id: YOUR_TEMPLATE_ID,
+      template_id: VOLUNTEER_TEMPLATE_ID,
       user_id: YOUR_PUBLIC_KEY,
       template_params: {
-          'message': Object.values(data).join(' '),
+          'name': `${data.firstName} ${data.secondName}`,
+          'phone': data.phoneNumber,
+          'email': data.email,
+          'comment': data.comments,
+          'agree': 'Согласен'
       }
     };
 
