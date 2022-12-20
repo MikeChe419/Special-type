@@ -32,7 +32,7 @@ const Slider = ({ data, isOpened }) => {
   };
 
   useEffect(() => {
-    // images && setImg(changeUrl(images));
+    images && setImg(changeUrl(images));
     if (!images || images?.length === 0) {
       setImg(getPlug());
     } else {
