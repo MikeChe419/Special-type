@@ -1,12 +1,23 @@
 import "./FormVolunteering.sass";
 import { useForm } from "react-hook-form";
-import { nameRegExp, descriptionRegExp, emailRegExp, phoneRegExp } from '../../utils/regExp';
-import { YOUR_PUBLIC_KEY, YOUR_TEMPLATE_ID, YOUR_SERVICE_ID } from '../../utils/emailJS';
-import { sendEmail } from '../../utils/api/emailJSApi';
-import { useNavigate } from 'react-router-dom';
+import {
+  nameRegExp,
+  descriptionRegExp,
+  emailRegExp,
+  phoneRegExp,
+} from "../../utils/regExp";
+import {
+  YOUR_PUBLIC_KEY,
+  VOLUNTEER_TEMPLATE_ID,
+  YOUR_SERVICE_ID,
+} from "../../utils/emailJS";
+import { sendEmail } from "../../utils/api/emailJSApi";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const FormVolunteering = () => {
   const navigate = useNavigate();
+  const [isBtnActive, setIsBtnActive] = useState(false);
 
   const {
     register,
@@ -17,28 +28,38 @@ const FormVolunteering = () => {
   });
 
   const onSubmit = (data) => {
+    setIsBtnActive(true);
 
     const dataToSend = {
       service_id: YOUR_SERVICE_ID,
-      template_id: YOUR_TEMPLATE_ID,
+      template_id: VOLUNTEER_TEMPLATE_ID,
       user_id: YOUR_PUBLIC_KEY,
       template_params: {
-          'message': Object.values(data).join(' '),
-      }
+        name: `${data.firstName} ${data.secondName}`,
+        phone: data.phoneNumber,
+        email: data.email,
+        comment: data.comments,
+        agree: "Согласен",
+      },
     };
 
     sendEmail(dataToSend)
-    .then(() => navigate('/'))
-    .catch(err => console.log(err))
+      .then(() => {
+        setIsBtnActive(false);
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
     <form className="form-volunteering" onSubmit={handleSubmit(onSubmit)}>
-      <h2 className="form-volunteering__title">Заполни анкету чтобы помочь проекту</h2>
+      <h2 className="form-volunteering__title">
+        Заполни анкету чтобы помочь проекту
+      </h2>
       <p className="form-volunteering__subtitle">Анкета волонтера:</p>
       <p className="form-volunteering__required-field">
-        <span className="form-volunteering__asterisk">&#x2a;</span> - обязательные к
-        заполнению поля
+        <span className="form-volunteering__asterisk">&#x2a;</span> -
+        обязательные к заполнению поля
       </p>
       <div className="form-volunteering__inputs-block">
         <label className="form-volunteering__input-lable">
@@ -185,7 +206,10 @@ const FormVolunteering = () => {
             required: true,
           })}
         />
-        <label htmlFor="form-volunteering-checkbox" className="form-volunteering__agreement-lable">
+        <label
+          htmlFor="form-volunteering-checkbox"
+          className="form-volunteering__agreement-lable"
+        >
           Нажимая кнопку, я принимаю условия{" "}
           <a className="form-volunteering__agreement-link" href="/agreement">
             Пользовательского соглашения
@@ -198,7 +222,9 @@ const FormVolunteering = () => {
 
       <button
         type="submit"
-        className={`form-volunteering__button ${!isValid && "form-volunteering__button_disabled"}`}
+        className={`form-volunteering__button ${
+          !isValid && "form-volunteering__button_disabled"
+        } ${isBtnActive && "form-volunteering__button_active"}`}
         disabled={!isValid && "disabled"}
       >
         Стать волонтером

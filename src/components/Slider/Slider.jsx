@@ -13,8 +13,6 @@ const Slider = ({ data, isOpened }) => {
   // Вычисляем индекс следующего слайда
   const nextImgIndex = activeIndex === img?.length - 1 ? 0 : activeIndex + 1;
 
-  console.log(prevImgIndex, activeIndex, nextImgIndex);
-
   const handleClickNext = () => {
     if (activeIndex === img?.length - 1) {
       setActiveIndex(0);
