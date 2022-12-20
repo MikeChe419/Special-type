@@ -34,7 +34,7 @@ const Slider = ({ data, isOpened }) => {
     if (!images || images?.length === 0) {
       setImg(getPlug());
     } else {
-      setImg(images);
+      setImg(changeUrl(images));
     }
   }, [images]);
 
