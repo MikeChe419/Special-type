@@ -32,8 +32,6 @@ const AddReview = () => {
       .catch((err) => console.log(err));
   };
 
-  console.log(imageUpload);
-
   return (
     <>
       <GoBackButton label="Отзывы / Добавить отзыв" />

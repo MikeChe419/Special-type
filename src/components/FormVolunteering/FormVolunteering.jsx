@@ -14,6 +14,7 @@ import {
 import { sendEmail } from "../../utils/api/emailJSApi";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Captcha from '../Capcha/Captcha';
 
 const FormVolunteering = () => {
   const navigate = useNavigate();
@@ -150,7 +151,7 @@ const FormVolunteering = () => {
             type="email"
             name="email"
             {...register("email", {
-              required: "Обязательное поле",
+              required: false,
               maxLength: {
                 value: 50,
                 message: "Не более 50 символов",
@@ -194,6 +195,10 @@ const FormVolunteering = () => {
           )}
         </label>
       </div>
+
+      <p className='form-volunteering__end-text'>Мы свяжемся с вами после заполнения анкеты.</p>
+
+      <Captcha />
 
       <div className="form-volunteering__agreement">
         <input
