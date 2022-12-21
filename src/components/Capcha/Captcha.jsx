@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { mainApi } from "../../utils/api/mainApi";
 import { useLocation } from 'react-router-dom';
-import { useRef } from 'react';
 import "./Captcha.sass";
 
 const Captcha = () => {
   const [captcha, setCaptcha] = useState({});
   const {pathname} = useLocation();
-  const [style, setStyle] = useState({});
+  const [styleCaptcha, setStyleCaptcha] = useState({});
+  const [styleCaptchaImg, setStyleCaptchaImg] = useState({});
   const [captchaValue, setCaptchaValue] = useState(null)
 
   // Функция загрузки капчи с сервера
@@ -32,19 +32,24 @@ const Captcha = () => {
   // Если страница с формой Помощь, то макс ширина компонента 100%
   useEffect(() => {
     if (!pathname) return;
-    if (pathname === '/help/volunteering') setStyle({
+    if (pathname === '/help/volunteering') setStyleCaptcha({
       maxWidth: '100%'
     })
   }, [pathname])
 
+  // Устанавливаем стиль после получния капчи с сервера, чтобы избежать ошибки при загрузке компонента
+  useEffect(() => {
+    if (captcha.captcha_image) setStyleCaptchaImg({
+      backgroundImage: `url('data:image/png;base64,${captcha.captcha_image}')`
+    })
+  }, [captcha])
+
   return (
-    <div className="captcha" style={style}>
+    <div className="captcha" style={styleCaptcha}>
       <div className="captcha__container">
         <div
           className="captcha__img"
-          style={{
-            backgroundImage: `url('data:image/png;base64,${captcha?.captcha_image}')`,
-          }}
+          style={styleCaptchaImg}
         />
         <button type='button' className="captcha__btn" onClick={() => getCaptcha()}>
           Обновить <div className='captcha__btn-icon'/>
