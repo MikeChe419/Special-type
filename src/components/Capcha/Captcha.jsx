@@ -20,13 +20,18 @@ const Captcha = () => {
 
   // Получаем значение input с введенными пользователем данными
   const handleChange = (e) => {
-    setCaptchaValue(e.target.value)
+    setCaptchaValue(e.target.value);
   }
 
   // Запускаем функцию запроса капчи при загрузке элемента
   useEffect(() => {
     getCaptcha();
   }, []);
+
+  // Запуск функции как только ввели 4 символа для проверки капчи
+  useEffect(() => {
+    if (captchaValue?.length === 4) console.log(captchaValue)
+  }, [captchaValue]);
 
   // Проверяем адрес страницы на которой отрисовывается элемент и меняем стиль
   // Если страница с формой Помощь, то макс ширина компонента 100%
@@ -37,7 +42,7 @@ const Captcha = () => {
     })
   }, [pathname])
 
-  // Устанавливаем стиль после получния капчи с сервера, чтобы избежать ошибки при загрузке компонента
+  // Устанавливаем стиль после получения капчи с сервера, чтобы избежать ошибки при загрузке компонента
   useEffect(() => {
     if (captcha.captcha_image) setStyleCaptchaImg({
       backgroundImage: `url('data:image/png;base64,${captcha.captcha_image}')`
