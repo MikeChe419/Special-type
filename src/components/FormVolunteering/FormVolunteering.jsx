@@ -19,6 +19,7 @@ import Captcha from '../Capcha/Captcha';
 const FormVolunteering = () => {
   const navigate = useNavigate();
   const [isBtnActive, setIsBtnActive] = useState(false);
+  const [isCaptchaOk, setIsCaptchaOk] = useState(false);
 
   const {
     register,
@@ -198,7 +199,7 @@ const FormVolunteering = () => {
 
       <p className='form-volunteering__end-text'>Мы свяжемся с вами после заполнения анкеты.</p>
 
-      <Captcha />
+      <Captcha setIsCaptchaOk={setIsCaptchaOk} />
 
       <div className="form-volunteering__agreement">
         <input

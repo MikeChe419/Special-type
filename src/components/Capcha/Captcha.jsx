@@ -4,7 +4,7 @@ import { mainApi } from "../../utils/api/mainApi";
 import { useLocation } from 'react-router-dom';
 import "./Captcha.sass";
 
-const Captcha = () => {
+const Captcha = ({ setIsCaptchaOk }) => {
   const [captcha, setCaptcha] = useState({});
   const {pathname} = useLocation();
   const [styleCaptcha, setStyleCaptcha] = useState({});
@@ -30,7 +30,7 @@ const Captcha = () => {
 
   // Запуск функции как только ввели 4 символа для проверки капчи
   useEffect(() => {
-    if (captchaValue?.length === 4) console.log(captchaValue)
+    if (captchaValue?.length === 4) setIsCaptchaOk(true)
   }, [captchaValue]);
 
   // Проверяем адрес страницы на которой отрисовывается элемент и меняем стиль

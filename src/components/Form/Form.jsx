@@ -19,6 +19,7 @@ import { useState } from "react";
 const Form = ({ itemForRegistration }) => {
   const navigate = useNavigate();
   const [isBtnActive, setIsBtnActive] = useState(false);
+  const [isCaptchaOk, setIsCaptchaOk] = useState(false);
 
   const {
     register,
@@ -219,7 +220,7 @@ const Form = ({ itemForRegistration }) => {
         </label>
       </div>
 
-      <Captcha />
+      <Captcha setIsCaptchaOk={setIsCaptchaOk} />
 
       <div className="form__agreement">
         <input
