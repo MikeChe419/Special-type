@@ -1,10 +1,14 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { mainApi } from "../../utils/api/mainApi";
+import { useLocation } from 'react-router-dom';
 import "./Captcha.sass";
 
 const Captcha = () => {
   const [captcha, setCaptcha] = useState({});
+  const {pathname} = useLocation();
+  const [style, setStyle] = useState({});
+  console.log(pathname)
 
   const getCaptcha = () =>
     mainApi
@@ -16,10 +20,17 @@ const Captcha = () => {
     getCaptcha();
   }, []);
 
+  useEffect(() => {
+    if (!pathname) return;
+    if (pathname === '/help/volunteering') setStyle({
+      maxWidth: '100%'
+    })
+  }, [pathname])
+
   console.log(captcha);
 
   return (
-    <div className="captcha">
+    <div className="captcha" style={style}>
       <div className="captcha__container">
         <div
           className="captcha__img"
@@ -28,7 +39,7 @@ const Captcha = () => {
           }}
         />
         <button className="captcha__btn" onClick={() => getCaptcha()}>
-          Обновить
+          Обновить <div className='captcha__btn-icon'/>
         </button>
       </div>
       <input

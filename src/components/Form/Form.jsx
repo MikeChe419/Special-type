@@ -8,6 +8,7 @@ import {
 } from "../../utils/regExp";
 import { sendEmail } from "../../utils/api/emailJSApi";
 import { useNavigate } from "react-router-dom";
+import Captcha from '../Capcha/Captcha';
 import {
   YOUR_PUBLIC_KEY,
   REGISTRATION_TEMPLATE_ID,
@@ -217,6 +218,8 @@ const Form = ({ itemForRegistration }) => {
           )}
         </label>
       </div>
+
+      <Captcha />
 
       <div className="form__agreement">
         <input
