@@ -14,7 +14,7 @@ import {
 import { sendEmail } from "../../utils/api/emailJSApi";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Captcha from '../Capcha/Captcha';
+import Captcha from "../Capcha/Captcha";
 
 const FormVolunteering = () => {
   const navigate = useNavigate();
@@ -65,7 +65,9 @@ const FormVolunteering = () => {
       </p>
       <div className="form-volunteering__inputs-block">
         <label className="form-volunteering__input-lable">
-          Имя
+          <span>
+            Имя <span className="form__asterisk">&#x2a;</span>
+          </span>
           <input
             className="form-volunteering__input-field"
             placeholder="Введите"
@@ -92,7 +94,9 @@ const FormVolunteering = () => {
         </label>
 
         <label className="form-volunteering__input-lable">
-          Фамилия
+          <span>
+            Фамилия <span className="form__asterisk">&#x2a;</span>
+          </span>
           <input
             className="form-volunteering__input-field"
             placeholder="Введите"
@@ -119,7 +123,9 @@ const FormVolunteering = () => {
         </label>
 
         <label className="form-volunteering__input-lable">
-          Телефон
+          <span>
+            Телефон <span className="form__asterisk">&#x2a;</span>
+          </span>
           <input
             className="form-volunteering__input-field"
             placeholder="+7 (ххх) ххх-хх-хх"
@@ -197,7 +203,9 @@ const FormVolunteering = () => {
         </label>
       </div>
 
-      <p className='form-volunteering__end-text'>Мы свяжемся с вами после заполнения анкеты.</p>
+      <p className="form-volunteering__end-text">
+        Мы свяжемся с вами после заполнения анкеты.
+      </p>
 
       <Captcha setIsCaptchaOk={setIsCaptchaOk} />
 

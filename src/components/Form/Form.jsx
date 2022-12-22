@@ -8,7 +8,7 @@ import {
 } from "../../utils/regExp";
 import { sendEmail } from "../../utils/api/emailJSApi";
 import { useNavigate } from "react-router-dom";
-import Captcha from '../Capcha/Captcha';
+import Captcha from "../Capcha/Captcha";
 import {
   YOUR_PUBLIC_KEY,
   REGISTRATION_TEMPLATE_ID,
@@ -88,7 +88,9 @@ const Form = ({ itemForRegistration }) => {
       </p>
       <div className="form__inputs-block">
         <label className="form__input-lable">
-          Имя
+          <span>
+            Имя <span className="form__asterisk">&#x2a;</span>
+          </span>
           <input
             className="form__input-field"
             placeholder="Введите"
@@ -115,7 +117,9 @@ const Form = ({ itemForRegistration }) => {
         </label>
 
         <label className="form__input-lable">
-          Фамилия
+          <span>
+            Фамилия <span className="form__asterisk">&#x2a;</span>
+          </span>
           <input
             className="form__input-field"
             placeholder="Введите"
@@ -142,7 +146,7 @@ const Form = ({ itemForRegistration }) => {
         </label>
 
         <label className="form__input-lable">
-          Телефон
+        <span>Телефон <span className="form__asterisk">&#x2a;</span></span>
           <input
             className="form__input-field"
             placeholder="+7 (ххх) ххх-хх-хх"
@@ -175,7 +179,7 @@ const Form = ({ itemForRegistration }) => {
             type="email"
             name="email"
             {...register("email", {
-              required: "Обязательное поле",
+              required: false,
               maxLength: {
                 value: 50,
                 message: "Не более 50 символов",
