@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Main from "./pages/Main/Main";
 import Header from "./components/Header/Header";
@@ -42,6 +42,13 @@ function App({ id }) {
   const [isLoading, setIsLoading] = useState(false); //true на prod
   const [isOpened, setIsOpened] = useState(false);
   const [dataForModal, setDataForModal] = useState({});
+
+  let location = useLocation()
+
+  useEffect(() => {
+    setSearchValue('')
+
+  }, [location])
 
   useEffect(() => {
     // setNewsData(tempNews);
