@@ -104,12 +104,14 @@ function App({ id }) {
 
   const showSearchedNews = newsData.filter((data) => {
     if (searchValue !== "") {
+
       return data.name.toLowerCase().includes(searchValue);
     } else return newsData;
   });
  
   const showSearchedPosters = playbillData.filter((data) => {
     if (searchValue !== "") {
+      console.log(searchValue)
       return data.name.toLowerCase().includes(searchValue);
     } else return playbillData;
   });
@@ -164,6 +166,7 @@ function App({ id }) {
                         cardsData={showSearchedPosters}
                         setItemForRegistration={setItemForRegistration}
                         title="АФИША"
+                        handleSearch={handleSearch}
                       />
                     }
                     exact
