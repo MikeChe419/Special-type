@@ -54,6 +54,8 @@ npm start
 
 ## Ссылки проекта
 
-Проект размещен по [ссылке]() .
+Проект размещен по [ссылке]().
+
 Макет проекта доступен по [ссылке](https://www.figma.com/file/ewn4SbLXupQR0m2lxqHRlV/%D0%9E%D1%81%D0%BE%D0%B1%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9-%D0%A2%D0%B8%D0%BF).
+
 Исходный код проекта доступен по [ссылке](https://gitlab.com/god15/special-needs/frontend/frontend.git).
