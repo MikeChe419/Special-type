@@ -104,10 +104,10 @@ function App({ id }) {
 
   const showSearchedNews = newsData.filter((data) => {
     if (searchValue !== "") {
-      return data.header.toLowerCase().includes(searchValue);
+      return data.name.toLowerCase().includes(searchValue);
     } else return newsData;
   });
-
+ 
   const showSearchedPosters = playbillData.filter((data) => {
     if (searchValue !== "") {
       return data.name.toLowerCase().includes(searchValue);
