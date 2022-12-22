@@ -17,9 +17,13 @@
 Наглядно c функционалом проекта можно познакомиться в [видео]().
 
 ## Команда проекта
+
 [Марина Коваленко]() - Project-manager
-[Влад Белов](https://github.com/Valzet) - Team-lead, frontend-разработчик
+
+[Влад Белов](https://github.com/Valzet) - Team-lead,frontend-разработчик
+
 [Михаил Черкасов](https://github.com/MikeChe419) - Frontend-разработчик
+
 [Руслан Газиев](https://github.com/gazievri) - Frontend-разработчик
 
 ## Технологический стек
