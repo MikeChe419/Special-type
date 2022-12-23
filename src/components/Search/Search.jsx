@@ -11,9 +11,9 @@ export const Search = ({ handleSearch }) => {
 
   useEffect(() => {
     if (isMobile) {
-      handleOpenSearch()
+      setIsSearchOpen(true)
     } else setIsSearchOpen(false)
-  },[isMobile]);
+  }, [isMobile, isSearchOpen]);
 
   useEffect(() => {
     setIsSearchOpen(false)
