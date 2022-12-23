@@ -2,6 +2,7 @@
 @import "../../styles/@mixins.sass"
 
 .poster
+  max-width: 383px
   display: flex
   flex-direction: column
   max-width: 383px
@@ -40,3 +41,11 @@
 .poster__span_red
   @include textBold-16
   color: red
+
+@media screen and (max-width: 999px)
+  .poster
+    width: calc(100%/2 - 70px)
+
+@media screen and (max-width: 560px)
+.poster
+    width: 100%
