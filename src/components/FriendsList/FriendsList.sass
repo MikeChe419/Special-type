@@ -7,6 +7,7 @@
     max-width: 996px
     justify-content: space-between
     margin: 0 auto
+    gap: 0 20px
 
 .friendsList__title
     @include heading-h1
@@ -18,6 +19,7 @@
     max-width: 383px
     list-style: none
     overflow: hidden
+    width: 100%
 
 .friendsList-card__img
     max-width: 383px
@@ -31,3 +33,8 @@
 .friendsList-card__text
     padding-bottom: 88px
     @include textRegular-20
+
+
+@media screen and (max-width: 882px)
+    .friendsList
+        justify-content: center

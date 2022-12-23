@@ -1,16 +1,23 @@
 import "./Search.sass";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 export const Search = ({ handleSearch }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 900px)");
+
+  let location = useLocation()
 
   useEffect(() => {
     if (isMobile) {
       handleOpenSearch()
     } else setIsSearchOpen(false)
   },[isMobile]);
+
+  useEffect(() => {
+    setIsSearchOpen(false)
+  }, [location])
 
   const handleOpenSearch = () => {
     setIsSearchOpen(true);
