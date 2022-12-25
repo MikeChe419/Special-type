@@ -48,6 +48,7 @@ class specialPeopleApi {
   }
 
   postFeedback(feedback){
+    console.log(feedback)
     return fetch(`${this._baseUrl}/feedback/`, {
       method: "POST",
       body: feedback,
