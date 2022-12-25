@@ -84,6 +84,7 @@ const Captcha = ({ setIsCaptchaOk, isCaptchaOk }) => {
         required
         maxLength='4'
         minLength='4'
+        disabled={isCaptchaOk && "true"}
       />
     </div>
   );
