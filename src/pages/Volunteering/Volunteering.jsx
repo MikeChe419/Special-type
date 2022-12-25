@@ -2,8 +2,21 @@ import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 import "./Volunteering.sass";
 import Volonter from "../../assets/images/Volonter.png";
 import FormVolunteering from "../../components/FormVolunteering/FormVolunteering";
+import { useEffect } from 'react';
 
 const Volunteering = () => {
+  // Прокручивание в верх элемента
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
+
+  // Использование функции прокрутки в верх элемента
+  useEffect(() => {
+    scrollTop();
+  }, []);
+
   return (
     <>
       <GoBackButton label="Как помочь/Стать волонтером" />

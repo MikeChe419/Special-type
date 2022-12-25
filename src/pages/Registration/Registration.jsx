@@ -1,6 +1,7 @@
 import "./Registration.sass";
 import Form from "../../components/Form/Form";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 
 const Registration = ({ itemForRegistration }) => {
   const navigate = useNavigate();
@@ -16,6 +17,18 @@ const Registration = ({ itemForRegistration }) => {
   };
 
   const ankor = createProperAnkor();
+
+  // Прокручивание в верх элемента
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0
+    })
+  }
+
+  // Использование функции прокрутки в верх элемента
+  useEffect(() => {
+    scrollTop()
+  }, [])
 
   return (
     <section className="registration">
