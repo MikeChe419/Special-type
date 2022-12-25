@@ -31,7 +31,7 @@ const BurgerMenu = () => {
       <button className="BurgerButton" onClick={handleOpenBurger}></button>
       <div className={isBurgerOpen ? "burger burger_opened" : "burger"}>
         <div className="burger__container">
-          <Navigation />
+          <Navigation setBurgerOpen={setBurgerOpen} />
         </div>
       </div>
     </>
