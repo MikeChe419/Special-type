@@ -22,7 +22,7 @@ const AddReview = () => {
   const onSubmit = (data) => {
     const formData = new FormData();
 
-    formData.append("images", imageUpload);
+    // formData.append("images", imageUpload);
     formData.append("name", data.name);
     formData.append("description", data.description);
 
@@ -95,7 +95,7 @@ const AddReview = () => {
                 </p>
               )}
             </label>
-            <UpLoad setImageUpload={setImageUpload} />
+            {/* <UpLoad setImageUpload={setImageUpload} /> */}
           </div>
           <button
             className={`add-review__form-submit ${
