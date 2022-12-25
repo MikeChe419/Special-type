@@ -207,7 +207,7 @@ const FormVolunteering = () => {
         Мы свяжемся с вами после заполнения анкеты.
       </p>
 
-      <Captcha setIsCaptchaOk={setIsCaptchaOk} />
+      <Captcha setIsCaptchaOk={setIsCaptchaOk} isCaptchaOk={isCaptchaOk} />
 
       <div className="form-volunteering__agreement">
         <input
@@ -237,9 +237,9 @@ const FormVolunteering = () => {
       <button
         type="submit"
         className={`form-volunteering__button ${
-          !isValid && "form-volunteering__button_disabled"
-        } ${isBtnActive && "form-volunteering__button_active"}`}
-        disabled={!isValid && "disabled"}
+          (!isValid || !isCaptchaOk) && "form-volunteering__button_disabled"
+        } ${(isBtnActive && isCaptchaOk ) && "form-volunteering__button_active"}`}
+        disabled={(!isValid || !isCaptchaOk) && "disabled"}
       >
         Стать волонтером
       </button>

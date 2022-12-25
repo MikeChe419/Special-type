@@ -224,7 +224,7 @@ const Form = ({ itemForRegistration }) => {
         </label>
       </div>
 
-      <Captcha setIsCaptchaOk={setIsCaptchaOk} />
+      <Captcha setIsCaptchaOk={setIsCaptchaOk} isCaptchaOk={isCaptchaOk} />
 
       <div className="form__agreement">
         <input
@@ -250,10 +250,10 @@ const Form = ({ itemForRegistration }) => {
 
       <button
         type="submit"
-        className={`form__button ${!isValid && "form__button_disabled"} ${
-          isBtnActive && "form__button_active"
+        className={`form__button ${(!isValid || !isCaptchaOk) && "form__button_disabled"} ${
+          (isBtnActive && isCaptchaOk) && "form__button_active"
         } `}
-        disabled={!isValid && "disabled"}
+        disabled={(!isValid || !isCaptchaOk) && "disabled"}
       >
         Зарегистрироваться
       </button>

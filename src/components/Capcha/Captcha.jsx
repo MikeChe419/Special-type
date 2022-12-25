@@ -4,7 +4,7 @@ import { mainApi } from "../../utils/api/mainApi";
 import { useLocation } from 'react-router-dom';
 import "./Captcha.sass";
 
-const Captcha = ({ setIsCaptchaOk }) => {
+const Captcha = ({ setIsCaptchaOk, isCaptchaOk }) => {
   const [captcha, setCaptcha] = useState({});
   const {pathname} = useLocation();
   const [styleCaptcha, setStyleCaptcha] = useState({});
@@ -30,7 +30,22 @@ const Captcha = ({ setIsCaptchaOk }) => {
 
   // Запуск функции как только ввели 4 символа для проверки капчи
   useEffect(() => {
-    if (captchaValue?.length === 4) setIsCaptchaOk(true)
+    if (captchaValue?.length === 4) {
+      const data = {
+        captcha_key:captcha.captcha_key,
+        captcha_value: captchaValue
+      }
+
+      mainApi.checkCaptcha(data)
+      .then(res => {
+        res.ok === 'Check' ? setIsCaptchaOk(true) : setIsCaptchaOk(false);
+      })
+      .catch(err => {
+        console.log(err);
+        setCaptchaValue('')
+      })
+
+    }
   }, [captchaValue]);
 
   // Проверяем адрес страницы на которой отрисовывается элемент и меняем стиль
@@ -63,7 +78,7 @@ const Captcha = ({ setIsCaptchaOk }) => {
       <input
         type='text'
         name='captchaValue'
-        className="captcha__input"
+        className={`captcha__input ${ isCaptchaOk && 'captcha__input_captcha_ok' }`}
         placeholder="Введите код с картинки"
         onChange={handleChange}
         required

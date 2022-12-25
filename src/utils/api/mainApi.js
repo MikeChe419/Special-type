@@ -60,6 +60,14 @@ class specialPeopleApi {
     }).then(this._checkResponse);
   }
 
+  checkCaptcha(data){
+    return fetch("http://135.181.198.180:8080/checker/", {
+      method: "POST",
+      headers: this._headers,
+      body:JSON.stringify(data)
+    }).then(this._checkResponse);
+  }
+
 }
 export const mainApi = new specialPeopleApi({
   baseUrl: "http://135.181.198.180:8080/api",
