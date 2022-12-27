@@ -39,7 +39,7 @@ function App({ id }) {
   const [playbillData, setPlaybillData] = useState([]); 
   const [searchValue, setSearchValue] = useState("");
   const [serverError, setServerError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); //true на prod
+  const [isLoading, setIsLoading] = useState(true); //true на prod
   const [isOpened, setIsOpened] = useState(false);
   const [dataForModal, setDataForModal] = useState({});
 
@@ -62,7 +62,7 @@ function App({ id }) {
       .then((res) => setNewsData(res.results))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       })
       .finally(() => {
         setIsLoading(false);
@@ -72,35 +72,35 @@ function App({ id }) {
       .then((res) => setCompaniesData(res.results))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       });
     mainApi
       .getFeedback()
       .then((res) => setFeedbackData(res.results))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       });
     mainApi
       .getPeople()
       .then((res) => setPeopleData(res.results))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       });
     mainApi
       .getSchedule()
       .then((res) => setScheduleData(res.results))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       });
     mainApi
       .getPlaybill()
       .then((res) => setPlaybillData(res.results))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       });
   }, []);
 

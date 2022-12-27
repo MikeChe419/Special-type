@@ -36,7 +36,6 @@ const ImageMasked = ({ item, lable }) => {
   // Генерация картинки заглушки для каждой отдельной страницы
   const plugImg = getPlug(lable);
 
-  // console.log(item.images.image)
 
   return (
     <>
