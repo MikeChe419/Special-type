@@ -102,9 +102,13 @@ const Form = ({ itemForRegistration }) => {
                 value: 30,
                 message: "Не более 30 символов",
               },
+              minLength: {
+                value: 2,
+                message: "Введите не менее 2 символов",
+              },
               pattern: {
                 value: nameRegExp,
-                message: "Допустимы только русские или английские буквы",
+                message: "Введите корректное значение",
               },
             })}
             aria-invalid={errors.firstName ? "true" : "false"}
@@ -131,9 +135,13 @@ const Form = ({ itemForRegistration }) => {
                 value: 30,
                 message: "Не более 30 символов",
               },
+              minLength: {
+                value: 2,
+                message: "Введите не менее 2 символов",
+              },
               pattern: {
                 value: nameRegExp,
-                message: "Допустимы только русские или английские буквы",
+                message: "Введите корректное значение",
               },
             })}
             aria-invalid={errors.secondName ? "true" : "false"}
