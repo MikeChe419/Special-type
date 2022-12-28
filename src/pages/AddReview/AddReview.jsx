@@ -19,6 +19,8 @@ const AddReview = () => {
     mode: "all",
   });
 
+  console.log(errors)
+
   const onSubmit = (data) => {
     const formData = new FormData();
 
@@ -55,9 +57,13 @@ const AddReview = () => {
                     value: 50,
                     message: "Не более 50 символов",
                   },
+                  minLength: {
+                    value: 2,
+                    message: "Введите не менее 2 символов",
+                  },
                   pattern: {
                     value: nameRegExp,
-                    message: "Допустимы только русские или английские буквы",
+                    message: "Введите корректное значение",
                   },
                 })}
               />
@@ -82,13 +88,17 @@ const AddReview = () => {
                     value: 500,
                     message: "Не более 500 символов",
                   },
+                  minLength: {
+                    value: 2,
+                    message: "Введите не менее 2 символов",
+                  },
                   pattern: {
                     value: descriptionRegExp,
                     message: "Допустимы только русские или английские буквы",
                   },
                 })}
               />
-              {errors.text ? (
+              {errors.description ? (
                 <p role="alert" className="add-review__error-text">
                   {errors.description?.message}
                 </p>
