@@ -242,7 +242,7 @@ const Form = ({ itemForRegistration }) => {
           id="form-checkbox"
           required
           {...register("checked", {
-            required: true,
+            required: "Обязательное поле",
           })}
         />
         <label htmlFor="form-checkbox" className="form__agreement-lable">

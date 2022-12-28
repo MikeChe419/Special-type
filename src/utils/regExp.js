@@ -1,4 +1,4 @@
-export const nameRegExp = /^[a-zа-яё;.,-]+$/iu;
+export const nameRegExp = /^[a-zа-яё-]+$/iu;
 
 export const descriptionRegExp = /^[a-z0-9а-яё; .,-]+$/iu;
 

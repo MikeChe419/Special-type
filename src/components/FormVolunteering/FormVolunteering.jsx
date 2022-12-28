@@ -79,6 +79,10 @@ const FormVolunteering = () => {
                 value: 30,
                 message: "Не более 30 символов",
               },
+              minLength: {
+                value: 2,
+                message: "Введите не менее 2 символов",
+              },
               pattern: {
                 value: nameRegExp,
                 message: "Допустимы только русские или английские буквы",
@@ -108,6 +112,10 @@ const FormVolunteering = () => {
                 value: 30,
                 message: "Не более 30 символов",
               },
+              minLength: {
+                value: 2,
+                message: "Введите не менее 2 символов",
+              },
               pattern: {
                 value: nameRegExp,
                 message: "Допустимы только русские или английские буквы",
@@ -134,8 +142,12 @@ const FormVolunteering = () => {
             {...register("phoneNumber", {
               required: "Обязательное поле",
               maxLength: {
-                value: 12,
-                message: "Не более 12 символов",
+                value: 11,
+                message: "Не более 11 символов",
+              },
+              minLength: {
+                value: 7,
+                message: "Введите не менее 7 символов",
               },
               pattern: {
                 value: phoneRegExp,
