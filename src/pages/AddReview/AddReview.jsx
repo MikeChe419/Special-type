@@ -2,13 +2,11 @@ import "./AddReview.sass";
 import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
 import { useForm } from "react-hook-form";
 import UpLoad from "../../components/UpLoad/UpLoad";
-import { useNavigate } from "react-router-dom";
 import { mainApi } from "../../utils/api/mainApi";
 import { useState } from "react";
 import { descriptionRegExp, fullNameRegExp } from "../../utils/regExp";
 
 const AddReview = ({ setDataForResponsePopup }) => {
-  const navigate = useNavigate();
   const [imageUpload, setImageUpload] = useState(null);
 
   const {
@@ -129,7 +127,7 @@ const AddReview = ({ setDataForResponsePopup }) => {
                         : "add-review__count_type_wrong"
                     }
                   >
-                    {watchDescription.length}
+                    {!watchDescription.length ? 0 : watchDescription.length}
                   </span>
                   /500
                 </p>
