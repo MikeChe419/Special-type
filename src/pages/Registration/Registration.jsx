@@ -3,7 +3,7 @@ import Form from "../../components/Form/Form";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 
-const Registration = ({ itemForRegistration }) => {
+const Registration = ({ itemForRegistration, setDataForResponsePopup }) => {
   const navigate = useNavigate();
   const handleOnClick = () => {
     navigate(-1);
@@ -36,7 +36,7 @@ const Registration = ({ itemForRegistration }) => {
         <div className="registration__arrow" />
         <p className="registration__text">{ankor}</p>
       </nav>
-      <Form itemForRegistration={itemForRegistration} />
+      <Form itemForRegistration={itemForRegistration} setDataForResponsePopup={setDataForResponsePopup} />
     </section>
   );
 };

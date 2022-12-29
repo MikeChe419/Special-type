@@ -7,7 +7,6 @@ import {
   phoneRegExp,
 } from "../../utils/regExp";
 import { sendEmail } from "../../utils/api/emailJSApi";
-import { useNavigate } from "react-router-dom";
 import Captcha from "../Capcha/Captcha";
 import {
   YOUR_PUBLIC_KEY,
@@ -16,8 +15,7 @@ import {
 } from "../../utils/emailJS";
 import { useState } from "react";
 
-const Form = ({ itemForRegistration }) => {
-  const navigate = useNavigate();
+const Form = ({ itemForRegistration, setDataForResponsePopup }) => {
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [isCaptchaOk, setIsCaptchaOk] = useState(false);
 
@@ -73,9 +71,18 @@ const Form = ({ itemForRegistration }) => {
     sendEmail(dataToSend)
       .then(() => {
         setIsBtnActive(false);
-        navigate("/");
+        setDataForResponsePopup({
+          isOpened: true,
+          isSaccess: true,
+        });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setDataForResponsePopup({
+          isOpened: true,
+          isSaccess: false,
+        });
+        console.log(err);
+      });
   };
 
   return (
@@ -154,7 +161,9 @@ const Form = ({ itemForRegistration }) => {
         </label>
 
         <label className="form__input-lable">
-        <span>Телефон <span className="form__asterisk">&#x2a;</span></span>
+          <span>
+            Телефон <span className="form__asterisk">&#x2a;</span>
+          </span>
           <input
             className="form__input-field"
             placeholder="+7 (ххх) ххх-хх-хх"
@@ -258,9 +267,9 @@ const Form = ({ itemForRegistration }) => {
 
       <button
         type="submit"
-        className={`form__button ${(!isValid || !isCaptchaOk) && "form__button_disabled"} ${
-          (isBtnActive && isCaptchaOk) && "form__button_active"
-        } `}
+        className={`form__button ${
+          (!isValid || !isCaptchaOk) && "form__button_disabled"
+        } ${isBtnActive && isCaptchaOk && "form__button_active"} `}
         disabled={(!isValid || !isCaptchaOk) && "disabled"}
       >
         Зарегистрироваться

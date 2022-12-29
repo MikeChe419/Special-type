@@ -28,6 +28,7 @@ import Payment from "./pages/Payment/Payment";
 import { Preloader } from "./components/Preloader/Preloadex";
 import SinglePage from "./pages/SinglePage/SinglePage";
 import Agreement from "./pages/Agreement/Agreement";
+import { ResponsePopup } from "./components/ResponsePopup/ResponsePopup";
 
 function App({ id }) {
   const [itemForRegistration, setItemForRegistration] = useState({});
@@ -42,6 +43,10 @@ function App({ id }) {
   const [isLoading, setIsLoading] = useState(true); //true на prod
   const [isOpened, setIsOpened] = useState(false);
   const [dataForModal, setDataForModal] = useState({});
+  const [dataForResponsePopup, setDataForResponsePopup] = useState({
+    isOpened: false,
+    isSaccess: false,
+  });
 
   let location = useLocation();
 
@@ -196,7 +201,14 @@ function App({ id }) {
                   <Route element={<Friends />} exact path="/friends" />
                   <Route element={<Contacts />} exact path="/contacts" />
                   <Route element={<Help />} exact path="/help" />
-                  <Route element={<Volunteering />} path="/help/volunteering" />
+                  <Route
+                    element={
+                      <Volunteering
+                        setDataForResponsePopup={setDataForResponsePopup}
+                      />
+                    }
+                    path="/help/volunteering"
+                  />
                   <Route element={<Payment />} path="/payment" />
                   <Route
                     exact
@@ -211,7 +223,10 @@ function App({ id }) {
                   />
                   <Route
                     element={
-                      <Registration itemForRegistration={itemForRegistration} />
+                      <Registration
+                        itemForRegistration={itemForRegistration}
+                        setDataForResponsePopup={setDataForResponsePopup}
+                      />
                     }
                     exact
                     path="/registration/:id"
@@ -235,7 +250,11 @@ function App({ id }) {
                     path="/reviews/:id"
                   />
                   <Route
-                    element={<AddReview />}
+                    element={
+                      <AddReview
+                        setDataForResponsePopup={setDataForResponsePopup}
+                      />
+                    }
                     exact
                     path="/reviews/add-review"
                   />
@@ -260,6 +279,10 @@ function App({ id }) {
                 isOpened={isOpened}
                 handleClickOpenModal={handleClickOpenModal}
                 dataForModal={dataForModal}
+              />
+              <ResponsePopup
+                dataForResponsePopup={dataForResponsePopup}
+                setDataForResponsePopup={setDataForResponsePopup}
               />
             </>
           ) : (

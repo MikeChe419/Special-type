@@ -12,12 +12,10 @@ import {
   YOUR_SERVICE_ID,
 } from "../../utils/emailJS";
 import { sendEmail } from "../../utils/api/emailJSApi";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Captcha from "../Capcha/Captcha";
 
-const FormVolunteering = () => {
-  const navigate = useNavigate();
+const FormVolunteering = ({ setDataForResponsePopup }) => {
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [isCaptchaOk, setIsCaptchaOk] = useState(false);
 
@@ -48,9 +46,18 @@ const FormVolunteering = () => {
     sendEmail(dataToSend)
       .then(() => {
         setIsBtnActive(false);
-        navigate("/");
+        setDataForResponsePopup({
+          isOpened: true,
+          isSaccess: true,
+        });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setDataForResponsePopup({
+          isOpened: true,
+          isSaccess: false,
+        });
+        console.log(err);
+      });
   };
 
   return (
@@ -142,12 +149,12 @@ const FormVolunteering = () => {
             {...register("phoneNumber", {
               required: "Обязательное поле",
               maxLength: {
-                value: 11,
-                message: "Не более 11 символов",
+                value: 12,
+                message: "Не более 12 символов",
               },
               minLength: {
-                value: 7,
-                message: "Введите не менее 7 символов",
+                value: 10,
+                message: "Введите не менее 10 символов",
               },
               pattern: {
                 value: phoneRegExp,
@@ -250,7 +257,7 @@ const FormVolunteering = () => {
         type="submit"
         className={`form-volunteering__button ${
           (!isValid || !isCaptchaOk) && "form-volunteering__button_disabled"
-        } ${(isBtnActive && isCaptchaOk ) && "form-volunteering__button_active"}`}
+        } ${isBtnActive && isCaptchaOk && "form-volunteering__button_active"}`}
         disabled={(!isValid || !isCaptchaOk) && "disabled"}
       >
         Стать волонтером
