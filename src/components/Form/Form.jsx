@@ -30,30 +30,29 @@ const Form = ({ itemForRegistration }) => {
   });
   const { name } = itemForRegistration;
 
-  // Меня последнюю букву в названии формы для переиспользования в subtitle
+  // Меняю последнюю букву в названии формы для переиспользования в subtitle
   const changeEnding = () => {
     if (itemForRegistration.price) {
       return "мероприятие";
     } else {
       return "репетицию";
     }
-    //   if (title.toLocaleLowerCase().slice(- 1) === 'я') {
-    //     return `${title.toLocaleLowerCase().slice(0, title.length - 1)}ю`;
-    //  } else {
-    //   return title.toLocaleLowerCase();
-    //  }
   };
 
   const subtitle = changeEnding();
 
+  // Обработчик сабмита формы
   const onSubmit = (data) => {
+    // Создаем объект, который в себе содержит данные события и данные формы (для удобства, эту операцию можно удалить)
     const registrationData = {
       ...data,
       ...itemForRegistration,
     };
 
+    // Активируем стиль кнопки сабмита на активный для индикации процесса отправки данных
     setIsBtnActive(true);
 
+    // Формируем объект для отправки на сервер с учетом используемого шаблона на сервисе emailJS
     const dataToSend = {
       service_id: YOUR_SERVICE_ID,
       template_id: REGISTRATION_TEMPLATE_ID,
@@ -70,6 +69,7 @@ const Form = ({ itemForRegistration }) => {
       },
     };
 
+    // Отправляем данные на сервер
     sendEmail(dataToSend)
       .then(() => {
         setIsBtnActive(false);
