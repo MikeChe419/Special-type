@@ -64,7 +64,7 @@ export const ResponsePopup = ({
 
   // Обработчик закрытия попапа
   const handleClosePopup = () => {
-    navigate("/");
+    navigate(-1);
     setDataForResponsePopup({
       isOpened: false,
       isSaccess: false,
