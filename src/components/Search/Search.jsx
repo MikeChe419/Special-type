@@ -13,7 +13,7 @@ export const Search = ({ handleSearch }) => {
     if (isMobile) {
       setIsSearchOpen(true)
     } else setIsSearchOpen(false)
-  }, [isMobile, isSearchOpen]);
+  }, [isMobile]);
 
   useEffect(() => {
     setIsSearchOpen(false)
