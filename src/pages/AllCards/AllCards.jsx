@@ -27,6 +27,10 @@ export const AllCards = ({
   const isMobile = useMediaQuery("(max-width: 500px)");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentEventsPage]);
+
+  useEffect(() => {
     if (isMobile) {
       setDataCount(4);
     } else if (isTablet) {
