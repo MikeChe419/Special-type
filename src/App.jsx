@@ -27,28 +27,31 @@ import Payment from "./pages/Payment/Payment";
 ///временные данные
 import { Preloader } from "./components/Preloader/Preloadex";
 import SinglePage from "./pages/SinglePage/SinglePage";
-import Agreement from './pages/Agreement/Agreement';
+import Agreement from "./pages/Agreement/Agreement";
 
 function App({ id }) {
   const [itemForRegistration, setItemForRegistration] = useState({});
-  const [newsData, setNewsData] = useState([]); 
-  const [companiesData, setCompaniesData] = useState([]); 
-  const [feedbackData, setFeedbackData] = useState([]); 
-  const [peopleData, setPeopleData] = useState([]); 
-  const [scheduleData, setScheduleData] = useState([]); 
-  const [playbillData, setPlaybillData] = useState([]); 
+  const [newsData, setNewsData] = useState([]);
+  const [companiesData, setCompaniesData] = useState([]);
+  const [feedbackData, setFeedbackData] = useState([]);
+  const [peopleData, setPeopleData] = useState([]);
+  const [scheduleData, setScheduleData] = useState([]);
+  const [playbillData, setPlaybillData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [serverError, setServerError] = useState(false);
   const [isLoading, setIsLoading] = useState(true); //true на prod
   const [isOpened, setIsOpened] = useState(false);
   const [dataForModal, setDataForModal] = useState({});
 
-  let location = useLocation()
+  let location = useLocation();
 
   useEffect(() => {
-    setSearchValue('')
+    setSearchValue("");
+  }, [location]);
 
-  }, [location])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   useEffect(() => {
     // setNewsData(tempNews);
@@ -111,14 +114,13 @@ function App({ id }) {
 
   const showSearchedNews = newsData.filter((data) => {
     if (searchValue !== "") {
-
       return data.name.toLowerCase().includes(searchValue);
     } else return newsData;
   });
- 
+
   const showSearchedPosters = playbillData.filter((data) => {
     if (searchValue !== "") {
-      console.log(searchValue)
+      console.log(searchValue);
       return data.name.toLowerCase().includes(searchValue);
     } else return playbillData;
   });
