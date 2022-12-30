@@ -99,8 +99,8 @@ const AddReview = ({ setDataForResponsePopup }) => {
                     message: "Не более 500 символов",
                   },
                   minLength: {
-                    value: 50,
-                    message: "Введите не менее 50 символов",
+                    value: 10,
+                    message: "Введите не менее 10 символов",
                   },
                   pattern: {
                     value: descriptionRegExp,
@@ -121,7 +121,7 @@ const AddReview = ({ setDataForResponsePopup }) => {
                 <p className="add-review__symbols-counter">
                   <span
                     className={
-                      watchDescription.length >= 50 &&
+                      watchDescription.length >= 10 &&
                       watchDescription.length <= 500
                         ? "add-review__count"
                         : "add-review__count_type_wrong"
