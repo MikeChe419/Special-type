@@ -71,7 +71,6 @@ const Pagination = ({
           disabled={isDisabledNext}
         ></button>
       </div>
-      {location.pathname === "/reviews" ? <AddReviewButton /> : ""}
     </nav>
   );
 };

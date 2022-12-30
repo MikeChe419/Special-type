@@ -10,6 +10,7 @@ import { FriendsList } from "../../components/FriendsList/FriendsList";
 import Review from "../../components/Review/Review";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
+import { AddReviewButton } from "../../components/AddReviewButton/AddReviewButton";
 
 export const AllCards = ({
   cardsData,
@@ -104,7 +105,12 @@ export const AllCards = ({
         </ul>
 
         {dataCount <= cardsData.length  ? (
-''
+         <Pagination
+         totlalEvents={cardsData ? cardsData.length : 0}
+         setCurrentEvent={setCurrentEvent}
+         currentEvent={currentEvent}
+         dataCount={dataCount}
+       />
         ) : (
 
           ///поменять местами, когда бэк поправит отдачу файлов
@@ -115,6 +121,8 @@ export const AllCards = ({
           dataCount={dataCount}
         />
         )}
+
+        {location.pathname === '/reviews' ? <AddReviewButton /> : ''}
       </section>
     </>
   );
