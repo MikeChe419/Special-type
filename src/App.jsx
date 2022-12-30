@@ -125,7 +125,6 @@ function App({ id }) {
 
   const showSearchedPosters = playbillData.filter((data) => {
     if (searchValue !== "") {
-      console.log(searchValue);
       return data.name.toLowerCase().includes(searchValue);
     } else return playbillData;
   });
