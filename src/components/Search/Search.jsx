@@ -29,13 +29,7 @@ export const Search = ({ handleSearch }) => {
     handleSearch(searchInput)
   }
 
-
-  const handleSubmit = event => {
-
-  };
-
   const clearInput = () => {
-
     setSearchInput('')
   }
 
