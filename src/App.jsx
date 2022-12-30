@@ -112,9 +112,8 @@ function App({ id }) {
       });
   }, []);
 
-  const handleSearch = (event) => {
-    const search = event.target.value.toLowerCase().trim();
-    console.log(search)
+  const handleSearch = (searchInput) => {
+    const search = searchInput.toLowerCase().trim();
     setSearchValue(search);
   };
 

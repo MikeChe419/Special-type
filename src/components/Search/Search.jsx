@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 export const Search = ({ handleSearch }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 900px)");
+  const [searchInput, setSearchInput] = useState('');
 
   let location = useLocation()
 
@@ -25,6 +26,17 @@ export const Search = ({ handleSearch }) => {
 
   function submitSearch(event) {
     event.preventDefault();
+    handleSearch(searchInput)
+  }
+
+
+  const handleSubmit = event => {
+
+  };
+
+  const clearInput = () => {
+
+    setSearchInput('')
   }
 
   return (
@@ -36,9 +48,11 @@ export const Search = ({ handleSearch }) => {
         <input
           type="text"
           className="search__input"
-          onChange={handleSearch}
+          onChange={event => setSearchInput(event.target.value)}
           placeholder="Найти..."
+          value={searchInput}
         />
+        <button className="search__clear-button" onClick={clearInput}/>
       </form>
       <button
         className={

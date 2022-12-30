@@ -102,12 +102,19 @@ export const AllCards = ({
             ""
           )}
         </ul>
-        <Pagination
+
+        {dataCount <= cardsData.length  ? (
+''
+        ) : (
+
+          ///поменять местами, когда бэк поправит отдачу файлов
+          <Pagination
           totlalEvents={cardsData ? cardsData.length : 0}
           setCurrentEvent={setCurrentEvent}
           currentEvent={currentEvent}
           dataCount={dataCount}
         />
+        )}
       </section>
     </>
   );
