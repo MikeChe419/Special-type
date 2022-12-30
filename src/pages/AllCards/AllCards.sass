@@ -3,9 +3,6 @@
 
 .allCards
     width: 100%
-    justify-content: center
-    display: flex
-    flex-direction: column
 
 .allCards__content
     justify-content: space-between
@@ -18,6 +15,14 @@
     row-gap: 92px
     padding: 0 40px 0
     margin-bottom: 60px
+
+.allCards__notFound
+    @include heading-h3
+    margin: 0 auto
+
+.allCards__bottom-button
+    display: flex
+    justify-content: center
 
 .allCards-card
     max-width: 383px

@@ -66,6 +66,8 @@ export const AllCards = ({
           {!search ? "" : <Search handleSearch={handleSearch} />}
         </div>
         <ul className="allCards__content">
+
+          {currentEventsPage.length === 0 ? <p className="allCards__notFound">Ничего не найдено</p> : ''}
           {location.pathname === "/schedule" ? (
             <ScheduleItem
               setItemForRegistration={setItemForRegistration}
@@ -122,7 +124,9 @@ export const AllCards = ({
         />
         )}
 
-        {location.pathname === '/reviews' ? <AddReviewButton /> : ''}
+
+
+        {location.pathname === '/reviews' ? <div className="allCards__bottom-button"><AddReviewButton /></div> : ''}
       </section>
     </>
   );
