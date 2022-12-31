@@ -77,21 +77,21 @@ function App({ id }) {
       });
     mainApi
       .getCompanies()
-      .then((res) => setCompaniesData(res.results.reverse()))
+      .then((res) => setCompaniesData(res.results))
       .catch((res) => {
         console.log(res);
         setServerError(true);
       });
     mainApi
       .getFeedback()
-      .then((res) => setFeedbackData(res.results.reverse()))
+      .then((res) => setFeedbackData(res.results))
       .catch((res) => {
         console.log(res);
         setServerError(true);
       });
     mainApi
       .getPeople()
-      .then((res) => setPeopleData(res.results.reverse()))
+      .then((res) => setPeopleData(res.results))
       .catch((res) => {
         console.log(res);
         setServerError(true);
