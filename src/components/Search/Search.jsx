@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 export const Search = ({ handleSearch }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const isMobile = useMediaQuery("(max-width: 900px)");
+  const isMobile = useMediaQuery("(max-width: 880px)");
   const [searchInput, setSearchInput] = useState('');
 
   let location = useLocation()
