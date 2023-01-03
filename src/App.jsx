@@ -67,7 +67,7 @@ function App({ id }) {
     // setPlaybillData(dataPosters);
     mainApi
       .getNews()
-      .then((res) => setNewsData(res.results.reverse()))
+      .then((res) => setNewsData(res.reverse()))
       .catch((res) => {
         console.log(res);
         setServerError(true);
@@ -77,35 +77,35 @@ function App({ id }) {
       });
     mainApi
       .getCompanies()
-      .then((res) => setCompaniesData(res.results))
+      .then((res) => setCompaniesData(res))
       .catch((res) => {
         console.log(res);
         setServerError(true);
       });
     mainApi
       .getFeedback()
-      .then((res) => setFeedbackData(res.results))
+      .then((res) => setFeedbackData(res))
       .catch((res) => {
         console.log(res);
         setServerError(true);
       });
     mainApi
       .getPeople()
-      .then((res) => setPeopleData(res.results))
+      .then((res) => setPeopleData(res))
       .catch((res) => {
         console.log(res);
         setServerError(true);
       });
     mainApi
       .getSchedule()
-      .then((res) => setScheduleData(res.results.reverse()))
+      .then((res) => setScheduleData(res.reverse()))
       .catch((res) => {
         console.log(res);
         setServerError(true);
       });
     mainApi
       .getPlaybill()
-      .then((res) => setPlaybillData(res.results.reverse()))
+      .then((res) => setPlaybillData(res.reverse()))
       .catch((res) => {
         console.log(res);
         setServerError(true);
