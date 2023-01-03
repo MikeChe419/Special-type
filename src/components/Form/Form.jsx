@@ -167,13 +167,17 @@ const Form = ({ itemForRegistration, setDataForResponsePopup }) => {
           <input
             className="form__input-field"
             placeholder="+7 (ххх) ххх-хх-хх"
-            type="tel"
+            type="number"
             name="phoneNumber"
             {...register("phoneNumber", {
               required: "Обязательное поле",
               maxLength: {
                 value: 12,
                 message: "Не более 12 символов",
+              },
+              minLength: {
+                value: 10,
+                message: "Введите не менее 10 символов",
               },
               pattern: {
                 value: phoneRegExp,
