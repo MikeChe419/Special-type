@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import { AddReviewButton } from "../AddReviewButton/AddReviewButton";
 import "./Pagination.sass";
 
 const Pagination = ({
@@ -10,7 +8,6 @@ const Pagination = ({
   currentEvent,
   dataCount,
 }) => {
-  let location = useLocation();
   const pageNumbers = [];
   const [isDisabledNext, setIsDisabledNext] = useState(false);
   const [isDisabledPrev, setIsDisabledPrev] = useState(false);
@@ -47,18 +44,17 @@ const Pagination = ({
           disabled={isDisabledPrev}
         ></button>
         <ul className="pagination__pages-list">
-          {" "}
-          {pageNumbers.map((number) => (
-            <li className="pagination__pages-item" key={number}>
+          {pageNumbers.map((el) => (
+            <li className="pagination__pages-item" key={el}>
               <button
-                onClick={() => paginate(number)}
+                onClick={() => paginate(el)}
                 className={
-                  currentEvent == number
+                  currentEvent == el
                     ? "pagination__pages pagination__pages_active"
                     : "pagination__pages"
                 }
               >
-                {number * dataCount - dataCount + 1 + "-" + number * dataCount}
+                {el * dataCount - dataCount + 1 + "-" + el * dataCount}
               </button>
             </li>
           ))}
