@@ -36,12 +36,11 @@ const ImageMasked = ({ item, lable }) => {
   // Генерация картинки заглушки для каждой отдельной страницы
   const plugImg = getPlug(lable);
 
-  // console.log(item.images.image)
 
   return (
     <>
       <div className="image-masked__container">
-        {Array.isArray(item.images) ? (
+        {Array.isArray(item?.images) ? (
           <img
             className="image-masked__img"
             src={itemImgArray()}
@@ -52,14 +51,14 @@ const ImageMasked = ({ item, lable }) => {
         ) : (
           <img
             className="image-masked__img"
-            src={item.images ? itemImgObject() : plugImg}
+            src={item?.images ? itemImgObject() : plugImg}
             // src={item.images ? item.images : plugImg}
-            alt={item.user}
-            style={{ clipPath: `url(#${generateMaskId(item.id)})` }}
+            alt={item?.user}
+            style={{ clipPath: `url(#${generateMaskId(item?.id)})` }}
           />
         )}
       </div>
-      {getMask(generateMaskId(item.id))}
+      {getMask(generateMaskId(item?.id))}
     </>
   );
 };

@@ -4,7 +4,7 @@ import Volonter from "../../assets/images/Volonter.png";
 import FormVolunteering from "../../components/FormVolunteering/FormVolunteering";
 import { useEffect } from 'react';
 
-const Volunteering = () => {
+const Volunteering = ({setDataForResponsePopup}) => {
   // Прокручивание в верх элемента
   const scrollTop = () => {
     window.scrollTo({
@@ -41,7 +41,7 @@ const Volunteering = () => {
               </p>
             </div>
           </div>
-          <FormVolunteering />
+          <FormVolunteering setDataForResponsePopup={setDataForResponsePopup } />
         </div>
       </section>
     </>

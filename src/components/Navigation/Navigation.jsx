@@ -6,7 +6,7 @@ const Navigation = ({setBurgerOpen}) => {
     <div className="navigation__container">
       <NavLink
         to="/schedule"
-        onClick={() => setBurgerOpen(false)}
+        // onClick={() => setBurgerOpen(false)}
         className={({ isActive }) =>
           isActive
             ? "header__nav-link header__nav-link_active"
@@ -17,7 +17,7 @@ const Navigation = ({setBurgerOpen}) => {
       </NavLink>
       <NavLink
         to="/posters"
-        onClick={() => setBurgerOpen(false)}
+        // onClick={() => setBurgerOpen(false)}
         className={({ isActive }) =>
           isActive
             ? "header__nav-link header__nav-link_active"
@@ -28,7 +28,7 @@ const Navigation = ({setBurgerOpen}) => {
       </NavLink>
       <NavLink
         to="/news"
-        onClick={() => setBurgerOpen(false)}
+        // onClick={() => setBurgerOpen(false)}
         className={({ isActive }) =>
           isActive
             ? "header__nav-link header__nav-link_active"
@@ -39,7 +39,7 @@ const Navigation = ({setBurgerOpen}) => {
       </NavLink>
       <NavLink
         to="/friends"
-        onClick={() => setBurgerOpen(false)}
+        // onClick={() => setBurgerOpen(false)}
         className={({ isActive }) =>
           isActive
             ? "header__nav-link header__nav-link_active"
@@ -50,7 +50,7 @@ const Navigation = ({setBurgerOpen}) => {
       </NavLink>
       <NavLink
         to="/reviews"
-        onClick={() => setBurgerOpen(false)}
+        // onClick={() => setBurgerOpen(false)}
         className={({ isActive }) =>
           isActive
             ? "header__nav-link header__nav-link_active"
@@ -61,7 +61,7 @@ const Navigation = ({setBurgerOpen}) => {
       </NavLink>
       <NavLink
         to="/contacts"
-        onClick={() => setBurgerOpen(false)}
+        // onClick={() => setBurgerOpen(false)}
         className={({ isActive }) =>
           isActive
             ? "header__nav-link header__nav-link_active"

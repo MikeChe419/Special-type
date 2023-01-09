@@ -5,8 +5,8 @@
 .pagination__nav
   display: flex
   justify-content: center
-
   flex-direction: column
+  padding-top: 40px
 
 .pagination__page-conntainer
   display: flex
@@ -86,3 +86,20 @@
   border-top: 3px solid grey
   border-left: 3px solid grey
   transform: rotate(-45deg)
+
+@media screen and (max-width: 999px)
+  .pagination__nav
+    max-width: 80%
+    margin: 0 auto
+
+  .pagination__pages-item:not(:last-child)
+    margin-right: 15px
+
+  .pagination__pages
+    min-width: 50px
+
+  .pagination__pages-list
+    flex-wrap: wrap
+    justify-content: space-around
+
+

@@ -10,6 +10,7 @@ import { FriendsList } from "../../components/FriendsList/FriendsList";
 import Review from "../../components/Review/Review";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import { GoBackButton } from "../../components/GoBackButton/GoBackButton";
+import { AddReviewButton } from "../../components/AddReviewButton/AddReviewButton";
 
 export const AllCards = ({
   cardsData,
@@ -25,6 +26,10 @@ export const AllCards = ({
 
   const isTablet = useMediaQuery("(max-width: 1000px)");
   const isMobile = useMediaQuery("(max-width: 500px)");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentEventsPage]);
 
   useEffect(() => {
     if (isMobile) {
@@ -61,6 +66,8 @@ export const AllCards = ({
           {!search ? "" : <Search handleSearch={handleSearch} />}
         </div>
         <ul className="allCards__content">
+
+          {currentEventsPage.length === 0 ? <p className="allCards__notFound">Ничего не найдено</p> : ''}
           {location.pathname === "/schedule" ? (
             <ScheduleItem
               setItemForRegistration={setItemForRegistration}
@@ -98,12 +105,22 @@ export const AllCards = ({
             ""
           )}
         </ul>
-        <Pagination
-          totlalEvents={cardsData ? cardsData.length : 0}
-          setCurrentEvent={setCurrentEvent}
-          currentEvent={currentEvent}
-          dataCount={dataCount}
-        />
+
+        {dataCount <= cardsData.length  ? (
+         <Pagination
+         totlalEvents={cardsData ? cardsData.length : 0}
+         setCurrentEvent={setCurrentEvent}
+         currentEvent={currentEvent}
+         dataCount={dataCount}
+       />
+        ) : (
+
+       ''
+        )}
+
+
+
+        {location.pathname === '/reviews' ? <div className="allCards__bottom-button"><AddReviewButton /></div> : ''}
       </section>
     </>
   );

@@ -7,7 +7,6 @@ import {
   phoneRegExp,
 } from "../../utils/regExp";
 import { sendEmail } from "../../utils/api/emailJSApi";
-import { useNavigate } from "react-router-dom";
 import Captcha from "../Capcha/Captcha";
 import {
   YOUR_PUBLIC_KEY,
@@ -16,8 +15,7 @@ import {
 } from "../../utils/emailJS";
 import { useState } from "react";
 
-const Form = ({ itemForRegistration }) => {
-  const navigate = useNavigate();
+const Form = ({ itemForRegistration, setDataForResponsePopup }) => {
   const [isBtnActive, setIsBtnActive] = useState(false);
   const [isCaptchaOk, setIsCaptchaOk] = useState(false);
 
@@ -30,30 +28,29 @@ const Form = ({ itemForRegistration }) => {
   });
   const { name } = itemForRegistration;
 
-  // Меня последнюю букву в названии формы для переиспользования в subtitle
+  // Меняю последнюю букву в названии формы для переиспользования в subtitle
   const changeEnding = () => {
     if (itemForRegistration.price) {
       return "мероприятие";
     } else {
       return "репетицию";
     }
-    //   if (title.toLocaleLowerCase().slice(- 1) === 'я') {
-    //     return `${title.toLocaleLowerCase().slice(0, title.length - 1)}ю`;
-    //  } else {
-    //   return title.toLocaleLowerCase();
-    //  }
   };
 
   const subtitle = changeEnding();
 
+  // Обработчик сабмита формы
   const onSubmit = (data) => {
+    // Создаем объект, который в себе содержит данные события и данные формы (для удобства, эту операцию можно удалить)
     const registrationData = {
       ...data,
       ...itemForRegistration,
     };
 
+    // Активируем стиль кнопки сабмита на активный для индикации процесса отправки данных
     setIsBtnActive(true);
 
+    // Формируем объект для отправки на сервер с учетом используемого шаблона на сервисе emailJS
     const dataToSend = {
       service_id: YOUR_SERVICE_ID,
       template_id: REGISTRATION_TEMPLATE_ID,
@@ -70,12 +67,22 @@ const Form = ({ itemForRegistration }) => {
       },
     };
 
+    // Отправляем данные на сервер
     sendEmail(dataToSend)
       .then(() => {
         setIsBtnActive(false);
-        navigate("/");
+        setDataForResponsePopup({
+          isOpened: true,
+          isSaccess: true,
+        });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setDataForResponsePopup({
+          isOpened: true,
+          isSaccess: false,
+        });
+        console.log(err);
+      });
   };
 
   return (
@@ -102,9 +109,13 @@ const Form = ({ itemForRegistration }) => {
                 value: 30,
                 message: "Не более 30 символов",
               },
+              minLength: {
+                value: 2,
+                message: "Введите не менее 2 символов",
+              },
               pattern: {
                 value: nameRegExp,
-                message: "Допустимы только русские или английские буквы",
+                message: "Введите корректное значение",
               },
             })}
             aria-invalid={errors.firstName ? "true" : "false"}
@@ -131,9 +142,13 @@ const Form = ({ itemForRegistration }) => {
                 value: 30,
                 message: "Не более 30 символов",
               },
+              minLength: {
+                value: 2,
+                message: "Введите не менее 2 символов",
+              },
               pattern: {
                 value: nameRegExp,
-                message: "Допустимы только русские или английские буквы",
+                message: "Введите корректное значение",
               },
             })}
             aria-invalid={errors.secondName ? "true" : "false"}
@@ -146,17 +161,23 @@ const Form = ({ itemForRegistration }) => {
         </label>
 
         <label className="form__input-lable">
-        <span>Телефон <span className="form__asterisk">&#x2a;</span></span>
+          <span>
+            Телефон <span className="form__asterisk">&#x2a;</span>
+          </span>
           <input
             className="form__input-field"
             placeholder="+7 (ххх) ххх-хх-хх"
-            type="tel"
+            type="number"
             name="phoneNumber"
             {...register("phoneNumber", {
               required: "Обязательное поле",
               maxLength: {
                 value: 12,
                 message: "Не более 12 символов",
+              },
+              minLength: {
+                value: 10,
+                message: "Введите не менее 10 символов",
               },
               pattern: {
                 value: phoneRegExp,
@@ -234,7 +255,7 @@ const Form = ({ itemForRegistration }) => {
           id="form-checkbox"
           required
           {...register("checked", {
-            required: true,
+            required: "Обязательное поле",
           })}
         />
         <label htmlFor="form-checkbox" className="form__agreement-lable">
@@ -250,9 +271,9 @@ const Form = ({ itemForRegistration }) => {
 
       <button
         type="submit"
-        className={`form__button ${(!isValid || !isCaptchaOk) && "form__button_disabled"} ${
-          (isBtnActive && isCaptchaOk) && "form__button_active"
-        } `}
+        className={`form__button ${
+          (!isValid || !isCaptchaOk) && "form__button_disabled"
+        } ${isBtnActive && isCaptchaOk && "form__button_active"} `}
         disabled={(!isValid || !isCaptchaOk) && "disabled"}
       >
         Зарегистрироваться

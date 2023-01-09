@@ -6,6 +6,7 @@
   flex-direction: column
   justify-content: center
   align-items: center
+  margin: 0 20px
 
 .notFound__button
   background-color: transparent
@@ -16,11 +17,11 @@
   @include heading-h3
 
 .notFound__img
-  padding-top:  17px
-
+  width: 100%
+  padding-top: 17px
 
 .notFound__title
-  padding-top:  17px
+  padding-top: 17px
   @include heading-h1
   padding-bottom: 115px
 
@@ -41,3 +42,20 @@
 .notFound__button:last-of-type
   background-color: rgba(243, 66, 71, 1)
   color: #fff
+
+@media screen and (max-width: 999px)
+  .notFound__title
+    @include heading-h2
+
+@media screen and (max-width: 560px)
+  .notFound__title
+    @include heading-h3
+    text-align: center
+    padding-bottom: 40px
+
+  .notFound__buttons
+     width: 60vw
+     padding-bottom: 43px
+
+  .notFound__button
+   @include textRegular-12

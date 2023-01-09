@@ -27,28 +27,36 @@ import Payment from "./pages/Payment/Payment";
 ///временные данные
 import { Preloader } from "./components/Preloader/Preloadex";
 import SinglePage from "./pages/SinglePage/SinglePage";
-import Agreement from './pages/Agreement/Agreement';
+import Agreement from "./pages/Agreement/Agreement";
+import { ResponsePopup } from "./components/ResponsePopup/ResponsePopup";
 
 function App({ id }) {
   const [itemForRegistration, setItemForRegistration] = useState({});
-  const [newsData, setNewsData] = useState([]); 
-  const [companiesData, setCompaniesData] = useState([]); 
-  const [feedbackData, setFeedbackData] = useState([]); 
-  const [peopleData, setPeopleData] = useState([]); 
-  const [scheduleData, setScheduleData] = useState([]); 
-  const [playbillData, setPlaybillData] = useState([]); 
+  const [newsData, setNewsData] = useState([]);
+  const [companiesData, setCompaniesData] = useState([]);
+  const [feedbackData, setFeedbackData] = useState([]);
+  const [peopleData, setPeopleData] = useState([]);
+  const [scheduleData, setScheduleData] = useState([]);
+  const [playbillData, setPlaybillData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [serverError, setServerError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); //true на prod
+  const [isLoading, setIsLoading] = useState(true); //true на prod
   const [isOpened, setIsOpened] = useState(false);
   const [dataForModal, setDataForModal] = useState({});
+  const [dataForResponsePopup, setDataForResponsePopup] = useState({
+    isOpened: false,
+    isSaccess: false,
+  });
 
-  let location = useLocation()
+  let location = useLocation();
 
   useEffect(() => {
-    setSearchValue('')
+    setSearchValue("");
+  }, [location]);
 
-  }, [location])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   useEffect(() => {
     // setNewsData(tempNews);
@@ -59,66 +67,64 @@ function App({ id }) {
     // setPlaybillData(dataPosters);
     mainApi
       .getNews()
-      .then((res) => setNewsData(res.results))
+      .then((res) => setNewsData(res.reverse()))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       })
       .finally(() => {
         setIsLoading(false);
       });
     mainApi
       .getCompanies()
-      .then((res) => setCompaniesData(res.results))
+      .then((res) => setCompaniesData(res))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       });
     mainApi
       .getFeedback()
-      .then((res) => setFeedbackData(res.results))
+      .then((res) => setFeedbackData(res))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       });
     mainApi
       .getPeople()
-      .then((res) => setPeopleData(res.results))
+      .then((res) => setPeopleData(res))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       });
     mainApi
       .getSchedule()
-      .then((res) => setScheduleData(res.results))
+      .then((res) => setScheduleData(res.reverse()))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       });
     mainApi
       .getPlaybill()
-      .then((res) => setPlaybillData(res.results))
+      .then((res) => setPlaybillData(res.reverse()))
       .catch((res) => {
         console.log(res);
-        // setServerError(true);
+        setServerError(true);
       });
   }, []);
 
-  const handleSearch = (event) => {
-    const search = event.target.value.toLowerCase();
+  const handleSearch = (searchInput) => {
+    const search = searchInput.toLowerCase().trim();
     setSearchValue(search);
   };
 
   const showSearchedNews = newsData.filter((data) => {
     if (searchValue !== "") {
-
       return data.name.toLowerCase().includes(searchValue);
     } else return newsData;
   });
- 
+
   const showSearchedPosters = playbillData.filter((data) => {
     if (searchValue !== "") {
-      console.log(searchValue)
       return data.name.toLowerCase().includes(searchValue);
     } else return playbillData;
   });
@@ -194,7 +200,14 @@ function App({ id }) {
                   <Route element={<Friends />} exact path="/friends" />
                   <Route element={<Contacts />} exact path="/contacts" />
                   <Route element={<Help />} exact path="/help" />
-                  <Route element={<Volunteering />} path="/help/volunteering" />
+                  <Route
+                    element={
+                      <Volunteering
+                        setDataForResponsePopup={setDataForResponsePopup}
+                      />
+                    }
+                    path="/help/volunteering"
+                  />
                   <Route element={<Payment />} path="/payment" />
                   <Route
                     exact
@@ -209,7 +222,10 @@ function App({ id }) {
                   />
                   <Route
                     element={
-                      <Registration itemForRegistration={itemForRegistration} />
+                      <Registration
+                        itemForRegistration={itemForRegistration}
+                        setDataForResponsePopup={setDataForResponsePopup}
+                      />
                     }
                     exact
                     path="/registration/:id"
@@ -233,7 +249,11 @@ function App({ id }) {
                     path="/reviews/:id"
                   />
                   <Route
-                    element={<AddReview />}
+                    element={
+                      <AddReview
+                        setDataForResponsePopup={setDataForResponsePopup}
+                      />
+                    }
                     exact
                     path="/reviews/add-review"
                   />
@@ -258,6 +278,10 @@ function App({ id }) {
                 isOpened={isOpened}
                 handleClickOpenModal={handleClickOpenModal}
                 dataForModal={dataForModal}
+              />
+              <ResponsePopup
+                dataForResponsePopup={dataForResponsePopup}
+                setDataForResponsePopup={setDataForResponsePopup}
               />
             </>
           ) : (
