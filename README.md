@@ -22,7 +22,7 @@
 
 [Влад Белов](https://github.com/Valzet) - Team-lead,frontend-разработчик
 
-[Михаил Черкасов](https://github.com/MikeChe419) - Frontend-разработчик
+[Михаил Лях](https://github.com/MikeChe419) - Frontend-разработчик
 
 [Руслан Газиев](https://github.com/gazievri) - Frontend-разработчик
 
