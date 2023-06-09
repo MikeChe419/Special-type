@@ -147,7 +147,7 @@ function App({ id }) {
         <Preloader />
       ) : (
         <div className="page">
-          {!serverError ? (
+            {/* {!serverError ? ( */}
             <>
               <Header />
               <div className="main">
@@ -284,17 +284,17 @@ function App({ id }) {
                 setDataForResponsePopup={setDataForResponsePopup}
               />
             </>
-          ) : (
-            <div className="serverError">
-              <div className="serverError__container">
-                <div className="serverError__logo" />
-                <p className="serverError__text">Похоже, что-то сломалось...</p>
-                <p className="serverError__text">
-                  И мы уже устраняем проблему!
-                </p>
-              </div>
-            </div>
-          )}
+          {/* // ) : (
+          //   <div className="serverError">
+          //     <div className="serverError__container">
+          //       <div className="serverError__logo" />
+          //       <p className="serverError__text">Похоже, что-то сломалось...</p>
+          //       <p className="serverError__text">
+          //         И мы уже устраняем проблему!
+          //       </p>
+          //     </div>
+          //   </div>
+          // )} */}
         </div>
       )}
     </>
